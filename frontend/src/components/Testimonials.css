@@ -4,20 +4,21 @@
     text-align: center;
     font-weight: 800; 
     font-size: 48px; 
-    margin: 4rem auto 2rem auto; 
+    margin: 4rem auto 2rem; 
     padding: 0 1rem; 
     color: #333; 
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); 
 }
 
-/* .boxes-container {
+/* Uncomment to enable boxes container */
+.boxes-container {
     display: flex;
     gap: 25px; 
     padding: 20px;
     justify-content: center;
     align-items: flex-start; 
     flex-wrap: wrap; 
-} */
+}
 
 .boxes {
     background-color: white;
@@ -30,7 +31,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth scaling effect with shadow change */
 }
 
 .boxes i {
@@ -38,7 +40,7 @@
     margin-right: 10px;
     margin-top: 5px; 
     font-size: 24px; 
-    color: #5B864D; /* Matches with the overall theme */
+    color: #5B864D; /* Matches overall theme */
 }
 
 .boxes h6 {
@@ -64,6 +66,14 @@
 @media (max-width: 800px) {
     .boxes {
         width: 100%; /* Full width on small screens */
-        margin-bottom: 20px;
+        margin-bottom: 20px; /* Spacing between boxes */
+    }
+}
+
+/* Additional improvements for larger screens */
+@media (min-width: 1200px) {
+    .boxes-container {
+        max-width: 1200px; /* Limit the max width for a cleaner layout */
+        margin: 0 auto; /* Center the container */
     }
 }

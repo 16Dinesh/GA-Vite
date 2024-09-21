@@ -1,3 +1,12 @@
+.search-section {
+    background-color: white;
+}
+
+.hero-section {
+    background-color: white;
+    padding-bottom: 3rem;
+}
+
 .main-img {
     width: 100%; 
     max-width: 550px; 
@@ -22,11 +31,9 @@
     margin-top: 1rem;
 }
 
-
 .content-section {
     background-color: #F6F6F6;
     padding: 20px;
-    /* margin-top: 10rem; */
     width: 100vw; 
     margin-left: calc(-50vw + 50%); 
     box-sizing: border-box; 
@@ -62,11 +69,10 @@
 .box {
     background-color: white;
     padding: 20px;
-    height: 13rem;
-    width: 13rem;
+    height: 13rem; /* Adjusted for a more consistent size */
+    width: 300px; 
     border-radius: 15px;
     text-align: center;
-    width: 300px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -89,8 +95,7 @@
     font-weight: 400 !important;
 }
 
-
-/* How it works   */
+/* How it works section */
 .con-tai {
     position: relative;
     width: 100%;
@@ -123,7 +128,6 @@
 
 .how-it-works-box ul {
     list-style: none;
-    
     padding: 0;
 }
 
@@ -140,7 +144,7 @@
     display: inline-block;
     width: 50px;
     height: 50px;
-    line-height: 45px; /* Adjusted to better center text inside the circle */
+    line-height: 45px; /* Centers text inside the circle */
     border-radius: 15px;
     background-color: #F6F6F6;
     color: black;
@@ -155,7 +159,6 @@
 
 .under-image {
     position: absolute;
-    margin-bottom: 2rem;
     left: 35rem;
     bottom: 5rem;
     width: 800px;
@@ -163,22 +166,38 @@
     transform: translateX(-20%);
     z-index: 5;
     border-radius: 30px;
-    object-fit: cover; /* Ensures the image fits nicely within its container */
+    object-fit: cover; /* Ensures the image fits nicely */
 }
 
-
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1024px) {
     .con-tai {
-        padding: 10px; /* Adjust padding for smaller screens if needed */
+        padding: 10px; /* Adjust padding for smaller screens */
     }
 
     .how-it-works-box {
-        width: 100%; /* Use a percentage to ensure it fits well on smaller screens */
-        height: 100%;
+        width: 100%; /* Ensures it fits well on smaller screens */
         margin: 8rem auto; /* Center the box */
         text-align: center;
     }
 
+    .under-image {
+        display: none; /* Hide the image on screens smaller than 800px */
+    }
+
+    /* Adjust box sizes for smaller screens */
+    .box {
+        width: calc(50% - 20px); /* 50% width with some gap */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .box {
+        width: 100%; /* Full width on very small screens */
+    }
+
+    .how-it-works-box {
+        padding: 20px; /* Adjust padding for very small screens */
+    }
 
     .under-image {
         display: none; /* Hide the image on screens smaller than 800px */

@@ -3,12 +3,12 @@
     text-align: center;
     font-weight: 600; 
     font-size: 32px;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin: 2rem 0; /* Combined margin */
     color: #333;
 }
 
-/* .services-container {
+/* Services container */
+.services-container {
     display: flex;
     gap: 25px; 
     padding: 20px;
@@ -16,7 +16,9 @@
     align-items: flex-start; 
     flex-wrap: wrap;
     background-color: #F6F6F6;
-} */
+}  
+
+
 
 .service-box, .service-box-LAST {
     background-color: white;
@@ -26,6 +28,7 @@
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease; /* Smooth scaling effect */
 }
 
 .service-box img, .service-box-LAST img {
@@ -43,6 +46,12 @@
     color: #333;
 }
 
+.service-box:hover {
+    transform: scale(1.02); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Add a more pronounced shadow on hover */
+}
+
+/* Main button styling for all devices */
 .service-button {
     margin-top: 1.5rem;
     background-color: #5B864D; 
@@ -53,6 +62,7 @@
     cursor: pointer;
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 600;
+    font-size: 14px; /* Consistent font size */
     transition: background-color 0.3s ease;
 }
 
@@ -60,33 +70,26 @@
     background-color: #467237;
 }
 
-.service-box-LAST {
-    background-color: white;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+/* Specific style for the 360x640 device with high pixel density */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) {
 
-.service-box-LAST img {
-    border-radius: 35px; /* Distinctive for the last box */
-}
-
-.service-box-LAST h4 {
-    color: #333;
-    font-family: 'Nunito Sans', sans-serif;
-    font-weight: 550;
-    margin-top: 10px;
-}
-
-/* Responsive design: Stacking on smaller screens */
-@media (max-width: 800px) {
-    .services-container {
-        flex-direction: column; /* Stack vertically */
-        align-items: center;    /* Center the items */
+    .service-button {
+        padding: 10px 20px; /* Keep padding the same */
+        font-size: 14px; /* Ensure the font size remains consistent */
+        width: auto; /* Ensures button adapts to its content */
+        height: 2rem ;
     }
-    
-    .service-box, .service-box-LAST {
-        max-width: 100%;        /* Full width on smaller screens */
-        margin-bottom: 20px;    /* Add space between stacked items */
+}
+
+/* General responsive rule for smaller screens */
+@media (max-width: 800px) {
+    .service-button {
+        font-size: 11px; /* Maintain font size */
+        padding: 10px 20px; /* Consistent padding */
+        width: auto; /* Ensures button adapts to content */
+        height: 2rem ;
     }
 }

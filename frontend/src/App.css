@@ -18,8 +18,9 @@ html, body {
     flex-wrap: wrap; 
 }
 
+
 .black-box {
-    width: 75rem;
+    width: 75rem; /* Large width for desktops */
     height: 30rem;
     background-color: #000;
     color: #fff;
@@ -34,10 +35,35 @@ html, body {
     align-items: center;
     font-family: 'Nunito Sans', sans-serif !important;
     font-weight: 700 !important;
-    /* Add responsive padding for smaller screens */
-    padding: 10px;
+    padding: 10px; /* Ensure padding is uniform */
 }
 
+/* Hide scrollbar for better UX */
 ::-webkit-scrollbar {
     display: none;
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 1200px) {
+    .black-box {
+        width: 50rem; /* Adjust for medium screens */
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .black-box {
+        width: 100%; /* Full width for smaller screens */
+        height: auto; /* Adjust height for content */
+        padding: 20px;
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .black-box {
+        padding: 15px;
+        border-radius: 20px; /* Smaller border radius for compact look */
+        font-size: 1rem; /* Adjust text size for readability */
+        
+    }
 }

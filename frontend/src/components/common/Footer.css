@@ -2,27 +2,30 @@ footer {
     background-color: #F6F6F6; 
     padding: 20px 0;
     width: 100%;
+    text-align: center; /* Center text for a better layout */
 }
 
 .container {
+    display: flex; /* Ensure .container is a flex container */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align items */
     flex: 1;
 }
-
 
 .footer-h2, .footer-h3, .footer-h {
     font-family: 'Nunito Sans', sans-serif;
     color: black;
     text-decoration: none; /* Remove underline */
     transition: color 0.3s ease;
+    margin: 10px 0; /* Add vertical spacing */
 }
 
 .footer-h {
     font-weight: 700; 
 }
 
-.fotter-h2 {
+.footer-h2 {
     font-weight: 550; 
-    
 }
 
 .footer-h2:hover, .footer-h3:hover {
@@ -34,12 +37,30 @@ footer {
     color: #5B864D;
 }
 
-.fotter-h3 {
+.footer-h3 {
     font-weight: 300; 
 }
 
+.footer .social-icons {
+    display: flex; /* Use flexbox for social icons */
+    justify-content: center; /* Center social icons */
+    margin-top: 10px; /* Spacing above social icons */
+}
+
 .footer .social-icons a {
-    margin: 0 20px;
+    margin: 0 10px; /* Reduced margin for better spacing */
     color: #000;
     font-size: 24px;
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-h2, .footer-h3, .footer-h {
+        font-size: 1rem; /* Adjust font size for mobile */
+    }
+
+    .footer .social-icons a {
+        font-size: 20px; /* Adjust icon size for mobile */
+    }
 }

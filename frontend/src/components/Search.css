@@ -1,62 +1,90 @@
 .search-space {
-    margin-top: 3rem;
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    flex-grow: 1; 
-  }
-  
-  .search-container {
-    position: relative;
-    display: flex;
-    align-items: center; 
-    justify-content: center;
-    width: 50%;
-    max-width: 600px;
-    margin: 0 auto;
-    margin-bottom: 10rem;
-  }
-  
+  /* margin-top: 3rem; */
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  flex-grow: 1; 
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  width: 100%; /* Full width on smaller screens */
+  max-width: 600px; /* Max width for larger screens */
+  margin: 0 auto;
+  margin-bottom: 10rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0 50px 0 20px; 
+  font-size: 16px; /* Base font size */
+  height: 45px; 
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  background-color: white; 
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15); /* Improved shadow for a more modern look */
+  outline: none;
+  display: flex;
+  align-items: center; 
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #34a853; /* Change border color on focus */
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on focus */
+}
+
+.search-input::placeholder {
+  color: #888; /* Darker placeholder for better contrast */
+  text-align: center;
+  font-size: 16px;
+}
+
+.search-btn {
+  position: absolute;
+  left: 20px; /* Adjusted positioning */
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666; 
+  font-size: 18px; /* Button font size */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.search-btn:hover {
+  color: #34a853; /* Green color on hover to match theme */
+}
+
+.search-btn:focus {
+  outline: none;
+  color: #34a853; /* Same color on focus */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
   .search-input {
-    width: 100%;
-    padding: 0 50px 0 20px; 
-    font-size: 16px;
-    height: 45px; 
-    border: 1px solid #ccc;
-    border-radius: 30px;
-    background-color: white; 
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1); 
-    outline: none;
-    display: flex;
-    align-items: center; 
-    transition: border 0.3s ease, box-shadow 0.3s ease;
+    padding: 0 30px 0 10px; /* Adjust padding for smaller screens */
+    font-size: 14px; /* Slightly smaller font size */
   }
-  
-  /* .search-input:focus {
-    border: 1px solid #5B864D; 
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); 
-  }
-   */
-  .search-input::placeholder {
-    color: #999;
-    text-align: center;
-    font-size: 16px;
-  }
-  
+
   .search-btn {
-    position: absolute;
-    left: 10px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #666; 
+    font-size: 16px; /* Adjust button font size for mobile */
   }
-  
-  .search-btn:hover {
-    color: #333;
+}
+
+/* Additional media queries for smaller devices */
+@media (max-width: 480px) {
+  .search-input {
+    height: 40px; /* Slightly reduce height for very small screens */
+    width: 90%; /* Adjust width to fill the container */
+    padding-left: 40px; /* Ensure there's space for the icon */
   }
-  
-  .search-btn:focus {
-    outline: none;
+
+  .search-btn {
+    left: 30px; /* Adjust position so it remains inside */
+    font-size: 14px; /* Further reduce button font size */
   }
-  
+}
