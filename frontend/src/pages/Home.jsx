@@ -1,8 +1,7 @@
 import Footer from "../componets/common/Footer"
 import NavBar from "../componets/common/NavBar"
 import SearchBar from "../componets/Search"
-import "../styles/pages/Home.css"
-
+import "../styles/Home.css";
 
 function Home() {
 
