@@ -1,5 +1,6 @@
-import Footer from "../componets/common/Footer"
-import NavBar from "../componets/common/NavBar"
+import Footer from "../components/common/Footer"
+import NavBar from "../components/common/NavBar"
+import UnderConstruction from "../UnderWorking/UnderConstruction"
 
 export default function Privacypolicy() {
 
@@ -7,7 +8,7 @@ export default function Privacypolicy() {
         <>
         <NavBar/>
         <div>
-            
+        <UnderConstruction/>
         </div>
         <Footer/>
         </>

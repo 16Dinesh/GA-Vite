@@ -1,11 +1,13 @@
-import Footer from "../componets/common/Footer"
-import NavBar from "../componets/common/NavBar"
+import Footer from "../components/common/Footer"
+import NavBar from "../components/common/NavBar"
+import UnderConstruction from "../UnderWorking/UnderConstruction"
 
 function Beanassist() {
 
     return (
         <>
         <NavBar/>
+        <UnderConstruction/>
         <Footer/>
         </>
     )

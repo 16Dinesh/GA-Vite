@@ -1,0 +1,92 @@
+.title {
+    font-family: 'Nunito Sans', sans-serif;
+    text-align: center;
+    font-weight: 600; 
+    font-size: 32px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+/* .services-container {
+    display: flex;
+    gap: 25px; 
+    padding: 20px;
+    justify-content: center;
+    align-items: flex-start; 
+    flex-wrap: wrap;
+    background-color: #F6F6F6;
+} */
+
+.service-box, .service-box-LAST {
+    background-color: white;
+    text-align: center;
+    flex: 1;
+    max-width: 300px; 
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service-box img, .service-box-LAST img {
+    width: 100%; 
+    max-width: 280px; 
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 15px; /* Consistent rounded corners */
+}
+
+.service-box h4, .service-box-LAST h4 {
+    margin-top: 10px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 550;
+    color: #333;
+}
+
+.service-button {
+    margin-top: 1.5rem;
+    background-color: #5B864D; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.service-button:hover {
+    background-color: #467237;
+}
+
+.service-box-LAST {
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service-box-LAST img {
+    border-radius: 35px; /* Distinctive for the last box */
+}
+
+.service-box-LAST h4 {
+    color: #333;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 550;
+    margin-top: 10px;
+}
+
+/* Responsive design: Stacking on smaller screens */
+@media (max-width: 800px) {
+    .services-container {
+        flex-direction: column; /* Stack vertically */
+        align-items: center;    /* Center the items */
+    }
+    
+    .service-box, .service-box-LAST {
+        max-width: 100%;        /* Full width on smaller screens */
+        margin-bottom: 20px;    /* Add space between stacked items */
+    }
+}
