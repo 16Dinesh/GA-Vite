@@ -1,0 +1,29 @@
+.navbar {
+    background-color: white; 
+}
+
+.navbar-brand {
+    font-weight: 700; 
+    font-size: 1.4rem !important;
+    margin-left: 20px;
+}
+
+.nav-link {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 550 !important; 
+}
+
+.nav-btn {
+    font-weight: 700 !important;
+    color: white !important; 
+    background-color: #5B864D !important;
+    border-radius: 5px;
+    width: 170px;
+    height: 40px;
+    margin-right: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: #467237 !important; 
+}

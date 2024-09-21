@@ -1,0 +1,45 @@
+footer {
+    background-color: #F6F6F6; 
+    padding: 20px 0;
+    width: 100%;
+}
+
+.container {
+    flex: 1;
+}
+
+
+.footer-h2, .footer-h3, .footer-h {
+    font-family: 'Nunito Sans', sans-serif;
+    color: black;
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease;
+}
+
+.footer-h {
+    font-weight: 700; 
+}
+
+.fotter-h2 {
+    font-weight: 550; 
+    
+}
+
+.footer-h2:hover, .footer-h3:hover {
+    color: #5B864D; /* Customize hover color */
+}
+
+/* Social icon hover effect */
+.footer .social-icons a:hover {
+    color: #5B864D;
+}
+
+.fotter-h3 {
+    font-weight: 300; 
+}
+
+.footer .social-icons a {
+    margin: 0 20px;
+    color: #000;
+    font-size: 24px;
+}
