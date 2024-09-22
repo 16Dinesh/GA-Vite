@@ -3,7 +3,7 @@ import NavBar from "../components/common/NavBar";
 import SearchBar from "../components/Search";
 import ServersHome from "../components/Services";
 import Testimonials from "../components/Testimonials";
-import ReachUsH from '../components/FotterBox/Reach_Us_Home'
+import ReachUsH from '../components/FooterBox/Reach_Us_Home'
 import "../styles/Home.css";
 
 function Home() {
@@ -17,8 +17,8 @@ function Home() {
                         src="./home/Green Assist xml.svg"
                         alt="Green Assist Logo"
                     />
-                    <h1 className="title-1">Book Trusted Help For</h1>
-                    <h1 className="title-2">Home Assists</h1>
+                    <h1 className="Hometitle-1">Book Trusted Help For</h1>
+                    <h1 className="Hometitle-2">Home Assists</h1>
                 </section>
 
                 <section className="search-section">
@@ -65,7 +65,7 @@ function Home() {
 
                     <div className="con-tai">
                         <div className="how-it-works-box">
-                            <h1>How It Works</h1>
+                            <h1 style={{color:"Black"}}>How It Works</h1>
                             <ul>
                                 <li><span>1</span> Choose an Assist by Service, and Book.</li>
                                 <li><span>2</span> Schedule an Assistant as early as today.</li>

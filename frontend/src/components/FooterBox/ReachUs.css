@@ -11,7 +11,7 @@
 }
 
 .get-started {
-    background-color: #5B864D;
+    background-color: #5B864D !important;
     color: #FFFFFF;
     padding: 10px 20px;
     margin-top: 2rem;
@@ -28,7 +28,7 @@
 }
 
 .get-started:hover {
-    background-color: #467237;
+    background-color: #467237 !important;
 }
 
 @media (max-width: 600px) {
@@ -68,8 +68,8 @@
 }
 
 .get-started {
-    background-color: #5B864D;
-    color: #FFFFFF;
+    background-color: #5B864D !important;
+    color: #FFFFFF !important;
     padding: 10px 20px;
     margin-top: 2rem;
     width: 100%; /* Full width on mobile */

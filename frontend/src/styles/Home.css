@@ -5,6 +5,7 @@
 .hero-section {
     background-color: white;
     padding-bottom: 3rem;
+    padding-top: 5rem;
 }
 
 .main-img {
@@ -12,23 +13,25 @@
     max-width: 550px; 
     height: auto;
     display: block;
-    margin-top: 8rem;
+    top: 10rem !important;
     margin-left: auto;
     margin-right: auto;
 }
 
-.title-1, .title-2 {
+.Hometitle-1, .Hometitle-2 {
     font-family: 'Nunito Sans', sans-serif;
     text-align: center;
 }
 
-.title-1 {
+.Hometitle-1 {
+    color: black !important;
     font-weight: 700; 
 }
 
-.title-2 {
+.Hometitle-2 {
     font-weight: 550; 
     margin-top: 1rem;
+    color: black !important;
 }
 
 .content-section {
@@ -113,7 +116,7 @@
     border-radius: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin: 8rem 0 8rem 3rem; /* Combining margin-top, margin-left, margin-bottom */
-    background-color: white;
+    background-color: white !important;
     z-index: 10;
     position: relative;
 }
@@ -159,13 +162,12 @@
 
 .under-image {
     position: absolute;
-    left: 35rem;
-    bottom: 5rem;
+    left: 25rem;
+    bottom: 7.2rem;
     width: 800px;
     height: 450px;
-    transform: translateX(-20%);
     z-index: 5;
-    border-radius: 30px;
+    border-radius: 15px;
     object-fit: cover; /* Ensures the image fits nicely */
 }
 

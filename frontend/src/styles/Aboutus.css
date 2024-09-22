@@ -1,0 +1,54 @@
+.h1-middle {
+    display: flex;
+    justify-content: center;
+    color: #5B864D !important;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 600 !important;
+    margin-top: 2rem !important;
+    margin-bottom: 1.5rem !important;
+    text-align: center;
+}
+ 
+.company-description {
+     font-family: 'Nunito Sans', sans-serif;
+     font-weight: 550;
+     display: flex;
+     justify-content: center;
+ }
+
+.company-info {
+    display: flex;
+    gap: 5px;
+}
+
+.h1-left {
+    display: flex;
+    justify-content: center;
+    color: #5B864D !important;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 600 !important;
+    margin-bottom: 1.5rem !important;
+    text-align: center;
+    margin-top: 5rem !important;
+    
+}
+
+
+.company-info img.image-right {
+    max-width: 550px;
+    height: auto;
+    flex: 1;
+    margin-left: 5rem;
+}
+
+@media (max-width: 768px) {
+    .company-info img.image-right {
+        margin-left: 0; /* Remove left margin on smaller screens */
+        max-width: 100%; /* Ensure image doesn't overflow */
+        display: none;
+    }
+}
+
+.purpose-goals h1 {
+    text-align: left !important;
+}

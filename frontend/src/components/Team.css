@@ -1,0 +1,88 @@
+.our-team {
+    text-align: center;
+    padding: 20px;
+}
+
+.team-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.team-member {
+    background-color: #000;
+    color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    width: 320px;
+    text-align: left;
+    transition: transform 0.2s; /* Add hover effect */
+}
+
+.team-member:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.team-image {
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.linkin-name {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    margin-left: 6rem;
+    margin-bottom: 1.5rem;
+}
+
+.names1, .names2, .names3 {
+    font-size: 1rem;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 500;
+    text-align: center;
+    margin: 1rem;
+}
+
+.team-member p {
+    font-size: 0.6rem;
+    margin-top: 1rem;
+    text-align: center;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 550;
+}
+
+.team-member a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.team-member a:hover {
+    color: #5B864D;
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .team-member {
+        width: 90%; /* Full width on smaller screens */
+        max-width: 300px; /* Keep a max width */
+    }
+
+    .linkin-name,
+    .names1,
+    .names2,
+    .names3 {
+        font-size: 0.8rem; /* Slightly reduce font size */
+    }
+
+    .team-member p {
+        font-size: 0.5rem; /* Reduce paragraph font size */
+    }
+}

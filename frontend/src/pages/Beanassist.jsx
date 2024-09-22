@@ -8,6 +8,7 @@ function Beanassist() {
         <>
         <NavBar/>
         <UnderConstruction/>
+        
         <Footer/>
         </>
     )

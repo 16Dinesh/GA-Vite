@@ -1,0 +1,105 @@
+
+.get-started-off {
+    background-color: #FFFFFF;
+    color: #000;
+    padding: 10px 20px;
+    margin-top: 2rem;
+    width: 170px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    font-family: 'Nunito Sans', sans-serif !important;
+    font-weight: 700 !important;
+    transition: background-color 0.3s ease;
+}
+
+.get-started-off:hover {
+    background-color: #5B864D;
+    color: #FFFFFF;
+}
+
+
+@media (max-width: 600px) {
+    .black-box {
+        width: 95%;
+        padding: 10px;
+        height: auto; /* Allow height to adjust based on content */
+    }
+
+    .black-box h2 {
+        font-size: 1.8rem; /* Slightly smaller for mobile */
+        margin-top: 1.5rem; /* Reduced margin */
+    }
+
+    .black-box p {
+        font-size: 1.2rem; /* Smaller for mobile readability */
+        margin-top: 1rem; /* Reduced margin */
+    }
+
+    .get-started-off {
+        width: 100%; /* Full width on smaller screens */
+        height: auto; /* Adjust based on content */
+        padding: 8px; /* Adjust padding for smaller screens */
+        font-size: 14px; /* Smaller font size */
+    }
+}
+.black-box h2 {
+    margin-top: 2rem;
+    font-size: 2rem; /* Ensuring it's larger on mobile */
+    font-family: 'Nunito Sans', sans-serif !important;
+    font-weight: 700 !important;
+}
+
+.black-box p {
+    font-size: 1.5rem; /* Increased readability */
+    margin-top: 1.5rem; /* Reduced top margin for a tighter layout */
+}
+
+.get-started-off {
+    background-color: #FFFFFF;
+    color: #000;
+    padding: 10px 20px;
+    margin-top: 2rem;
+    width: 100%; /* Full width on mobile */
+    max-width: 170px; /* Max width for larger screens */
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    font-family: 'Nunito Sans', sans-serif !important;
+    font-weight: 700 !important;
+}
+
+.get-started-off:hover {
+    background-color: #467237;
+}
+
+@media (max-width: 600px) {
+    .black-box {
+        width: 95%;
+        padding: 10px;
+        height: auto; /* Allow height to adjust based on content */
+    }
+
+    .black-box h2 {
+        font-size: 1.8rem; /* Slightly smaller for mobile */
+        margin-top: 1.5rem; /* Reduced margin */
+    }
+
+    .black-box p {
+        font-size: 1.2rem; /* Smaller for mobile readability */
+        margin-top: 1rem; /* Reduced margin */
+    }
+
+    .get-started-off {
+        width: 100%; /* Full width on smaller screens */
+        height: auto; /* Adjust based on content */
+        padding: 8px; /* Adjust padding for smaller screens */
+        font-size: 14px; /* Smaller font size */
+    }
+}
