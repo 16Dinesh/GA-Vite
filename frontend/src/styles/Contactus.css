@@ -1,0 +1,150 @@
+/* Base Styles */
+.first-contactus {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.first-contactus p {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 550;
+    margin: 5px 0;
+}
+
+.first-contactus img.image-right {
+    max-width: 550px;
+    height: auto;
+    flex: 1;
+    margin-left: 10rem;
+    margin-bottom: 8rem;
+    margin-right: 5rem;
+}
+
+.text-content {
+    margin-left: 5rem;
+    margin-top: 8rem;
+    font-size: 2rem;
+    text-align: left;
+}
+
+.text-content h6 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 550;
+    color: #5B864D;
+    margin-bottom: 2rem;
+}
+
+.middle-page {
+    text-align: center;
+    margin: 20px 0;
+    font-family: 'Nunito Sans';
+    font-weight: 550;
+}
+
+.green-p {
+    color: #5B864D;
+    font-family: 'Nunito Sans';
+    font-weight: 550;
+    font-size: 1rem;
+}
+
+.middle-page h1 {
+    margin: 10px 0;
+    font-family: 'NunitoSans' !important;
+    font-size: 64px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+.midd-number {
+    font-size: 1.5rem;
+}
+
+.midd-p {
+    font-size: 1rem;
+}
+
+/* Media Queries */
+
+/* For screens up to 1024px */
+@media (max-width: 1024px) {
+    .first-contactus img.image-right {
+        margin-left: 6rem;
+        margin-right: 3rem;
+    }
+
+    .text-content {
+        margin-left: 3rem;
+        margin-top: 5rem;
+        font-size: 1.8rem;
+    }
+
+    .middle-page h1 {
+        font-size: 3.5rem;
+    }
+}
+
+/* For screens up to 780px */
+@media (max-width: 780px) {
+    .first-contactus img.image-right {
+        display: none; /* Hide the image at 780px and below */
+    }
+
+    .text-content {
+        margin-left: 2rem;
+        margin-top: 4rem;
+    }
+
+    .middle-page h1 {
+        font-size: 3rem;
+    }
+}
+
+/* For screens up to 480px */
+@media (max-width: 480px) {
+    .text-content {
+        margin-left: 5rem;
+        margin-top: 1rem;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .middle-page h1 {
+        font-size: 2rem;
+    }
+
+    .midd-number {
+        font-size: 1.1rem;
+    }
+
+    .midd-p {
+        font-size: 0.9rem;
+    }
+}
+
+/* For screens up to 380px */
+@media (max-width: 380px) {
+    .text-content {
+        margin-left: 5rem;
+        margin-top: 1rem;
+        font-size: 1rem; /* Adjusted for smaller screens */
+        text-align: center;
+    }
+
+    .middle-page h1 {
+        font-size: 1.8rem; /* Further reduced size */
+    }
+
+    .midd-number {
+        font-size: 1rem; /* Adjusted for readability */
+    }
+
+    .midd-p {
+        font-size: 0.8rem; /* Adjusted for smaller text */
+    }
+}

@@ -1,0 +1,125 @@
+/* Base styles */
+.first-beanassit {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.first-beanassit p {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 550;
+    margin: 5px 0;
+}
+
+.first-beanassit img.image-right {
+    max-width: 550px;
+    height: auto;
+    flex: 1;
+    margin-left: 10rem;
+    margin-bottom: 8rem;
+    margin-right: 5rem;
+}
+
+.text-content {
+    margin-left: 5rem;
+    margin-top: 8rem;
+    font-size: 2rem;
+    text-align: left;
+}
+
+.text-content h6 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 550;
+    color: #5B864D;
+    margin-bottom: 2rem;
+}
+
+.requirements {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 550;
+    font-size: 1.2rem;
+}
+
+.req-title {
+    padding-top: 2rem;
+    margin-left: 10rem;
+}
+
+.req-list {
+    margin-left: 15rem;
+    padding-bottom: 5rem;
+}
+
+/* Media Queries */
+
+/* For screens up to 1024px */
+@media (max-width: 1024px) {
+    .text-content {
+        margin-left: 3rem;
+        margin-top: 5rem;
+        font-size: 1.8rem;
+    }
+
+    .first-beanassit img.image-right {
+        margin-left: 5rem;
+        margin-bottom: 4rem;
+        margin-right: 3rem;
+    }
+
+    .req-title {
+        margin-left: 7rem;
+    }
+
+    .req-list {
+        margin-left: 10rem;
+    }
+}
+
+/* For screens up to 780px */
+@media (max-width: 780px) {
+    .first-beanassit img.image-right {
+        display: none; /* Hide the image at 780px and below */
+    }
+}
+
+/* For screens up to 480px */
+@media (max-width: 480px) {
+    .first-beanassit {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .text-content {
+        margin-right: 5rem;
+        margin-top: 2rem;
+        font-size: 1.4rem;
+    }
+
+    .req-title {
+        margin-left: 2rem;
+    }
+
+    .req-list {
+        margin-left: 1rem;
+    }
+}
+
+/* For screens up to 380px */
+@media (max-width: 380px) {
+    .text-content {
+        margin-right: 5rem;
+        margin-top: 1rem;
+        font-size: 1.2rem; /* Adjusted for smaller screens */
+        text-align: center;
+    }
+
+    .req-title {
+        margin-left: 0;
+    }
+
+    .req-list {
+        margin-left: 0;
+    }
+}

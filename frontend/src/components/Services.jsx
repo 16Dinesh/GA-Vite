@@ -3,25 +3,25 @@ import "./Services.css";
 // Services data array for dynamic rendering
 const servicesData = [
   {
-    title: "Plumbing Assistance",
+    title: "Plumbing Assist",
     image: "/home/Plumbing Assistance .png",
     alt: "Plumbing Assistance",
     available: true,
   },
   {
-    title: "Electrical Assistance",
+    title: "Electrical Assist",
     image: "/home/Electrical Assistance.png",
     alt: "Electrical Assistance",
     available: true,
   },
   {
-    title: "Water-Purifier Assistance",
+    title: "Water-Purifier Assist",
     image: "/home/Water-Purifier Assistance logo.png",
     alt: "Water Purifier Assistance",
     available: true,
   },
   {
-    title: "Single Driver Assistance",
+    title: "Single Driver Assist",
     image: "/home/Single driver Assist logo.png",
     alt: "Single Driver Assistance",
     available: true,

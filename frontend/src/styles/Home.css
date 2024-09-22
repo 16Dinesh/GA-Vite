@@ -171,6 +171,9 @@
     object-fit: cover; /* Ensures the image fits nicely */
 }
 
+/* Media Queries */
+
+/* For screens up to 1024px */
 @media screen and (max-width: 1024px) {
     .con-tai {
         padding: 10px; /* Adjust padding for smaller screens */
@@ -192,6 +195,22 @@
     }
 }
 
+/* For screens up to 780px */
+@media screen and (max-width: 780px) {
+    .box {
+        width: calc(100% - 20px); /* Full width on smaller screens */
+    }
+
+    .how-it-works-box {
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
+    .under-image {
+        display: none; /* Hide the image on smaller screens */
+    }
+}
+
+/* For screens up to 480px */
 @media screen and (max-width: 480px) {
     .box {
         width: 100%; /* Full width on very small screens */
@@ -202,6 +221,21 @@
     }
 
     .under-image {
-        display: none; /* Hide the image on screens smaller than 800px */
+        display: none; /* Hide the image on smaller screens */
+    }
+}
+
+/* For screens up to 380px */
+@media screen and (max-width: 380px) {
+    .box {
+        padding: 10px; /* Adjust padding for boxes */
+    }
+
+    .how-it-works-box h1 {
+        font-size: 1.5rem; /* Reduce font size for smaller screens */
+    }
+
+    .how-it-works-box li {
+        font-size: 1.2rem; /* Adjust font size for list items */
     }
 }

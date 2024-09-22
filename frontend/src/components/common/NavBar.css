@@ -1,18 +1,17 @@
 .navbar {
     background-color: white; 
-    padding: 10px 20px; /* Added padding for better spacing */
+    padding: 10px 20px;
+    justify-content: space-between;
 }
 
 .navbar-brand {
     font-weight: 700; 
     font-size: 1.4rem !important;
-    margin-left: 20px;
 }
 
 .nav-link {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 550 !important; 
-    margin: 0 10px; /* Added horizontal margin for spacing */
 }
 
 .nav-btn {
@@ -22,7 +21,7 @@
     border-radius: 5px;
     width: 170px;
     height: 40px;
-    margin-right: 20px;
+    margin-left: auto; 
     transition: background-color 0.3s ease;
 }
 
@@ -33,28 +32,27 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column; /* Stack items on small screens */
-        align-items: center; /* Center items */
+        flex-direction: column; 
+        align-items: center; 
     }
 
     .nav-btn {
-        width: 100%; /* Full width on mobile */
-        margin: 10px 0; /* Vertical margin for spacing */
+        width: 100%; 
+        margin: 10px 0; 
     }
 
     .nav-link {
-        margin: 5px 0; /* Reduced margin for mobile view */
+        margin: 5px 0; 
     }
 }
 
 @media (max-width: 576px) {
     .navbar-brand {
-        font-size: 1.2rem; /* Slightly smaller brand font on mobile */
+        font-size: 1.2rem; 
     }
 
     .nav-btn {
-        height: 35px; /* Adjust height for mobile */
-        font-size: 14px; /* Adjust font size for mobile */
+        height: 35px; 
+        font-size: 14px; 
     }
 }
-    

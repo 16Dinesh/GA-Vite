@@ -1,18 +1,19 @@
 import "./Reach_Us_Common.css";
 import { useNavigate } from "react-router-dom"; 
 
-export default function ReachUsC() {
+export default function JoinUs_fotter() {
 
     const navigate = useNavigate(); 
 
     const handleGetStarted = () => {
-        navigate("/contactus"); 
+        navigate("/"); 
     };
     
     return (
         <>
          <div className="black-box">
             <div className="cta-box">
+                <h2>Join Us</h2>
                 <p>
                     Start simplifying your maintenance journey with <br/> Green Assist today.
                 </p>

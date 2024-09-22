@@ -43,6 +43,7 @@
     margin-top: 10px;
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 550;
+    font-size: 1rem;
     color: #333;
 }
 
@@ -62,7 +63,7 @@
     cursor: pointer;
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 600;
-    font-size: 14px; /* Consistent font size */
+    font-size: 11px; /* Consistent font size */
     transition: background-color 0.3s ease;
 }
 
@@ -78,7 +79,7 @@
 
     .service-button {
         padding: 10px 20px; /* Keep padding the same */
-        font-size: 14px; /* Ensure the font size remains consistent */
+        font-size: 5px; /* Ensure the font size remains consistent */
         width: auto; /* Ensures button adapts to its content */
         height: 2rem ;
     }
@@ -87,7 +88,7 @@
 /* General responsive rule for smaller screens */
 @media (max-width: 800px) {
     .service-button {
-        font-size: 11px; /* Maintain font size */
+        font-size: 7px; /* Maintain font size */
         padding: 10px 20px; /* Consistent padding */
         width: auto; /* Ensures button adapts to content */
         height: 2rem ;

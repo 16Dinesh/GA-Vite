@@ -68,7 +68,7 @@ function Aboutus() {
             </section>
 
             <div className="contact-email">
-              <p>Email: Services@GreenAssist.in</p>
+              <p>Email: Services@GreenAssist</p>
             </div>
 
           </div>

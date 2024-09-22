@@ -1,16 +1,8 @@
 footer {
-    background-color: #F6F6F6; 
     padding: 20px 0;
     width: 100%;
-    text-align: center; /* Center text for a better layout */
 }
 
-.container {
-    display: flex; /* Ensure .container is a flex container */
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center align items */
-    flex: 1;
-}
 
 .footer-h2, .footer-h3, .footer-h {
     font-family: 'Nunito Sans', sans-serif;
@@ -54,8 +46,25 @@ footer {
     transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+/* Media Queries */
+
+/* For screens up to 1024px */
+@media (max-width: 1024px) {
+    .footer {
+        text-align: center; 
+    }
+
+    .footer-h2, .footer-h3, .footer-h {
+        font-size: 1.1rem; /* Adjust font size */
+    }
+
+    .footer .social-icons a {
+        font-size: 22px; /* Adjust icon size */
+    }
+}
+
+/* For screens up to 780px */
+@media (max-width: 780px) {
     .footer-h2, .footer-h3, .footer-h {
         font-size: 1rem; /* Adjust font size for mobile */
     }
@@ -63,4 +72,26 @@ footer {
     .footer .social-icons a {
         font-size: 20px; /* Adjust icon size for mobile */
     }
+}
+
+/* For screens up to 480px */
+@media (max-width: 480px) {
+    .footer-h2, .footer-h3, .footer-h {
+        font-size: 0.9rem; /* Further adjust font size */
+    }
+
+    .footer .social-icons a {
+        font-size: 18px; /* Further adjust icon size */
+    }
+}
+
+/* For screens up to 380px */
+@media (max-width: 380px) {
+    .footer-h2, .footer-h3, .footer-h {
+        font-size: 0.8rem; /* Smallest font size */
+    }
+
+    .footer .social-icons a {
+        font-size: 16px; /* Smallest icon size */
+    }   
 }

@@ -10,7 +10,7 @@
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); 
 }
 
-/* Uncomment to enable boxes container */
+/* Boxes container */
 .boxes-container {
     display: flex;
     gap: 25px; 
@@ -62,18 +62,42 @@
     color: #555; /* Subtle color for better readability */
 }
 
-/* Responsive design: Adjust box width for smaller screens */
-@media (max-width: 800px) {
+/* Media Queries for responsiveness */
+@media (max-width: 1024px) {
     .boxes {
-        width: 100%; /* Full width on small screens */
-        margin-bottom: 20px; /* Spacing between boxes */
+        width: 18rem; /* Slightly smaller boxes */
+        height: auto; /* Allow height to adjust based on content */
+    }
+
+    .boxes-container {
+        padding: 15px; /* Adjust padding for smaller screens */
     }
 }
 
-/* Additional improvements for larger screens */
-@media (min-width: 1200px) {
+@media (max-width: 780px) {
+    .boxes {
+        width: 90%; /* Full width on smaller screens */
+        margin-right: 0; /* Remove margin for better stacking */
+        margin-bottom: 15px; /* Spacing between boxes */
+    }
+
     .boxes-container {
-        max-width: 1200px; /* Limit the max width for a cleaner layout */
-        margin: 0 auto; /* Center the container */
+        flex-direction: column; /* Stack boxes vertically */
+        align-items: center; /* Center align boxes */
+    }
+}
+
+@media (max-width: 480px) {
+    .title-bold {
+        font-size: 28px; /* Smaller title font size */
+        margin: 3rem auto 1.5rem; /* Adjust margin */
+    }
+
+    .boxes h6 {
+        font-size: 16px; /* Smaller heading font size */
+    }
+
+    .boxes p {
+        font-size: 12px; /* Smaller paragraph font size */
     }
 }
