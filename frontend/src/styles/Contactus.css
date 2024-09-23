@@ -55,10 +55,6 @@
     font-family: 'NunitoSans' !important;
     font-size: 64px;
     font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
 }
 
 .midd-number {
@@ -67,6 +63,38 @@
 
 .midd-p {
     font-size: 1rem;
+}
+
+.Details-GA {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.maps {
+    width: 50%;
+}
+
+.details {
+    width: 50%;
+    padding-left: 5rem;
+    font-family: 'NunitoSans';
+    font-weight: bold;
+}
+
+.details p {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.green-p {
+    color: #5B864D;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
 }
 
 /* Media Queries */
@@ -91,6 +119,10 @@
 
 /* For screens up to 780px */
 @media (max-width: 780px) {
+    .first-contactus {
+        flex-direction: column; /* Stack elements vertically */
+    }
+
     .first-contactus img.image-right {
         display: none; /* Hide the image at 780px and below */
     }
@@ -98,6 +130,7 @@
     .text-content {
         margin-left: 2rem;
         margin-top: 4rem;
+        font-size: 1.5rem;
     }
 
     .middle-page h1 {
@@ -107,15 +140,19 @@
 
 /* For screens up to 480px */
 @media (max-width: 480px) {
+    .first-contactus {
+        flex-direction: column;
+    }
+
     .text-content {
-        margin-left: 5rem;
-        margin-top: 1rem;
+        margin-left: 1rem;
+        margin-top: 2rem;
         font-size: 1.2rem;
         text-align: center;
     }
 
     .middle-page h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     .midd-number {
@@ -125,19 +162,29 @@
     .midd-p {
         font-size: 0.9rem;
     }
+
+    .Details-GA {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .maps, .details {
+        width: 100%; /* Stack the map and details vertically */
+        padding-left: 0;
+    }
 }
 
 /* For screens up to 380px */
 @media (max-width: 380px) {
     .text-content {
-        margin-left: 5rem;
+        margin-left: 1rem;
         margin-top: 1rem;
-        font-size: 1rem; /* Adjusted for smaller screens */
+        font-size: 1rem;
         text-align: center;
     }
 
     .middle-page h1 {
-        font-size: 1.8rem; /* Further reduced size */
+        font-size: 2rem; /* Further reduced size */
     }
 
     .midd-number {
@@ -146,5 +193,9 @@
 
     .midd-p {
         font-size: 0.8rem; /* Adjusted for smaller text */
+    }
+
+    .Details-GA {
+        padding: 10px; /* Reduce padding */
     }
 }

@@ -2,6 +2,7 @@ import Footer from "../components/common/Footer"
 import NavBar from "../components/common/NavBar"
 import JoinUs_fotter from "../components/FooterBox/Join_Us_C"
 import ContactUsForm from "../components/Forms/ContactUsForm"
+import GoogleMaps from "../components/GoogleMaps/Maps"
 import "../styles/Contactus.css"
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -30,6 +31,23 @@ function ContactUs() {
               <i className="fas fa-phone " style={{ color: "#5b864d" }}></i> XXXX-XXX-XXX
             </p>
           </div>
+
+          <div className="space-needed"></div>
+
+            <div className="Details-GA">
+              <div className="maps">
+                  <GoogleMaps/>
+              </div>
+              <div className="details">
+                  <p className="green-p">My office :</p>
+                  <p>Kurnool, Andhra Pradesh</p>
+                  <p className="green-p">Contact us at</p>
+                  <p>Services@greenassist</p>
+                  <p>+91 XXXX-XXX-XXX</p>
+              </div>
+            </div>
+
+            <div className="space-needed"></div>
   
           <JoinUs_fotter />
         </main>
