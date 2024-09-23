@@ -1,7 +1,6 @@
 import "./Testimonials.css";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
-
 export default function Testimonials() {
     // Testimonials data for dynamic rendering
     const testimonialsData = [
@@ -25,8 +24,10 @@ export default function Testimonials() {
             <div className="container-flex">
                 {testimonialsData.map((testimonial, index) => (
                     <div className="boxes" key={index}>
-                        <i className="fa-solid fa-quote-left quote-icon"></i>
-                        <h6>{testimonial.name}</h6>
+                        <div className="icon-text-wrapper">
+                            <i className="fas fa-quote-left quote-icon"></i>
+                            <h6>{testimonial.name}</h6>
+                        </div>
                         <p>{testimonial.feedback}</p>
                     </div>
                 ))}

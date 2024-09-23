@@ -22,44 +22,44 @@
 
 .boxes {
     background-color: white;
-    padding: 20px;
+    padding: 15px; /* Reduced padding inside the box */
     border-radius: 15px;
-    text-align: left; 
-    width: 20rem; 
-    height: 20rem;
+    text-align: left;
+    width: 20rem;
+    height: 15rem;
     margin-right: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth scaling effect with shadow change */
 }
 
-.boxes i {
-    float: left; 
-    margin-right: 10px;
-    margin-top: 5px; 
-    font-size: 24px; 
-    color: #5B864D; /* Matches overall theme */
+.icon-text-wrapper {
+    display: flex;
+    align-items: center; /* Aligns the icon and the text vertically */
+    margin-bottom: 10px; /* Adds some space between the icon-text and the paragraph */
+}
+
+.quote-icon {
+    font-size: 24px;
+    color: #5B864D;
+    margin-right: 10px; /* Adds space between the icon and the name */
 }
 
 .boxes h6 {
     font-family: 'Nunito Sans', sans-serif;
-    font-weight: 400; 
-    margin-top: 0;
-    margin-bottom: auto;
-    text-align: center;
-    font-size: 18px; /* Slightly larger for better readability */
+    font-weight: 400;
+    margin: 0; /* Removes top and bottom margin for tighter spacing */
+    font-size: 18px; /* Keeps heading font size consistent */
+    padding-left: 5rem; /* Adjusts spacing from left */
 }
 
 .boxes p {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.4; /* Slightly reduced line-height */
     text-align: justify;
-    margin-top: auto;
-    color: #555; /* Subtle color for better readability */
+    margin-top: 2rem; /* Reduced margin for minimal spacing */
+    color: #555;
+    padding-bottom: 5px; /* Minimized space at the bottom */
 }
 
 /* Media Queries for responsiveness */
@@ -71,6 +71,10 @@
 
     .boxes-container {
         padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .boxes h6 {
+        padding-left: 4rem; /* Adjusted padding for medium screens */
     }
 }
 
@@ -85,6 +89,14 @@
         flex-direction: column; /* Stack boxes vertically */
         align-items: center; /* Center align boxes */
     }
+
+    .boxes h6 {
+        padding-left: 3rem; /* Further reduce padding-left on smaller screens */
+    }
+
+    .boxes p {
+        margin-top: 1rem; /* Reduce margin on smaller screens */
+    }
 }
 
 @media (max-width: 480px) {
@@ -93,11 +105,18 @@
         margin: 3rem auto 1.5rem; /* Adjust margin */
     }
 
+    .boxes {
+        width: 100%; /* Full width for very small screens */
+        height: auto; /* Allow box height to adjust */
+    }
+
     .boxes h6 {
         font-size: 16px; /* Smaller heading font size */
+        padding-left: 2rem; /* Adjust padding-left for smaller screens */
     }
 
     .boxes p {
         font-size: 12px; /* Smaller paragraph font size */
+        margin-top: 0.5rem; /* Tighter spacing */
     }
 }

@@ -35,12 +35,11 @@ footer {
 
 .footer .social-icons {
     display: flex; /* Use flexbox for social icons */
-    justify-content: center; /* Center social icons */
     margin-top: 10px; /* Spacing above social icons */
 }
 
 .footer .social-icons a {
-    margin: 0 10px; /* Reduced margin for better spacing */
+    padding-left: 2rem;
     color: #000;
     font-size: 24px;
     transition: color 0.3s ease; /* Smooth transition for hover effect */
