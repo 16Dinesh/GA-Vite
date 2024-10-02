@@ -3,13 +3,15 @@
     padding: 20px;
 }
 
+/* Team container */
 .team-boxes {
     display: flex;
     justify-content: center;
     gap: 40px;
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    flex-wrap: wrap; /* Enable wrapping for smaller screens */
 }
 
+/* Individual team member card */
 .team-member {
     background-color: #000;
     color: #fff;
@@ -17,39 +19,41 @@
     padding: 20px;
     width: 320px;
     text-align: left;
-    transition: transform 0.2s; /* Add hover effect */
+    transition: transform 0.2s ease; /* Smooth hover effect */
 }
 
 .team-member:hover {
-    transform: scale(1.05); /* Slightly enlarge on hover */
+    transform: scale(1.05); /* Slight enlargement on hover */
 }
 
+/* Team member image */
 .team-image {
     width: 150px;
     height: 150px;
     background-color: white;
     border-radius: 50%;
     display: block;
-    margin: 0 auto 10px;
+    margin: 0 auto 10px; /* Center the image with bottom margin */
 }
 
+/* LinkedIn name */
 .linkin-name {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 600;
     font-size: 0.9rem;
-    margin-top: 1rem;
-    margin-left: 6rem;
-    margin-bottom: 1.5rem;
+    margin: 1rem 0 1.5rem 6rem; /* Adjust margins */
 }
 
+/* Team member names */
 .names1, .names2, .names3 {
     font-size: 1rem;
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 500;
     text-align: center;
-    margin: 1rem;
+    margin: 1rem 0;
 }
 
+/* Paragraph styling for team member info */
 .team-member p {
     font-size: 0.6rem;
     margin-top: 1rem;
@@ -58,6 +62,7 @@
     font-weight: 550;
 }
 
+/* Link styling inside team member cards */
 .team-member a {
     color: #FFFFFF;
     text-decoration: none;
@@ -65,13 +70,13 @@
 
 .team-member a:hover {
     color: #5B864D;
-    text-decoration: underline;
+    text-decoration: underline; /* Add underline on hover */
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
     .team-member {
-        width: 90%; /* Full width on smaller screens */
+        width: 90%; /* Full width for smaller screens */
         max-width: 300px; /* Keep a max width */
     }
 
@@ -79,10 +84,10 @@
     .names1,
     .names2,
     .names3 {
-        font-size: 0.8rem; /* Slightly reduce font size */
+        font-size: 0.8rem; /* Reduce font size slightly */
     }
 
     .team-member p {
-        font-size: 0.5rem; /* Reduce paragraph font size */
+        font-size: 0.5rem; /* Adjust paragraph font size */
     }
 }

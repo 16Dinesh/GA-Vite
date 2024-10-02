@@ -17,9 +17,7 @@
     max-width: 550px;
     height: auto;
     flex: 1;
-    margin-left: 10rem;
-    margin-bottom: 8rem;
-    margin-right: 5rem;
+    margin: 0 5rem 8rem 10rem;
 }
 
 .text-content {
@@ -39,20 +37,20 @@
 .middle-page {
     text-align: center;
     margin: 20px 0;
-    font-family: 'Nunito Sans';
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 550;
 }
 
 .green-p {
     color: #5B864D;
-    font-family: 'Nunito Sans';
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 550;
     font-size: 1rem;
 }
 
 .middle-page h1 {
     margin: 10px 0;
-    font-family: 'NunitoSans' !important;
+    font-family: 'Nunito Sans', sans-serif !important;
     font-size: 64px;
     font-weight: bold;
 }
@@ -81,7 +79,7 @@
 .details {
     width: 50%;
     padding-left: 5rem;
-    font-family: 'NunitoSans';
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: bold;
 }
 
@@ -89,12 +87,12 @@
     margin: 2rem 0;
     display: flex;
     justify-content: center;
+    font-size: 1.5rem;
 }
 
 .green-p {
     color: #5B864D;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin: 4rem 0;
 }
 
 /* Media Queries */
@@ -120,11 +118,11 @@
 /* For screens up to 780px */
 @media (max-width: 780px) {
     .first-contactus {
-        flex-direction: column; /* Stack elements vertically */
+        flex-direction: column;
     }
 
     .first-contactus img.image-right {
-        display: none; /* Hide the image at 780px and below */
+        display: none;
     }
 
     .text-content {
@@ -169,7 +167,7 @@
     }
 
     .maps, .details {
-        width: 100%; /* Stack the map and details vertically */
+        width: 100%;
         padding-left: 0;
     }
 }
@@ -184,18 +182,18 @@
     }
 
     .middle-page h1 {
-        font-size: 2rem; /* Further reduced size */
+        font-size: 2rem;
     }
 
     .midd-number {
-        font-size: 1rem; /* Adjusted for readability */
+        font-size: 1rem;
     }
 
     .midd-p {
-        font-size: 0.8rem; /* Adjusted for smaller text */
+        font-size: 0.8rem;
     }
 
     .Details-GA {
-        padding: 10px; /* Reduce padding */
+        padding: 10px;
     }
 }

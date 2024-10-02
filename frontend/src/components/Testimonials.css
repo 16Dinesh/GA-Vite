@@ -20,6 +20,7 @@
     flex-wrap: wrap; 
 }
 
+/* Individual box styling */
 .boxes {
     background-color: white;
     padding: 15px; /* Reduced padding inside the box */
@@ -31,31 +32,35 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
+/* Icon and text wrapper */
 .icon-text-wrapper {
     display: flex;
-    align-items: center; /* Aligns the icon and the text vertically */
-    margin-bottom: 10px; /* Adds some space between the icon-text and the paragraph */
+    align-items: center; /* Align icon and text vertically */
+    margin-bottom: 10px; /* Space between icon-text and paragraph */
 }
 
+/* Quote icon styling */
 .quote-icon {
     font-size: 24px;
     color: #5B864D;
-    margin-right: 10px; /* Adds space between the icon and the name */
+    margin-right: 10px; /* Space between icon and text */
 }
 
+/* Heading styling inside boxes */
 .boxes h6 {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 400;
     margin: 0; /* Removes top and bottom margin for tighter spacing */
-    font-size: 18px; /* Keeps heading font size consistent */
-    padding-left: 5rem; /* Adjusts spacing from left */
+    font-size: 18px; /* Consistent heading font size */
+    padding-left: 5rem; /* Spacing from the left */
 }
 
+/* Paragraph styling inside boxes */
 .boxes p {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
     font-size: 14px;
-    line-height: 1.4; /* Slightly reduced line-height */
+    line-height: 1.4; /* Line-height for readability */
     text-align: justify;
     margin-top: 2rem; /* Reduced margin for minimal spacing */
     color: #555;
@@ -74,7 +79,7 @@
     }
 
     .boxes h6 {
-        padding-left: 4rem; /* Adjusted padding for medium screens */
+        padding-left: 4rem; /* Adjust padding for medium screens */
     }
 }
 

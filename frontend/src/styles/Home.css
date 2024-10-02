@@ -1,70 +1,62 @@
-.search-section {
+.search-section, .hero-section {
     background-color: white;
 }
 
 .hero-section {
-    background-color: white;
-    padding-bottom: 3rem;
-    padding-top: 5rem;
+    padding: 5rem 0 3rem;
 }
 
 .main-img {
-    width: 100%; 
-    max-width: 550px; 
+    width: 100%;
+    max-width: 550px;
     height: auto;
     display: block;
     top: 10rem !important;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
 
 .Hometitle-1, .Hometitle-2 {
     font-family: 'Nunito Sans', sans-serif;
     text-align: center;
+    color: black !important;
 }
 
 .Hometitle-1 {
-    color: black !important;
-    font-weight: 700; 
+    font-weight: 700;
 }
 
 .Hometitle-2 {
-    font-weight: 550; 
+    font-weight: 550;
     margin-top: 1rem;
-    color: black !important;
 }
 
 .content-section {
     background-color: #F6F6F6;
     padding: 20px;
-    width: 100vw; 
-    margin-left: calc(-50vw + 50%); 
-    box-sizing: border-box; 
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    box-sizing: border-box;
 }
 
 .h3-middle {
     text-align: center;
-    padding: 20px; 
+    padding: 20px;
 }
 
 .green-h3, .black-h3 {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 550 !important;
+    margin: 10px 0;
 }
 
 .green-h3 {
     color: #5B864D;
-    margin: 10px 0; 
-}
-
-.black-h3 {
-    margin: 10px 0; 
 }
 
 .box-container {
     display: flex;
-    flex-wrap: wrap; 
-    gap: 30px; 
+    flex-wrap: wrap;
+    gap: 30px;
     padding: 20px;
     justify-content: center;
 }
@@ -72,8 +64,8 @@
 .box {
     background-color: white;
     padding: 20px;
-    height: 13rem; /* Adjusted for a more consistent size */
-    width: 300px; 
+    height: 13rem;
+    width: 300px;
     border-radius: 15px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -90,7 +82,7 @@
     height: 6px;
     background-color: #5B864D;
     border-radius: 6px;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 20px;
 }
 
 .box p {
@@ -102,23 +94,23 @@
 .con-tai {
     position: relative;
     width: 100%;
-    max-width: 1200px; /* Sets a maximum width */
+    max-width: 1200px;
     height: auto;
     padding: 20px;
-    margin: 0 auto; /* Centers the container */
+    margin: 0 auto;
 }
 
 .how-it-works-box {
-    width: 600px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 600px;
     height: 23rem;
     padding: 50px 20px 20px;
     border-radius: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 8rem 0 8rem 3rem; /* Combining margin-top, margin-left, margin-bottom */
+    margin: 8rem 0 8rem 3rem;
     background-color: white !important;
-    z-index: 10;
     position: relative;
+    z-index: 10;
 }
 
 .how-it-works-box h1 {
@@ -147,7 +139,7 @@
     display: inline-block;
     width: 50px;
     height: 50px;
-    line-height: 45px; /* Centers text inside the circle */
+    line-height: 45px;
     border-radius: 15px;
     background-color: #F6F6F6;
     color: black;
@@ -156,7 +148,6 @@
     font-weight: bold;
     font-size: 38px;
     font-family: 'Nunito Sans', sans-serif;
-    font-weight: 550;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -168,7 +159,7 @@
     height: 450px;
     z-index: 5;
     border-radius: 15px;
-    object-fit: cover; /* Ensures the image fits nicely */
+    object-fit: cover;
 }
 
 /* Media Queries */
@@ -176,66 +167,64 @@
 /* For screens up to 1024px */
 @media screen and (max-width: 1024px) {
     .con-tai {
-        padding: 10px; /* Adjust padding for smaller screens */
+        padding: 10px;
     }
 
     .how-it-works-box {
-        width: 100%; /* Ensures it fits well on smaller screens */
-        margin: 8rem auto; /* Center the box */
+        margin: 8rem auto;
         text-align: center;
     }
 
     .under-image {
-        display: none; /* Hide the image on screens smaller than 800px */
+        display: none;
     }
 
-    /* Adjust box sizes for smaller screens */
     .box {
-        width: calc(50% - 20px); /* 50% width with some gap */
+        width: calc(50% - 20px);
     }
 }
 
 /* For screens up to 780px */
 @media screen and (max-width: 780px) {
     .box {
-        width: calc(100% - 20px); /* Full width on smaller screens */
+        width: calc(100% - 20px);
     }
 
     .how-it-works-box {
-        padding: 20px; /* Adjust padding for smaller screens */
+        padding: 20px;
     }
 
     .under-image {
-        display: none; /* Hide the image on smaller screens */
+        display: none;
     }
 }
 
 /* For screens up to 480px */
 @media screen and (max-width: 480px) {
     .box {
-        width: 100%; /* Full width on very small screens */
+        width: 100%;
     }
 
     .how-it-works-box {
-        padding: 20px; /* Adjust padding for very small screens */
+        padding: 20px;
     }
 
     .under-image {
-        display: none; /* Hide the image on smaller screens */
+        display: none;
     }
 }
 
 /* For screens up to 380px */
 @media screen and (max-width: 380px) {
     .box {
-        padding: 10px; /* Adjust padding for boxes */
+        padding: 10px;
     }
 
     .how-it-works-box h1 {
-        font-size: 1.5rem; /* Reduce font size for smaller screens */
+        font-size: 1.5rem;
     }
 
     .how-it-works-box li {
-        font-size: 1.2rem; /* Adjust font size for list items */
+        font-size: 1.2rem;
     }
 }

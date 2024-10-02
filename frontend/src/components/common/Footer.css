@@ -3,7 +3,6 @@ footer {
     width: 100%;
 }
 
-
 .footer-h2, .footer-h3, .footer-h {
     font-family: 'Nunito Sans', sans-serif;
     color: black;
@@ -33,13 +32,17 @@ footer {
     font-weight: 300; 
 }
 
+/* Social icons container */
 .footer .social-icons {
     display: flex; /* Use flexbox for social icons */
+    justify-content: center; 
+    align-items: center; 
+    padding-right: 10rem;
     margin-top: 10px; /* Spacing above social icons */
+    gap: 2rem; /* Spacing between icons */
 }
 
 .footer .social-icons a {
-    padding-left: 2rem;
     color: #000;
     font-size: 24px;
     transition: color 0.3s ease; /* Smooth transition for hover effect */
@@ -57,6 +60,11 @@ footer {
         font-size: 1.1rem; /* Adjust font size */
     }
 
+    .footer .social-icons {
+        padding-right: 0;
+        gap: 1.2rem; /* Slightly closer icons */
+    }
+
     .footer .social-icons a {
         font-size: 22px; /* Adjust icon size */
     }
@@ -66,6 +74,10 @@ footer {
 @media (max-width: 780px) {
     .footer-h2, .footer-h3, .footer-h {
         font-size: 1rem; /* Adjust font size for mobile */
+    }
+
+    .footer .social-icons {
+        gap: 1rem; /* Reduce gap between icons */
     }
 
     .footer .social-icons a {
@@ -79,8 +91,12 @@ footer {
         font-size: 0.9rem; /* Further adjust font size */
     }
 
+    .footer .social-icons {
+        gap: 0.8rem; /* Closer spacing between icons */
+    }
+
     .footer .social-icons a {
-        font-size: 18px; /* Further adjust icon size */
+        font-size: 18px; /* Adjust icon size */
     }
 }
 
@@ -90,7 +106,11 @@ footer {
         font-size: 0.8rem; /* Smallest font size */
     }
 
+    .footer .social-icons {
+        gap: 0.6rem; /* Tighter spacing */
+    }
+
     .footer .social-icons a {
         font-size: 16px; /* Smallest icon size */
-    }   
+    }
 }

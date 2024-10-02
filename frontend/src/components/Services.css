@@ -1,3 +1,4 @@
+/* Title styling */
 .title {
     font-family: 'Nunito Sans', sans-serif;
     text-align: center;
@@ -16,10 +17,9 @@
     align-items: flex-start; 
     flex-wrap: wrap;
     background-color: #F6F6F6;
-}  
+}
 
-
-
+/* Service box styling */
 .service-box, .service-box-LAST {
     background-color: white;
     text-align: center;
@@ -28,7 +28,7 @@
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease; /* Smooth scaling effect */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Added smooth shadow transition */
 }
 
 .service-box img, .service-box-LAST img {
@@ -49,10 +49,10 @@
 
 .service-box:hover {
     transform: scale(1.02); 
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Add a more pronounced shadow on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* More pronounced shadow on hover */
 }
 
-/* Main button styling for all devices */
+/* Button styling */
 .service-button {
     margin-top: 1.5rem;
     background-color: #5B864D; 
@@ -78,19 +78,15 @@
   and (-webkit-device-pixel-ratio: 4) {
 
     .service-button {
-        padding: 10px 20px; /* Keep padding the same */
-        font-size: 5px; /* Ensure the font size remains consistent */
-        width: auto; /* Ensures button adapts to its content */
-        height: 2rem ;
+        font-size: 5px; /* Ensure the font size remains legible */
+        height: 2rem;
     }
 }
 
 /* General responsive rule for smaller screens */
 @media (max-width: 800px) {
     .service-button {
-        font-size: 7px; /* Maintain font size */
-        padding: 10px 20px; /* Consistent padding */
-        width: auto; /* Ensures button adapts to content */
-        height: 2rem ;
+        font-size: 7px;
+        height: 2rem;
     }
 }
