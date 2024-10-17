@@ -5,7 +5,7 @@ import Aboutus from "./pages/default-pages/Aboutus";
 import Beanassist from "./pages/default-pages/Beanassist";
 import Privacypolicy from "./pages/default-pages/Privacypolicy";
 import Termsandconditions from "./pages/default-pages/Termsandconditions";
-import { Route, Router, Routes } from "react-router-dom";
+import { Navigate, Route, Router, Routes } from "react-router-dom";
 import ContactUs from "./pages/default-pages/Contactus";
 import DefaultLayout from "./components/layouts/DefaultLayout";
 
@@ -15,6 +15,7 @@ export default function GreenAssistRoutes() {
       <Routes>
         {/* Default Routes */}
         <Route path="/" element={<DefaultLayout />}>
+          <Route index element={<Navigate to="/home" />} />
           <Route path="home" element={<Home />} />
           <Route path="Services" element={<Services />} />
           <Route path="Aboutus" element={<Aboutus />} />
