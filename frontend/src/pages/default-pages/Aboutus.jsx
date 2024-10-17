@@ -1,13 +1,10 @@
-import Footer from "../components/common/Footer";
-import NavBar from "../components/common/NavBar";
-import ReachUsC from "../components/FooterBox/Reach_Us_Common";
-import Teams from "../components/Team";
-import '../styles/Aboutus.css';
+import Teams from "../../components/About-us/Team";
+import ReachUsC from "../../components/FooterBox/default-pages/Reach_Us_Common";
+import '../../styles/Aboutus.css';
 
 function Aboutus() {
   return (
     <>
-      <NavBar />
       <main>
         <div className="content-section">
           <div className="space-on-side">
@@ -75,7 +72,6 @@ function Aboutus() {
         </div>
         <ReachUsC />
       </main>
-      <Footer />
     </>
   );
 }

@@ -1,27 +1,40 @@
-// GreenAssist.js
-import Home from "./pages/Home";
-import Services from './pages/Services';
-import Aboutus from './pages/Aboutus';
-import Beanassist from './pages/Beanassist';
-import Contactus from './pages/Contactus';
-import Privacypolicy from './pages/Privacypolicy';
-import Termsandconditions from './pages/Termsandconditions';
-import { Route, Routes } from "react-router-dom";
-import ScrollToTop from './components/common/ScrollToTop';
+// GreenAssist.jsx
+import Home from "./pages/default-pages/Home";
+import Services from "./pages//default-pages/Services";
+import Aboutus from "./pages/default-pages/Aboutus";
+import Beanassist from "./pages/default-pages/Beanassist";
+import Privacypolicy from "./pages/default-pages/Privacypolicy";
+import Termsandconditions from "./pages/default-pages/Termsandconditions";
+import { Route, Router, Routes } from "react-router-dom";
+import ContactUs from "./pages/default-pages/Contactus";
+import DefaultLayout from "./components/layouts/DefaultLayout";
 
-export default function GreenAssist() {
-    return (
-        <div className="App">
-            <ScrollToTop /> 
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/aboutus" element={<Aboutus />} />
-                <Route path="/beanassist" element={<Beanassist />} />
-                <Route path="/contactus" element={<Contactus />} />
-                <Route path="/privacypolicy" element={<Privacypolicy />} />
-                <Route path="/termsandconditions" element={<Termsandconditions />} />
-            </Routes>
-        </div>
-    );
+export default function GreenAssistRoutes() {
+  return (
+    <div className="App">
+      <Routes>
+        {/* Default Routes */}
+        <Route path="/" element={<DefaultLayout />}>
+          <Route path="home" element={<Home />} />
+          <Route path="Services" element={<Services />} />
+          <Route path="Aboutus" element={<Aboutus />} />
+          <Route path="ContactUs" element={<ContactUs />} />
+          <Route path="Beanassist" element={<Beanassist />} />
+          <Route path="Privacypolicy" element={<Privacypolicy />} />
+          <Route path="Termsandconditions" element={<Termsandconditions />} />
+        </Route>
+
+        {/* Services Routes */}
+        {/* <Router path="/service" element={<ServiceLayout/>}>
+          <Route/>
+          <Route/>
+          <Route/>
+          <Route/>
+          <Route/>
+          <Route/>
+        </Router> */}
+
+      </Routes>
+    </div>
+  );
 }

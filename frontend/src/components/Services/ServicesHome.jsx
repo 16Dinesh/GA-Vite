@@ -42,8 +42,6 @@ export default function ServicesHome() {
 
   return (
     <>
-      <h3 className="title">In Services</h3>
-
       <div className="container-flex">
         {servicesData.map((service, index) => (
           <div className={`service-box ${!service.available ? "service-box-LAST" : ""}`} key={index}>

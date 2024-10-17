@@ -1,13 +1,10 @@
-import Footer from "../components/common/Footer"
-import NavBar from "../components/common/NavBar"
-import JoinUs_fotter from "../components/FooterBox/Join_Us_C"
-import BeanAssistForm from "../components/Forms/BeanAssistForm"
-import '../styles/Beanassist.css'
+import JoinUs_fotter from "../../components/FooterBox/default-pages/Join_Us_C"
+import BeanAssistForm from "../../components/Forms/BeanAssistForm"
+import '../../styles/Beanassist.css'
 function Beanassist() {
 
     return (
         <>
-        <NavBar/>
             <main>
             <div className="content-section">
             <div className="first-beanassit">
@@ -33,7 +30,6 @@ function Beanassist() {
             </div>
             <JoinUs_fotter/>
             </main>
-        <Footer/>
         </>
     )
 }

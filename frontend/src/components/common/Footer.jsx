@@ -28,7 +28,7 @@ export default function Footer() {
                         <h6 className="footer-h">MENU</h6>
                         <ul className="list-unstyled">
                         <li>
-                            <Link to="/" className="footer-h3">Home</Link>
+                            <Link to="/home" className="footer-h3">Home</Link>
                         </li>
                         <li>
                             <Link to="/services" className="footer-h3">Services</Link>

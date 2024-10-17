@@ -12,6 +12,7 @@ node_modules
 dist
 dist-ssr
 *.local
+GreenAssist copy.jsx
 
 # Editor directories and files
 .vscode/*

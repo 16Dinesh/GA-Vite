@@ -1,15 +1,12 @@
-import Footer from "../components/common/Footer"
-import NavBar from "../components/common/NavBar"
-import JoinUs_fotter from "../components/FooterBox/Join_Us_C"
-import ContactUsForm from "../components/Forms/ContactUsForm"
-import GoogleMaps from "../components/GoogleMaps/Maps"
-import "../styles/Contactus.css"
+import JoinUs_fotter from "../../components/FooterBox/default-pages/Join_Us_C"
+import ContactUsForm from "../../components/Forms/ContactUsForm"
+import GoogleMaps from "../../components/GoogleMaps/Maps"
+import "../../styles/Contactus.css"
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function ContactUs() {
     return (
       <>
-        <NavBar />
         <main>
           <div className="content-section">
             <div className="first-contactus">
@@ -51,7 +48,6 @@ function ContactUs() {
   
           <JoinUs_fotter />
         </main>
-        <Footer />
       </>
     );
   }

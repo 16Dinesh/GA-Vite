@@ -16,7 +16,7 @@ export default function NavBar() {
                     </button>
                     <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
                         <div className="navbar-nav mx-auto">
-                            <Link to="/" className="nav-link">Home</Link>
+                            <Link to="/home" className="nav-link">Home</Link>
                             <Link to="/services" className="nav-link">Services</Link>
                             <Link to="/aboutus" className="nav-link">About Us</Link>
                             <Link to="/beanassist" className="nav-link">Be an Assist</Link>

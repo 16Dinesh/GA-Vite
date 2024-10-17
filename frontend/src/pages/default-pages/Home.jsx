@@ -1,15 +1,12 @@
-import Footer from "../components/common/Footer";
-import NavBar from "../components/common/NavBar";
-import SearchBar from "../components/Search";
-import ServersHome from "../components/Services";
-import Testimonials from "../components/Testimonials";
-import ReachUsH from '../components/FooterBox/Reach_Us_Home'
-import "../styles/Home.css";
+import "../../styles/Home.css";
+import SearchBar from '../../components/Home/Search'
+import ServersHome from '../../components/Services/ServicesHome'
+import Testimonials from '../../components/Home/Testimonials'
+import ReachUsH from '../../components/FooterBox/default-pages/Reach_Us_Home'
 
 function Home() {
     return (
         <>
-            <NavBar />
             <main>
                 <section className="hero-section">
                     <img
@@ -59,7 +56,7 @@ function Home() {
                             </p>
                         </article>
                     </div>
-
+                    <h3 className="title">In Services</h3>
                     <ServersHome />
                     <Testimonials />
 
@@ -78,7 +75,6 @@ function Home() {
                     <ReachUsH />
                 </section>
             </main>
-            <Footer />
         </>
     );
 }

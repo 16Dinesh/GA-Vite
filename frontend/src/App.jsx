@@ -1,11 +1,13 @@
 import './App.css'
-import GreenAssist from './GreenAssist';
+import ScrollToTop from './components/common/ScrollToTop';
+import GreenAssistRoutes from './GreenAssist';
 
 function App() {
   
   return (
     <>
-    <GreenAssist/>
+    <ScrollToTop />
+    <GreenAssistRoutes/>
     </>
   )
 }
