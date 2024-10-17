@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #fffbea;
+    color: #444;
+    text-align: center;
+  }
+  
+  .graphic {
+    margin-bottom: 20px;
+  }
+  
+  .message {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .back-link {
+    color: #e67e22;
+    text-decoration: underline;
+  }
+  
+  .small-bounce {
+    animation: bounceSmall 2s infinite;
+  }
+  
+  .large-bounce {
+    animation: bounceLarge 2s infinite;
+  }
+  
+  @keyframes bounceSmall {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+  
+  @keyframes bounceLarge {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-25px);
+    }
+  }
+  
