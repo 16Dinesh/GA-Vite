@@ -3,7 +3,7 @@ import './index.css';
 
 function NotFound() {
   return (
-    <div className="container">
+    <div className="Not-Found-container">
       <svg
         width="400"
         height="400"
@@ -38,7 +38,7 @@ function NotFound() {
           Page Lost in the Desert!
         </text>
       </svg>
-      <p className="message">Looks like you're wandering in the sands of nowhere.</p>
+      <p className="Not-Found-message">Looks like you're wandering in the sands of nowhere.</p>
       <Link to="/home" className="back-link">
         Find Your Way Back
       </Link>

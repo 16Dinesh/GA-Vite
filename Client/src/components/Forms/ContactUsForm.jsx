@@ -4,10 +4,10 @@ export default function ContactUsForm() {
 
     return (
         <>
-        <div class="content-section">
-            <div class="form-container">
-            <div class="form-black-box">
-                <div class="contact-info">
+        <div className="content-section">
+            <div className="form-container">
+            <div className="form-black-box">
+                <div className="contact-info">
                     <h5>Give Us a Call</h5>
                     <h2>Reach Out for Skilled Assistance</h2>
                     <p>Have a question or need assistance? Reach out to us for expert services!</p>

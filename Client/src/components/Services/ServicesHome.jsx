@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import "./Services.css";
 
 // Services data array for dynamic rendering
@@ -7,50 +8,69 @@ const servicesData = [
     image: "/home/Plumbing Assistance .png",
     alt: "Plumbing Assistance",
     available: true,
+    path: "/service/plumbing",
   },
   {
     title: "Electrical Assist",
     image: "/home/Electrical Assistance.png",
     alt: "Electrical Assistance",
     available: true,
+    path: "/service/electrician",
   },
   {
     title: "Water-Purifier Assist",
     image: "/home/Water-Purifier Assistance logo.png",
     alt: "Water Purifier Assistance",
     available: true,
+    path: "/service/waterPurifier",
   },
   {
     title: "Single Driver Assist",
     image: "/home/Single driver Assist logo.png",
     alt: "Single Driver Assistance",
     available: true,
+    path: "/service/singleDriverAssistance",
   },
   {
     title: "Coming Soon",
     image: "/common/Question Mark.png",
     alt: "Coming Soon",
     available: false,
+    path: "",
   },
 ];
 
 export default function ServicesHome() {
-  const handleBooking = (serviceTitle) => {
-    alert(`Booking for ${serviceTitle} coming soon!`);
-    // Add logic here for booking functionality
+  const navigate = useNavigate();
+
+  const handleBooking = (service) => {
+    if (service.available) {
+      navigate(service.path);
+    } else {
+      alert(`Booking for ${service.title} coming soon!`);
+    }
   };
 
   return (
     <>
       <div className="container-flex">
         {servicesData.map((service, index) => (
-          <div className={`service-box ${!service.available ? "service-box-LAST" : ""}`} key={index}>
-            <img src={service.image} alt={service.alt} className="service-icon" />
+          <div
+            className={`service-box ${
+              !service.available ? "service-box-LAST" : ""
+            }`}
+            key={index}
+          >
+            <img
+              src={service.image}
+              alt={service.alt}
+              className="service-icon"
+            />
             <h4>{service.title}</h4>
             {service.available ? (
               <button
                 className="service-button"
-                onClick={() => handleBooking(service.title)}
+                onClick={() => handleBooking(service)}
               >
                 Book a Service
               </button>

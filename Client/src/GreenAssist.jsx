@@ -1,4 +1,4 @@
-// React-Router-Routes Green-Assist.jsx
+// React-Router-Routes Green-Assist
 import Home from "./pages/default-pages/Home";
 import Services from "./pages//default-pages/Services";
 import Aboutus from "./pages/default-pages/Aboutus";
@@ -25,11 +25,9 @@ import NotFound from "./pages/Notfound";
 import CheckAuth from "./components/common/check-auth";
 
 export default function GreenAssistRoutes() {
-
-  const isAuthenticated = true;
+  const isAuthenticated = false;
   const user = {
-    name: "dinesh",
-    role: "user",
+   role: null
   };
 
   return (

@@ -1,14 +1,14 @@
 {
-  "name": "green-asssit-v1",
+  "name": "green-assit-v1",
   "version": "1.0.0",
-  "description": "Green asssit vite server",
+  "description": "Green assit vite server",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "server.js",
     "dev": "nodemon server.js"
   },
-  "author": "dinesh",
+  "author": "Dinesh Reddypogu",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",

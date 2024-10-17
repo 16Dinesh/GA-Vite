@@ -5,7 +5,7 @@ html, body {
     flex-direction: column;
     scroll-behavior: smooth;
     background-color: #F6F6F6 !important;
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Nunito Sans', sans-serif !important;
     color: #333;
 }
 

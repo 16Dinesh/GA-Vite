@@ -3,8 +3,8 @@ import "./forms.css";
 export default function BeanAssistForm() {
     return (
         <>
-        <div class="content-section">
-            <div class="form-container">
+        <div className="content-section">
+            <div className="form-container">
             <div className="form-black-box">
                 <div className="contact-info">
                     <p>Be An Assist</p>
