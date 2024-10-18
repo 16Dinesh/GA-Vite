@@ -26,12 +26,12 @@ export default function AuthLogin() {
     event.preventDefault();
     dispatch(loginUser(formData)).then((data) => {
       if (data?.payload?.success) {
-        toast.success(data?.payload?.message, {
+        toast.success(data?.payload?.message || "Successfully Done", {
           duration: 2000,
         });
         navigate("/services");   
       } else {
-        toast.error(data?.payload?.message, {
+        toast.error(data?.payload?.message || "Error Occurred Please Try Again", {
           duration: 2000,
         });
       }
