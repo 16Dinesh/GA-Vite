@@ -1,0 +1,143 @@
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.admin-layout-header {
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: column;
+}
+
+.admin-main-content {
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: column;
+  background-color: #f6f6f6;
+  padding: 1rem;
+}
+
+.sidebar-MenuItems-Nav {
+  margin-top: 2rem;
+  flex-direction: column;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.sideBar-menuItems-itemsList {
+  display: flex;
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 4px;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: #374151;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Add transition for smooth effect */
+}
+
+.sideBar-menuItems-itemsList:hover {
+  background-color: #9ca3af !important;
+}
+
+.admin-header-c {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  background-color: #f9fafb;
+  border-bottom-width: 1px;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.admin-header-c-Toggle-menu-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.admin-header-c-logoutBtn-handle {
+  display: flex;
+  flex: 1 1 0%;
+  justify-content: flex-end;
+}
+
+.admin-header-c-logout-button {
+  background-color: #5b864d !important;
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  border-radius: 4px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for background and scale */
+}
+
+.admin-header-c-logout-button:hover {
+  background-color: #467237 !important;
+  transform: scale(1.05);
+}
+
+.AdminSideBar-Fragment-c {
+  display: flex !important;
+  height: 100% !important;
+  border-bottom-width: 1px !important;
+  gap: 0.5rem !important;
+  margin-top: 1.25rem !important;
+  margin-bottom: 1.25rem !important;
+  font-size: 1.5rem !important;
+  line-height: 2rem !important;
+  font-weight: 800 !important;
+}
+
+.adminSideBar-c-aside-main {
+    display: none ;
+    width: 16rem;
+    flex-direction: column;
+    border-right-width: 1px;
+    background-color: #f9fafb;
+    padding: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    .adminSideBar-c-aside-main {
+        display: flex;
+    }
+}
+
+@media (min-width: 1024px) {
+  .admin-Header-BtnC {
+    display: none !important;
+  }
+}
+
+@media (min-width: 640px) {
+  .admin-Header-BtnC {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .admin-main-content {
+    padding: 1.5rem;
+  }
+}

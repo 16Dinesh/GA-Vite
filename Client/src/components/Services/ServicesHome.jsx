@@ -4,13 +4,6 @@ import "./Services.css";
 // Services data array for dynamic rendering
 const servicesData = [
   {
-    title: "Plumbing Assist",
-    image: "/home/Plumbing Assistance .png",
-    alt: "Plumbing Assistance",
-    available: true,
-    path: "/service/plumbing",
-  },
-  {
     title: "Electrical Assist",
     image: "/home/Electrical Assistance.png",
     alt: "Electrical Assistance",
@@ -25,19 +18,26 @@ const servicesData = [
     path: "/service/waterPurifier",
   },
   {
+    title: "Plumbing Assist",
+    image: "/home/Plumbing Assistance .png",
+    alt: "Plumbing Assistance",
+    available: true,
+    path: "/service/plumbing",
+  },
+  {
     title: "Single Driver Assist",
     image: "/home/Single driver Assist logo.png",
     alt: "Single Driver Assistance",
     available: true,
     path: "/service/singleDriverAssistance",
   },
-  {
-    title: "Coming Soon",
-    image: "/common/Question Mark.png",
-    alt: "Coming Soon",
-    available: false,
-    path: "",
-  },
+  // {
+  //   title: "Coming Soon",
+  //   image: "/common/Question Mark.png",
+  //   alt: "Coming Soon",
+  //   available: false,
+  //   path: "",
+  // },
 ];
 
 export default function ServicesHome() {

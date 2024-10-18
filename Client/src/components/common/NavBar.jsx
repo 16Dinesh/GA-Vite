@@ -1,18 +1,21 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import './NavBar.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 export default function NavBar() {
     const [loading, setLoading] = useState(false);
+    const location = useLocation();
 
-    const handleNavigation = () => {
+    // Handle loading state when the route changes
+    useEffect(() => {
         setLoading(true);
-        setTimeout(() => {
+        const timer = setTimeout(() => {
             setLoading(false);
-        }, 300); 
-    };
+        }, 300);
+        return () => clearTimeout(timer);
+    }, [location]);
 
     return (
         <>
@@ -26,7 +29,7 @@ export default function NavBar() {
             ) : (
                 <nav className="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
                     <div className="container-fluid">
-                        <NavLink to="/" className="navbar-brand" onClick={handleNavigation}>
+                        <NavLink to="/" className="navbar-brand">
                             Green Assist
                         </NavLink>
                         <button
@@ -42,21 +45,35 @@ export default function NavBar() {
                         </button>
                         <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
                             <div className="navbar-nav mx-auto">
-                                <NavLink to="/home" className="nav-link" onClick={handleNavigation} activeClassName="active">
+                                <NavLink
+                                    to="/home"
+                                    className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                                >
                                     Home
                                 </NavLink>
-                                <NavLink to="/services" className="nav-link" onClick={handleNavigation} activeClassName="active">
+                                <NavLink
+                                    to="/services"
+                                    className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                                >
                                     Services
                                 </NavLink>
-                                <NavLink to="/aboutus" className="nav-link" onClick={handleNavigation} activeClassName="active">
+                                <NavLink
+                                    to="/aboutus"
+                                    className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                                >
                                     About Us
                                 </NavLink>
-                                <NavLink to="/beanassist" className="nav-link" onClick={handleNavigation} activeClassName="active">
+                                <NavLink
+                                    to="/beanassist"
+                                    className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                                >
                                     Be an Assist
                                 </NavLink>
                             </div>
-                            {/* Move the button inside the collapse div */}
-                            <NavLink to="/contactus" className="btn nav-btn" onClick={handleNavigation} style={{ marginLeft: '0', marginRight: '0' }}>
+                            <NavLink
+                                to="/contactus"
+                                className="btn nav-btn mx-2"
+                            >
                                 CONTACT US
                             </NavLink>
                         </div>

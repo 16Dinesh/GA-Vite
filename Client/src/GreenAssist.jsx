@@ -5,7 +5,7 @@ import Aboutus from "./pages/default-pages/Aboutus";
 import Beanassist from "./pages/default-pages/Beanassist";
 import Privacypolicy from "./pages/default-pages/Privacypolicy";
 import Termsandconditions from "./pages/default-pages/Termsandconditions";
-import { Navigate, Route, Router, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import ContactUs from "./pages/default-pages/Contactus";
 import DefaultLayout from "./components/layouts/DefaultLayout";
 import Plumbing from "./pages/listing-pages/Plumbing";
@@ -23,12 +23,18 @@ import ServiceLayout from "./components/layouts/ServiceLayout";
 import UnauthPage from "./pages/unauth-page";
 import NotFound from "./pages/Notfound";
 import CheckAuth from "./components/common/check-auth";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { checkAuth } from "./store/auth-slice";
 
 export default function GreenAssistRoutes() {
-  const isAuthenticated = false;
-  const user = {
-   role: null
-  };
+  const { user, isAuthenticated } = useSelector((state) => state.auth);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(checkAuth());
+  }, [dispatch]);
 
   return (
     <div className="App">
