@@ -1,5 +1,4 @@
-.search-section,
-.hero-section {
+.search-section, .hero-section {
   background-color: white;
 }
 
@@ -16,9 +15,8 @@
   margin: 0 auto;
 }
 
-.Hometitle-1,
-.Hometitle-2 {
-  font-family: "Nunito Sans", sans-serif;
+.Hometitle-1, .Hometitle-2 {
+  font-family: 'Nunito Sans', sans-serif;
   text-align: center;
   color: black !important;
 }
@@ -33,7 +31,7 @@
 }
 
 .content-section {
-  background-color: #f6f6f6;
+  background-color: #F6F6F6;
   padding: 20px;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
@@ -45,15 +43,14 @@
   padding: 20px;
 }
 
-.green-h3,
-.black-h3 {
-  font-family: "Nunito Sans", sans-serif;
+.green-h3, .black-h3 {
+  font-family: 'Nunito Sans', sans-serif;
   font-weight: 550 !important;
   margin: 10px 0;
 }
 
 .green-h3 {
-  color: #5b864d;
+  color: #5B864D;
 }
 
 .box-container {
@@ -76,20 +73,20 @@
 
 .box h5 {
   margin-bottom: 10px;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   font-weight: 550 !important;
 }
 
 .line {
   width: 10rem;
   height: 6px;
-  background-color: #5b864d;
+  background-color: #5B864D;
   border-radius: 6px;
   margin: 0 auto 20px;
 }
 
 .box p {
-  font-family: "Nunito Sans", sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   font-weight: 400 !important;
 }
 
@@ -109,7 +106,7 @@
   height: 23rem;
   padding: 50px 20px 20px;
   border-radius: 15px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   margin: 8rem 0 8rem 3rem;
   background-color: white !important;
   position: relative;
@@ -119,7 +116,7 @@
 .how-it-works-box h1 {
   text-align: center;
   margin-bottom: 30px;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   font-weight: 600;
   font-size: 2rem;
 }
@@ -130,10 +127,10 @@
 }
 
 .how-it-works-box li {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   display: flex;
   align-items: center;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   font-size: 1.5rem;
   color: #333;
 }
@@ -144,14 +141,15 @@
   height: 50px;
   line-height: 45px;
   border-radius: 15px;
-  background-color: #f6f6f6;
+  background-color: #F6F6F6;
   color: black;
   text-align: center;
+  padding-top: 0.2rem;
   margin-right: 15px;
   font-weight: bold;
   font-size: 38px;
-  font-family: "Nunito Sans", sans-serif;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-family: 'Nunito Sans', sans-serif;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3 );
 }
 
 .under-image {
@@ -161,6 +159,7 @@
   width: 800px;
   height: 450px;
   z-index: 5;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
   object-fit: cover;
 }
@@ -170,64 +169,64 @@
 /* For screens up to 1024px */
 @media screen and (max-width: 1024px) {
   .con-tai {
-    padding: 10px;
+      padding: 10px;
   }
 
   .how-it-works-box {
-    margin: 8rem auto;
-    text-align: center;
+      margin: 8rem auto;
+      text-align: center;
   }
 
   .under-image {
-    display: none;
+      display: none;
   }
 
   .box {
-    width: calc(50% - 20px);
+      width: calc(50% - 20px);
   }
 }
 
 /* For screens up to 780px */
 @media screen and (max-width: 780px) {
   .box {
-    width: calc(100% - 20px);
+      width: calc(100% - 20px);
   }
 
   .how-it-works-box {
-    padding: 20px;
+      padding: 20px;
   }
 
   .under-image {
-    display: none;
+      display: none;
   }
 }
 
 /* For screens up to 480px */
 @media screen and (max-width: 480px) {
   .box {
-    width: 100%;
+      width: 100%;
   }
 
   .how-it-works-box {
-    padding: 20px;
+      padding: 20px;
   }
 
   .under-image {
-    display: none;
+      display: none;
   }
 }
 
 /* For screens up to 380px */
 @media screen and (max-width: 380px) {
   .box {
-    padding: 10px;
+      padding: 10px;
   }
 
   .how-it-works-box h1 {
-    font-size: 1.5rem;
+      font-size: 1.5rem;
   }
 
   .how-it-works-box li {
-    font-size: 1.2rem;
+      font-size: 1.2rem;
   }
 }
