@@ -13,24 +13,6 @@
     border-radius: 15px;
 }
 
-.info-window {
-    font-family: Arial, sans-serif;
-    color: #333;
-    max-height: 90px;
-    max-width: 180px;
-    text-align: left;
-}
-
-.info-window h3 {
-    margin: 0;
-    font-size: 1.2rem;
-    color: #007BFF;
-}
-
-.info-window p {
-    font-size: 0.9rem;
-    margin-top: 5px;
-}
 
 /* Media Queries */
 
@@ -41,13 +23,7 @@
         padding-left: 3rem; /* Reduce left padding */
     }
 
-    .info-window h3 {
-        font-size: 1.1rem; /* Slightly smaller font */
-    }
 
-    .info-window p {
-        font-size: 0.85rem; /* Reduce text size */
-    }
 }
 
 /* For screens up to 780px */
@@ -57,13 +33,6 @@
         padding-left: 2rem; /* Reduce left padding */
     }
 
-    .info-window h3 {
-        font-size: 1rem; /* Smaller font size for titles */
-    }
-
-    .info-window p {
-        font-size: 0.8rem; /* Smaller font size for paragraph */
-    }
 }
 
 /* For screens up to 480px */
@@ -72,14 +41,6 @@
         height: 40vh; /* Further reduce height */
         padding-left: 1rem; /* Minimize padding */
     }
-
-    .info-window h3 {
-        font-size: 0.9rem; /* Reduce heading size */
-    }
-
-    .info-window p {
-        font-size: 0.75rem; /* Smaller font for paragraph */
-    }
 }
 
 /* For screens up to 380px */
@@ -87,13 +48,5 @@
     .map-container {
         height: 35vh; /* Adjust for very small screens */
         padding-left: 0.5rem; /* Minimal padding */
-    }
-
-    .info-window h3 {
-        font-size: 0.85rem; /* Smaller heading */
-    }
-
-    .info-window p {
-        font-size: 0.7rem; /* Smaller paragraph text */
     }
 }

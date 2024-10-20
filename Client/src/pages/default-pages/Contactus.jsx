@@ -1,8 +1,11 @@
 import { PhoneCall } from "lucide-react";
 import JoinUs_fotter from "../../components/FooterBox/default-pages/Join_Us_C";
 import ContactUsForm from "../../components/Forms/ContactUsForm";
-import GoogleMaps from "../../components/Maps/Maps";
+// import MapBoxMap from "../../components/Maps/Maps";
 import "../../styles/Contactus.css";
+import React, { Suspense } from "react";
+
+const SomeComponent = React.lazy(() =>import ('../../components/Maps/Maps'));
 
 function ContactUs() {
   return (
@@ -42,7 +45,9 @@ function ContactUs() {
 
         <div className="Details-GA">
           <div className="maps">
-            <GoogleMaps />
+          <Suspense fallback={<div>Loading map...</div>}>
+              <SomeComponent />
+            </Suspense>
           </div>
           <div className="details">
             <p className="green-p">My office :</p>

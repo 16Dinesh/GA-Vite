@@ -1,6 +1,6 @@
     .get-started-off {
-    background-color: #FFFFFF;
-    color: #000;
+    /* background-color: #FFFFFF !important; */
+    color: #000 !important;
     padding: 10px 20px;
     margin-top: 2rem;
     width: 170px;

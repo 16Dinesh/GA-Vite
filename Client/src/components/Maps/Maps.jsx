@@ -1,10 +1,9 @@
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./Maps.css";
-import { Fragment, useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
-import ReactDOMServer from 'react-dom/server';
 import WhereToVoteIcon from '@mui/icons-material/WhereToVote';
-
+import ReactDOMServer from 'react-dom/server';
 
 mapboxgl.accessToken = import.meta.env.VITE_MAP_BOX_ACCESS_TOKEN;
 
@@ -45,44 +44,36 @@ export default function MapBoxMap() {
       el.style.height = "50px";
 
       // Render the SVG icon inside the marker element
-      // const icon = <WhereToVoteIcon  sx={{fontSize:'50px', color: "#5b864d", display:"hidden"}} />;
-      // el.innerHTML = ReactDOMServer.renderToString(icon);
+      const icon = <WhereToVoteIcon sx={{ fontSize: '50px', color: "#5b864d" }} />;
+      el.innerHTML = ReactDOMServer.renderToString(icon);
 
-      // markerRef.current = new mapboxgl.Marker(el)
-      //   .setLngLat([markerData.position.lng, markerData.position.lat])
-      //   .addTo(mapInstance)
-      //   .setPopup(
-      //     new mapboxgl.Popup({ offset: 25 }).setHTML(
-      //       `<div class="info-window"><h3>${markerData.name}</h3><p>The Plan Started Here</p></div>`
-      //     )
-      //   );
+      markerRef.current = new mapboxgl.Marker(el)
+        .setLngLat([markerData.position.lng, markerData.position.lat])
+        .addTo(mapInstance)
+        .setPopup(
+          new mapboxgl.Popup({ offset: 25 }).setHTML(
+            `<div class="info-window"><h3>${markerData.name}</h3><p>The Plan Started Here</p></div>`
+          )
+        );
 
-      // Click event listener for marker
       el.addEventListener("click", () => {
         handleActiveMarker(markerData.id);
       });
 
-      return () => mapInstance.remove();
+      return () => {
+        markerRef.current?.remove();
+        mapInstance.remove();
+      };
     }
   }, [mapContainerRef]);
 
   return (
-    <>
-      <Fragment>
-        <div className="map-container">
-          <div
-            ref={mapContainerRef}
-            className="map-style"
-            style={{ height: "500px", width: "100%" }}
-          />
-          {/* {activeMarker === markerData.id && (
-            <div className="info-window">
-              <h3>{markerData.name}</h3>
-              <p>The Plan Started Here</p>
-            </div>
-          )} */}
-        </div>
-      </Fragment>
-    </>
+    <div className="map-container">
+      <div
+        ref={mapContainerRef}
+        className="map-style"
+        style={{ height: "500px", width: "100%" }}
+      />
+    </div>
   );
 }

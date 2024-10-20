@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"; 
 import "./ReachUs.css";
+import { Button } from "@mui/joy";
 
 export default function ReachUsH() {
     const navigate = useNavigate(); // Initialize useNavigate
@@ -14,9 +15,9 @@ export default function ReachUsH() {
             <p>
                 Start simplifying your maintenance journey with<br /> Green Assist today.
             </p>
-            <button className="get-started" onClick={handleGetStarted}>
+            <Button className="get-started" onClick={handleGetStarted}>
                 Get Started
-            </button> 
+            </Button> 
         </div>
     );
 }
