@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+
+
+
 import './Footer.css'
 
 export default function Footer() {
@@ -53,13 +56,13 @@ export default function Footer() {
                         <p className="footer-h">Follow us:</p>
                         <div className="social-icons">
                         <a href="https://facebook.com" className="me-2">
-                            <FontAwesomeIcon icon={faFacebook} size="lg" />
+                            <FacebookIcon fontSize="large" />
                         </a>
                         <a href="https://instagram.com" className="me-2">
-                            <FontAwesomeIcon icon={faInstagram} size="lg" />
+                            <InstagramIcon fontSize='large' />
                         </a>
                         <a href="https://whatsapp.com">
-                            <FontAwesomeIcon icon={faWhatsapp} size="lg" />
+                            < WhatsAppIcon fontSize='large' />
                         </a>
                         </div>
                     </div>

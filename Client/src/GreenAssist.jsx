@@ -31,10 +31,13 @@ import AdminPageTeam from "./pages/admin-view/Team";
 import AdminPageRequest from "./pages/admin-view/requests";
 
 export default function GreenAssistRoutes() {
-  const { user , isAuthenticated, isLoading } = useSelector(
-    (state) => state.auth
-  );
+  const {
+    user,
+    isAuthenticated,
+    isLoading,
+  } = useSelector((state) => state.auth);
 
+  
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -67,7 +70,11 @@ export default function GreenAssistRoutes() {
         <Route
           path="/services"
           element={
-            <CheckAuth isAuthenticated={isAuthenticated} user={user} isLoading={isLoading}>
+            <CheckAuth
+              isAuthenticated={isAuthenticated}
+              user={user}
+              isLoading={isLoading}
+            >
               <ServiceLayout />
             </CheckAuth>
           }

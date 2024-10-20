@@ -6,7 +6,6 @@ import "./AuthRegister.css";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../store/auth-slice";
 import toast from 'react-hot-toast';
-import { Input } from "@mui/material";
 
 const initialState = {
   userName: "",

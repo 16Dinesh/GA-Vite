@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Search.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import SearchIcon from "@mui/icons-material/Search";
 
 // Debounce function to avoid too many search triggers
 const debounce = (func, delay) => {
@@ -46,13 +45,17 @@ export default function SearchBar() {
 
   return (
     <div className="search-space">
-<form className="search-container" onSubmit={handleSearchSubmit}>
-          {/* Conditionally render the search icon based on the input */}
-          {query === "" && (
-            <button className="search-btn" type="submit" aria-label="Search button">
-              <FontAwesomeIcon icon={faSearch} size="lg" />
-            </button>
-          )}
+      <form className="search-container" onSubmit={handleSearchSubmit}>
+        {/* Conditionally render the search icon based on the input */}
+        {query === "" && (
+          <button
+            className="search-btn"
+            type="submit"
+            aria-label="Search button"
+          >
+            <SearchIcon fontSize="large" />
+          </button>
+        )}
         <input
           className="search-input"
           type="text"

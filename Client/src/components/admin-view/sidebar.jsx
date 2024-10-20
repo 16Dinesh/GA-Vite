@@ -3,11 +3,7 @@ import SpaceDashboardSharpIcon from "@mui/icons-material/SpaceDashboardSharp";
 import BeenhereIcon from "@mui/icons-material/Beenhere";
 import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  Drawer,
-  Typography,
-  Divider,
-} from "@mui/material";
+import { Drawer, Typography, Divider } from "@mui/material";
 import { ArchiveRestore, ChartNoAxesCombined } from "lucide-react";
 import WorkspacesIcon from "@mui/icons-material/Workspaces";
 import RequestPageIcon from "@mui/icons-material/RequestPage";
@@ -66,7 +62,7 @@ function MenuItems({ setOpen }) {
           className="sideBar-menuItems-itemsList"
         >
           {menuItem.icon}
-          <span>{menuItem.label}</span> 
+          <span>{menuItem.label}</span>
         </div>
       ))}
     </nav>

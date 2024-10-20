@@ -17,8 +17,6 @@ export default function AuthLogin() {
 
   const dispatch = useDispatch();
   const location = useLocation();
-
-  // Get the intended service path or default to "/service"
   
 
   function onSubmit(event) {

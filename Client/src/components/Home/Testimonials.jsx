@@ -1,5 +1,5 @@
 import "./Testimonials.css";
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 
 export default function Testimonials() {
     // Testimonials data for dynamic rendering
@@ -25,7 +25,8 @@ export default function Testimonials() {
                 {testimonialsData.map((testimonial, index) => (
                     <div className="boxes" key={index}>
                         <div className="icon-text-wrapper">
-                            <i className="fas fa-quote-left quote-icon"></i>
+                            {/* <i className="fas fa-quote-left quote-icon"></i> */}
+                            <FormatQuoteIcon sx={{fontSize: "40px" , color: "#5B864D"}}/>
                             <h6>{testimonial.name}</h6>
                         </div>
                         <p>{testimonial.feedback}</p>
