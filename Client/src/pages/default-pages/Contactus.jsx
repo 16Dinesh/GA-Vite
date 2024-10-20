@@ -1,7 +1,7 @@
 import { PhoneCall } from "lucide-react";
 import JoinUs_fotter from "../../components/FooterBox/default-pages/Join_Us_C";
 import ContactUsForm from "../../components/Forms/ContactUsForm";
-import GoogleMaps from "../../components/GoogleMaps/Maps";
+import GoogleMaps from "../../components/Maps/Maps";
 import "../../styles/Contactus.css";
 
 function ContactUs() {
