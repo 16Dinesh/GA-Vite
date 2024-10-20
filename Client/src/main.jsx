@@ -8,12 +8,10 @@ import store from "./store/store.js";
 import { Toaster } from 'react-hot-toast';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
         <App />
         <Toaster position="bottom-right" reverseOrder={false} />
       </Provider>
     </BrowserRouter>
-  </React.StrictMode>
 );

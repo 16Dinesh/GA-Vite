@@ -6,7 +6,7 @@ function AuthLayout() {
     <div className="auth-layout">
       <div className="auth-layout-sidebar">
         <div className="auth-layout-content">
-          <h1>Welcome To GreenAssist</h1>
+          <h1>Green Assist Admin </h1>
         </div>
       </div>
       <div className="auth-layout-main">

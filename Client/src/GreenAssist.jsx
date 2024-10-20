@@ -26,15 +26,27 @@ import CheckAuth from "./components/common/check-auth";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { checkAuth } from "./store/auth-slice";
+import AdminPageServices from "./pages/admin-view/Services";
+import AdminPageTeam from "./pages/admin-view/Team";
+import AdminPageRequest from "./pages/admin-view/requests";
 
 export default function GreenAssistRoutes() {
-  const { user, isAuthenticated } = useSelector((state) => state.auth);
+  const { user , isAuthenticated, isLoading } = useSelector(
+    (state) => state.auth
+  );
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(checkAuth());
   }, [dispatch]);
+
+  // const isAuthenticated = true
+  // const user = {
+  //   name: "user",
+  //   role: "user"
+  // }
+  // const isLoading = false
 
   return (
     <div className="App">
@@ -43,7 +55,7 @@ export default function GreenAssistRoutes() {
         <Route path="/" element={<DefaultLayout />}>
           <Route index element={<Navigate to="/home" />} />
           <Route path="home" element={<Home />} />
-          <Route path="Services" element={<Services />} />
+          <Route path="services" element={<Services />} />
           <Route path="Aboutus" element={<Aboutus />} />
           <Route path="ContactUs" element={<ContactUs />} />
           <Route path="Beanassist" element={<Beanassist />} />
@@ -53,9 +65,9 @@ export default function GreenAssistRoutes() {
 
         {/* Services Routes */}
         <Route
-          path="/service"
+          path="/services"
           element={
-            <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+            <CheckAuth isAuthenticated={isAuthenticated} user={user} isLoading={isLoading}>
               <ServiceLayout />
             </CheckAuth>
           }
@@ -82,6 +94,9 @@ export default function GreenAssistRoutes() {
           <Route path="dashboard" element={<AdminDashBoard />} />
           <Route path="products" element={<AdminProducts />} />
           <Route path="orders" element={<AdminOrders />} />
+          <Route path="team" element={<AdminPageTeam />} />
+          <Route path="requests" element={<AdminPageRequest />} />
+          <Route path="addService" element={<AdminPageServices />} />
         </Route>
 
         {/* Authorization Routes*/}

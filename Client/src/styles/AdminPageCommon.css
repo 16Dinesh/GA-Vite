@@ -1,0 +1,33 @@
+.Admin-page-btn-Search {
+    margin-bottom: 1.25rem !;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Admin-products-side-tap{
+    display: grid !important;
+    gap: 1rem !important;
+
+}
+
+.admin-product-Form-Box{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.admin-product-sideBar-heading {
+    font-weight: 700 !important;
+    margin: 1.5rem !important;
+}
+
+@media (min-width: 768px) {
+    .Admin-products-side-tap {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .Admin-products-side-tap {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    }
+}

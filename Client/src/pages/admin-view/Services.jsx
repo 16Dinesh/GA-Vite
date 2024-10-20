@@ -1,10 +1,9 @@
 import Button from "@mui/joy/Button";
 import { Box, Drawer, Typography } from "@mui/material";
 import { Fragment, useState } from "react";
-import { addProductFormElements } from "../../config";
 import CommonForms from "../../components/common/CommonForms";
-import { ShoppingCart } from "lucide-react";
-import "../../styles/AdminPageCommon.css";
+import { Layers3 } from "lucide-react";
+import { addServiceFormElements } from "../../config";
 import AdminImageUpload from "../../components/admin-view/image-upload";
 
 const initialFormData = {
@@ -36,7 +35,7 @@ export default function AdminProducts() {
     <Fragment>
       <div className="Admin-page-btn-Search">
         <Button onClick={() => setOpenCreateProductsDialog(true)}>
-          Add New Product
+          Add New Service
         </Button>
       </div>
       <div className="Admin-products-side-tap">
@@ -46,7 +45,7 @@ export default function AdminProducts() {
           onClose={() => setOpenCreateProductsDialog(false)}
         >
           <Box sx={{ width: 300, padding: 2, overflow: "auto" }}>
-            <ShoppingCart size={30} />
+            <Layers3 size={30} />
             <Typography
               variant="h5"
               component="div"
@@ -70,7 +69,7 @@ export default function AdminProducts() {
                 formData={formData}
                 setFormData={setFormData}
                 buttonText="Add"
-                formControls={addProductFormElements}
+                formControls={addServiceFormElements}
               />
             </Box>
           </Box>

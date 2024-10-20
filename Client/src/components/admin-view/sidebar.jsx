@@ -1,18 +1,16 @@
-import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
-import SpaceDashboardSharpIcon from '@mui/icons-material/SpaceDashboardSharp';
-import BeenhereIcon from '@mui/icons-material/Beenhere';
+import ProductionQuantityLimitsIcon from "@mui/icons-material/ProductionQuantityLimits";
+import SpaceDashboardSharpIcon from "@mui/icons-material/SpaceDashboardSharp";
+import BeenhereIcon from "@mui/icons-material/Beenhere";
 import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   Drawer,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
   Typography,
   Divider,
 } from "@mui/material";
-import { ChartNoAxesCombined } from "lucide-react";
+import { ArchiveRestore, ChartNoAxesCombined } from "lucide-react";
+import WorkspacesIcon from "@mui/icons-material/Workspaces";
+import RequestPageIcon from "@mui/icons-material/RequestPage";
 
 const adminSidebarMenuItems = [
   {
@@ -20,6 +18,12 @@ const adminSidebarMenuItems = [
     label: "Dashboard",
     path: "/admin/dashboard",
     icon: <SpaceDashboardSharpIcon />,
+  },
+  {
+    id: "add",
+    label: "Service",
+    path: "/admin/addService",
+    icon: <ArchiveRestore />,
   },
   {
     id: "products",
@@ -31,7 +35,19 @@ const adminSidebarMenuItems = [
     id: "orders",
     label: "Orders",
     path: "/admin/orders",
-    icon: < BeenhereIcon/>,
+    icon: <BeenhereIcon />,
+  },
+  {
+    id: "team",
+    label: "Team",
+    path: "/admin/team",
+    icon: <WorkspacesIcon />,
+  },
+  {
+    id: "requests",
+    label: "Requests",
+    path: "/admin/requests",
+    icon: <RequestPageIcon />,
   },
 ];
 
@@ -39,22 +55,21 @@ function MenuItems({ setOpen }) {
   const navigate = useNavigate();
 
   return (
-    <List className="sidebar-MenuItems-Nav">
+    <nav className="sidebar-MenuItems-Nav">
       {adminSidebarMenuItems.map((menuItem) => (
-        <ListItem
+        <div
           key={menuItem.id}
-          button
           onClick={() => {
             navigate(menuItem.path);
             setOpen ? setOpen(false) : null;
           }}
           className="sideBar-menuItems-itemsList"
         >
-          <ListItemIcon>{menuItem.icon}</ListItemIcon>
-          <ListItemText primary={menuItem.label} />
-        </ListItem>
+          {menuItem.icon}
+          <span>{menuItem.label}</span> 
+        </div>
       ))}
-    </List>
+    </nav>
   );
 }
 
@@ -74,10 +89,11 @@ export default function AdminSideBar({ open, setOpen }) {
             <Typography
               variant="h5"
               component="div"
-              className="AdminsideBar-Fragment-c"
+              className="AdminsideBar-Fragment-cd"
             >
               <ChartNoAxesCombined size={30} />
-              Admin Panel
+              <span style={{ color: "#5B864D" }}>G</span>
+              <span style={{ color: "#5B864D" }}>A</span> Panel
             </Typography>
           </div>
           <Divider />
@@ -86,9 +102,14 @@ export default function AdminSideBar({ open, setOpen }) {
       </Drawer>
       <aside className="adminSideBar-c-aside-main">
         <div onClick={() => navigate("/admin/dashboard")} className="">
-          <Typography variant="h5" component="div" className="AdminSideBar-Fragment-c">
-          <ChartNoAxesCombined size={30} />
-            Admin Panel
+          <Typography
+            variant="h5"
+            component="div"
+            className="AdminSideBar-Fragment-c"
+          >
+            <ChartNoAxesCombined size={30} />
+            <span style={{ color: "#5B864D" }}>G</span>
+            <span style={{ color: "#5B864D" }}>A</span> Panel
           </Typography>
         </div>
         <Divider />

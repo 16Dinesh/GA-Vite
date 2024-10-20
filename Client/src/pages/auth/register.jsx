@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import CommonForms from "../../components/common/CommonForms";
-import { registerFormControls } from "../../config";
+import { AdminregisterFormControls } from "../../config";
 import "./AuthRegister.css";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../store/auth-slice";
 import toast from 'react-hot-toast';
+import { Input } from "@mui/material";
 
 const initialState = {
   userName: "",
@@ -48,12 +49,14 @@ export default function AuthRegister() {
         </p>
       </div>
       <CommonForms
-        formControls={registerFormControls}
+        formControls={AdminregisterFormControls}
         buttonText={"Sign Up"}
         formData={formData}
         setFormData={setFormData}
         onSubmit={onSubmit}
       />
+      <div>
+      </div>
     </div>
   );
 }

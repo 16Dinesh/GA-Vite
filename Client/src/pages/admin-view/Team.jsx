@@ -1,11 +1,11 @@
 import Button from "@mui/joy/Button";
 import { Box, Drawer, Typography } from "@mui/material";
 import { Fragment, useState } from "react";
-import { addProductFormElements } from "../../config";
+import { addTeamSearchFormElements } from "../../config";
 import CommonForms from "../../components/common/CommonForms";
 import { ShoppingCart } from "lucide-react";
 import "../../styles/AdminPageCommon.css";
-import AdminImageUpload from "../../components/admin-view/image-upload";
+import GroupAddIcon from "@mui/icons-material/GroupAdd";
 
 const initialFormData = {
   image: null,
@@ -15,14 +15,10 @@ const initialFormData = {
   price: "",
 };
 
-export default function AdminProducts() {
+export default function AdminPageTeam() {
   const [openCreateProductsDialog, setOpenCreateProductsDialog] =
     useState(false);
   const [formData, setFormData] = useState(initialFormData);
-  const [imageFile, setImageFile] = useState(null);
-  const [uploadedImageUrl, setUploadedImageUrl] = useState("");
-  const [imageLoadingState, setImageLoadingState] = useState(false);
-  const [currentEditedId, setCurrentEditedId] = useState(null);
 
   function onSubmit(e) {
     e.preventDefault();
@@ -36,7 +32,7 @@ export default function AdminProducts() {
     <Fragment>
       <div className="Admin-page-btn-Search">
         <Button onClick={() => setOpenCreateProductsDialog(true)}>
-          Add New Product
+          Search Team Member
         </Button>
       </div>
       <div className="Admin-products-side-tap">
@@ -46,31 +42,22 @@ export default function AdminProducts() {
           onClose={() => setOpenCreateProductsDialog(false)}
         >
           <Box sx={{ width: 300, padding: 2, overflow: "auto" }}>
-            <ShoppingCart size={30} />
+            <GroupAddIcon size={30} />
             <Typography
               variant="h5"
               component="div"
               gutterBottom
               className="admin-product-sideBar-heading"
             >
-              Add New Product
+              Search Team Member
             </Typography>
             <Box className="admin-product-Form-Box">
-              <AdminImageUpload
-                imageFile={imageFile}
-                setImageFile={setImageFile}
-                uploadedImageUrl={uploadedImageUrl}
-                setUploadedImageUrl={setUploadedImageUrl}
-                setImageLoadingState={setImageLoadingState}
-                imageLoadingState={imageLoadingState}
-                isEditMode={currentEditedId !== null}
-              />
               <CommonForms
                 onSubmit={onSubmit}
                 formData={formData}
                 setFormData={setFormData}
-                buttonText="Add"
-                formControls={addProductFormElements}
+                buttonText="Search"
+                formControls={addTeamSearchFormElements}
               />
             </Box>
           </Box>

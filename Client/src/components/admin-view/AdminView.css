@@ -26,18 +26,18 @@
 }
 
 .sideBar-menuItems-itemsList {
-  display: flex;
-  cursor: pointer;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  align-items: center;
-  gap: 0.5rem;
-  border-radius: 4px;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  color: #374151;
+  display: flex !important;
+  cursor: pointer !important;
+  font-size: 1.25rem !important;
+  line-height: 2.5rem !important;
+  align-items: center !important; 
+  gap: 1.5rem !important;
+  border-radius: 4px !important;
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  color: #374151 !important;
   transition: background-color 0.3s ease, color 0.3s ease; /* Add transition for smooth effect */
 }
 
@@ -53,7 +53,7 @@
   padding-right: 1rem;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-  background-color: #f9fafb;
+  background-color: white !important;
   border-bottom-width: 1px;
   transition: background-color 0.3s ease; /* Smooth transition */
 }
@@ -89,7 +89,7 @@
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for background and scale */
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .admin-header-c-logout-button:hover {
@@ -98,6 +98,20 @@
 }
 
 .AdminSideBar-Fragment-c {
+  font-family: "Nunito Sans", sans-serif !important;
+  display: flex !important;
+  height: 100% !important;
+  border-bottom-width: 1px !important;
+  gap: 0.5rem !important;
+  margin-top: 1.25rem !important;
+  margin-bottom: 1.25rem !important;
+  font-size: 1.5rem !important;
+  line-height: 2rem !important;
+  font-weight: 800 !important;
+}
+
+.AdminsideBar-Fragment-cd {
+  font-family: "Nunito Sans", sans-serif !important;
   display: flex !important;
   height: 100% !important;
   border-bottom-width: 1px !important;
@@ -110,25 +124,15 @@
 }
 
 .adminSideBar-c-aside-main {
-    display: none ;
-    width: 16rem;
-    flex-direction: column;
-    border-right-width: 1px;
-    background-color: #f9fafb;
-    padding: 1.5rem;
+  display: none;
+  width: 16rem;
+  flex-direction: column;
+  border-right-width: 1px;
+  background-color: white;
+  padding: 1.5rem;
 }
 
-@media (min-width: 1024px) {
-    .adminSideBar-c-aside-main {
-        display: flex;
-    }
-}
 
-@media (min-width: 1024px) {
-  .admin-Header-BtnC {
-    display: none !important;
-  }
-}
 
 @media (min-width: 640px) {
   .admin-Header-BtnC {
@@ -139,5 +143,14 @@
 @media (min-width: 768px) {
   .admin-main-content {
     padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .adminSideBar-c-aside-main {
+    display: flex;
+  }
+  .admin-Header-BtnC {
+    display: none !important;
   }
 }

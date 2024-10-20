@@ -16,7 +16,6 @@ export default function AuthLogin() {
   const [formData, setFormData] = useState(initialState);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const location = useLocation();
 
   // Get the intended service path or default to "/service"
@@ -29,7 +28,6 @@ export default function AuthLogin() {
         toast.success(data?.payload?.message || "Successfully Done", {
           duration: 2000,
         });
-        navigate("/services");   
       } else {
         toast.error(data?.payload?.message || "Error Occurred Please Try Again", {
           duration: 2000,
