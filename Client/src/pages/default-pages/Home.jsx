@@ -8,7 +8,7 @@ function Home() {
   return (
     <>
       <main>
-        <section className="hero-section">
+        <section className="Home-dp-hero-section">
           <img
             className="main-img"
             src="./home/Green Assist xml.svg"
