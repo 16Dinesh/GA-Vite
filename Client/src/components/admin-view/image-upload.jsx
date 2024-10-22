@@ -1,6 +1,7 @@
 import { FileIcon, UploadCloudIcon, XIcon } from "lucide-react";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Box, IconButton, Typography, CircularProgress } from "@mui/material";
+import axios from "axios";
 
 export default function AdminImageUpload({
   imageFile,
@@ -40,6 +41,30 @@ export default function AdminImageUpload({
       inputRef.current.value = "";
     }
   }
+
+  async function uploadImageToCloudinary() {
+    setImageLoadingState(true);
+    const data = new FormData();
+    data.append("my_file", imageFile);
+    const response = await axios.post(
+      "http://localhost:5000/api/admin/products/upload-image",
+      data
+    );
+    // console.log(response, "response");
+    console.log(`id  --> ${response.data.result.asset_id}`)
+    console.log(`Created At --> ${response.data.result.created_at}` )
+    console.log(`Format --> ${response.data.result.format}` )
+    console.log(`Display Name --> ${response.data.result.display_name }`)
+
+    if (response?.data?.success) {
+      setUploadedImageUrl(response.data.result.url);
+      setImageLoadingState(false);
+    }
+  }
+
+  useEffect(() => {
+    if (imageFile !== null) uploadImageToCloudinary();
+  }, [imageFile]);
 
   return (
     <Box

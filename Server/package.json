@@ -1,7 +1,7 @@
 {
-  "name": "green-assit-v1",
+  "name": "green-assist-v1",
   "version": "1.0.0",
-  "description": "Green assit vite server",
+  "description": "Green assist vite server",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

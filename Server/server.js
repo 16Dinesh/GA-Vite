@@ -8,6 +8,8 @@ const MongoStore = require("connect-mongo");
 
 // Routes
 const authRouter = require("./routes/auth/auth-routes")
+const adminProductsRouter = require("./routes/admin/products-routes");
+
 
 //DataBase
 const db_url = process.env.DB_URL;
@@ -36,7 +38,7 @@ store.on("error", (err) => {
 const sessionOptions = {
   store,
   secret: Key,
-  reSave: false,
+  resave: false,
   saveUninitialized: true,
   cookie: {
     expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
@@ -64,6 +66,8 @@ app.use(session(sessionOptions));
 app.use(cookieParser());
 app.use(express.json());
 app.use("/api/auth", authRouter);
+app.use("/api/admin/products", adminProductsRouter);
+
 
 app.get("/", (req, res) => {
   res.send("Hello - Working");
