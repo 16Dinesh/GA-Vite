@@ -1,6 +1,6 @@
 {
   "name": "Green-Assist-Client",
-  "private": true,
+  "private": false,
   "version": "1.0.0",
   "type": "module",
   "scripts": {

@@ -1,6 +1,6 @@
 // React-Router-Routes Green-Assist
 import Home from "./pages/default-pages/Home";
-import Services from "./pages//default-pages/Services";
+import Services from "./pages/default-pages/Services";
 import Aboutus from "./pages/default-pages/Aboutus";
 import Beanassist from "./pages/default-pages/Beanassist";
 import Privacypolicy from "./pages/default-pages/Privacypolicy";
