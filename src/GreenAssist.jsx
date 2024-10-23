@@ -30,14 +30,15 @@ import AdminPageServices from "./pages/admin-view/Services";
 import AdminPageTeam from "./pages/admin-view/Team";
 import AdminPageRequest from "./pages/admin-view/requests";
 
-export default function GreenAssistRoutes() {
-  const {
-    user,
-    isAuthenticated,
-    isLoading,
-  } = useSelector((state) => state.auth);
+//dummy Routes
+// import MUINavBar from "./components/Test/MuiNavBar";
+// import NavBarCSS from "./components/Test/NavBarCSS/NavBasscss";
 
-  
+export default function GreenAssistRoutes() {
+  const { user, isAuthenticated, isLoading } = useSelector(
+    (state) => state.auth
+  );
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -46,13 +47,12 @@ export default function GreenAssistRoutes() {
 
   // const isAuthenticated = true
   // const user = {
-  //   name: "user",
   //   role: "user"
   // }
   // const isLoading = false
 
   return (
-    <div className="App">
+    <div>
       <Routes>
         {/* Default Routes */}
         <Route path="/" element={<DefaultLayout />}>
@@ -66,19 +66,12 @@ export default function GreenAssistRoutes() {
           <Route path="Termsandconditions" element={<Termsandconditions />} />
         </Route>
 
+        {/* DummyRoutes */}
+        {/* <Route path="/navBarmui" element={< MUINavBar />}/>
+        <Route path="/navbarcss" element={<NavBarCSS/>}/>  */}
+
         {/* Services Routes */}
-        <Route
-          path="/services"
-          element={
-            <CheckAuth
-              isAuthenticated={isAuthenticated}
-              user={user}
-              isLoading={isLoading}
-            >
-              <ServiceLayout />
-            </CheckAuth>
-          }
-        >
+        <Route path="/services" element={<ServiceLayout />}>
           <Route path="waterPurifier" element={<WaterPurifier />} />
           <Route path="electrician" element={<Electrician />} />
           <Route path="plumbing" element={<Plumbing />} />
@@ -119,7 +112,7 @@ export default function GreenAssistRoutes() {
           <Route path="register" element={<AuthRegister />} />
         </Route>
 
-        <Route path="/unauth-page" element={<UnauthPage />} />
+        <Route path="/Unauthorized-page" element={<UnauthPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

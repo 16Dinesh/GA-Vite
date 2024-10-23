@@ -16,7 +16,7 @@ export const AdminregisterFormControls = [
     type: "email",
   },
   {
-    name: "Key",
+    name: "Register_Key",
     label: "GA-Key",
     placeholder: "Enter your Key",
     componentType: "input",

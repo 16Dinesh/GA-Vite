@@ -23,7 +23,7 @@ export default function AuthLogin() {
     event.preventDefault();
     dispatch(loginUser(formData)).then((data) => {
       if (data?.payload?.success) {
-        toast.success(data?.payload?.message || "Successfully Done", {
+        toast.success(data?.payload?.message || "Successfully Logged In", {
           duration: 2000,
         });
       } else {
@@ -39,7 +39,7 @@ export default function AuthLogin() {
   return (
     <div className="auth-register-container">
       <div className="auth-register-header">
-        <h1>Sign in to your account</h1>
+        <h1>Admin Dashboard Login</h1>
         <p>
           Don't have an account?
           <Link className="auth-register-link" to="/auth/register">

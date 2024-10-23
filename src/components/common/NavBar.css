@@ -1,8 +1,8 @@
 
 .navbar {
     background-color: white; 
-    padding: 10px 20px;
-    justify-content: space-between;
+    padding: 10px 20px !important;
+    justify-content: space-between !important;
 }
 
 .navbar-brand {
@@ -13,6 +13,7 @@
 .nav-link {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 550 !important; 
+    margin: 0 !important;
 }
 
 .nav-btn {
@@ -39,8 +40,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 1); /* Optional: add a background overlay */
-    z-index: 1050; /* Ensures the loader is above other content */
+    background: rgba(255, 255, 255, 1); 
+    z-index: 1050;
 }
 
 
@@ -57,6 +58,8 @@
     }
 
     .nav-link {
+        display: flex;
+        justify-content: center !important;
         margin: 5px 0; 
     }
 }

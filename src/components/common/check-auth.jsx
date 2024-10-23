@@ -1,6 +1,7 @@
 import { Navigate, useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "bootstrap/dist/js/bootstrap.bundle.min.js"; 
+import { ReceiptIndianRupee } from "lucide-react";
 
 export default function CheckAuth({
   isAuthenticated,
@@ -19,7 +20,6 @@ export default function CheckAuth({
 
  
 
-  // Show a loading indicator while the authentication state is being determined
   if (isLoading) {
     return (
       <div className="Nav-loader">
@@ -36,28 +36,41 @@ export default function CheckAuth({
   const isAdminPage = location.pathname.includes("admin");
   const isServicePage = location.pathname.includes("service");
 
-  // If not authenticated, redirect to login unless already on login/register page
   if (!isAuthenticated && !isLoginOrRegister) {
     return <Navigate to="/auth/login" />;
   }
 
-  if (isAuthenticated && isLoginOrRegister) {
-    // Redirect to admin dashboard if the user is an admin
-    if (isUser === "admin") {
-      return <Navigate to="/admin/dashboard" />;
-    } else {
-      // Redirect to services if not an admin
-      return <Navigate to="/services" />;
+  // if (isAuthenticated && isUser === "user" && isAdminPage) {
+  //   console.log("Redirecting to unauthorized page");
+  //   return <Navigate to="/unauth-page" />;
+  // }
+
+
+  // if (isAuthenticated && isLoginOrRegister) {
+  //   if (isUser === "admin") {
+  //     return <Navigate to="/admin/dashboard" />;
+  //   } else {
+  //     return <Navigate to="/services" />;
+  //   }
+  // }
+
+  if(isAuthenticated && isLoginOrRegister) {
+    if(isUser === "admin") {
+      return <Navigate to="/admin/dashboard"/>
     }
   }
 
-  // If authenticated, not an admin, and on an admin page, redirect to unauthorized page
-  if (isAuthenticated && isUser === "user" && isAdminPage) {
-    console.log("Redirecting to unauthorized page");
-    return <Navigate to="/unauth-page" />;
+  // if(isAuthenticated && isLoginOrRegister) {
+  //   if(isUser === "user") {
+  //     return <Navigate to="/services" />;
+  //   }
+  // }
+
+  if(isAuthenticated && isUser === "user" && isAdminPage) {
+    return <Navigate to="/Unauthorized-page"/>
   }
 
-  // If authenticated, is an admin, and on a service page, redirect to admin dashboard
+  //working
   if (isAuthenticated && isUser === "admin" && isServicePage) {
     console.log("Redirecting admin to dashboard from service page");
     return <Navigate to="/admin/dashboard" />;
@@ -67,6 +80,5 @@ export default function CheckAuth({
   console.log("isUser:", isUser);
   console.log("isAdminPage:", isAdminPage);
   console.log("isServicePage:", isServicePage);
-  // If none of the above conditions match, render the children components
   return <>{children}</>;
 }
