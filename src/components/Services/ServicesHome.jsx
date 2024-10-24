@@ -8,28 +8,28 @@ const servicesData = [
     image: "/home/Electrical Assistance.png",
     alt: "Electrical Assistance",
     available: true,
-    path: "/services/electrician",
+    path: "/services/electrician-assist",
   },
   {
-    title: "Water-Purifier Assist",
+    title: "Water Purifier Assist",
     image: "/home/Water-Purifier Assistance logo.png",
     alt: "Water Purifier Assistance",
     available: true,
-    path: "/services/waterPurifier",
+    path: "/services/water-purifier-assist",
   },
   {
     title: "Plumbing Assist",
     image: "/home/Plumbing Assistance .png",
     alt: "Plumbing Assistance",
     available: true,
-    path: "/services/plumbing",
+    path: "/services/plumbing-assist",
   },
   {
     title: "Single Driver Assist",
     image: "/home/Single driver Assist logo.png",
     alt: "Single Driver Assistance",
     available: true,
-    path: "/services/singleDriverAssistance",
+    path: "/services/single-Driver-assist",
   },
   // {
   //   title: "Coming Soon",
@@ -72,7 +72,7 @@ export default function ServicesHome() {
                 className="service-button"
                 onClick={() => handleBooking(service)}
               >
-                Book a Service
+                Book a Assist
               </button>
             ) : (
               <h4>{}</h4>

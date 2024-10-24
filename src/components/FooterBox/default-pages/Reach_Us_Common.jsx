@@ -6,7 +6,7 @@ export default function ReachUsC() {
   const navigate = useNavigate();
 
   const handleGetStarted = () => {
-    navigate("/ContactUs");
+    navigate("/contact-us");
   };
 
   return (

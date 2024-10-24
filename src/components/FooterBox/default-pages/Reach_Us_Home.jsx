@@ -6,7 +6,7 @@ export default function ReachUsH() {
     const navigate = useNavigate(); // Initialize useNavigate
 
     const handleGetStarted = () => {
-        navigate("/contactus"); // Navigate to the Contact Us page
+        navigate("/contact-us"); // Navigate to the Contact Us page
     };
 
     return (

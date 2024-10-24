@@ -60,14 +60,14 @@ export default function CheckAuth({
     }
   }
 
-  // if(isAuthenticated && isLoginOrRegister) {
-  //   if(isUser === "user") {
-  //     return <Navigate to="/services" />;
-  //   }
-  // }
+  if(isAuthenticated && isLoginOrRegister) {
+    if(isUser === "user") {
+      return <Navigate to="/services" />;
+    }
+  }
 
   if(isAuthenticated && isUser === "user" && isAdminPage) {
-    return <Navigate to="/Unauthorized-page"/>
+    return <Navigate to="/unauthorized-page"/>
   }
 
   //working

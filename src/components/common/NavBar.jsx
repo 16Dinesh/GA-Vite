@@ -58,20 +58,20 @@ export default function NavBar() {
                                     Services
                                 </NavLink>
                                 <NavLink
-                                    to="/aboutus"
+                                    to="/about-us"
                                     className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
                                 >
                                     About Us
                                 </NavLink>
                                 <NavLink
-                                    to="/beanassist"
+                                    to="/be-an-assist"
                                     className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
                                 >
                                     Be an Assist
                                 </NavLink>
                             </div>
                             <NavLink
-                                to="/contactus"
+                                to="/contact-us"
                                 className="btn nav-btn mx-2"
                             >
                                 CONTACT US

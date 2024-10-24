@@ -21,10 +21,10 @@ export default function Footer() {
                         solutions including plumbing and electrical services.
                         </p>
                         <h6>
-                        <Link to="/privacypolicy" className="footer-h2">Privacy Policy</Link>
+                        <Link to="/privacy-policy" className="footer-h2">Privacy Policy</Link>
                         </h6>
                         <h6>
-                        <Link to="/termsandconditions" className="footer-h2">Terms and Conditions</Link>
+                        <Link to="/terms-and-conditions" className="footer-h2">Terms and Conditions</Link>
                         </h6>
                     </div>
                     <div className="col-md-4">
@@ -37,13 +37,13 @@ export default function Footer() {
                             <Link to="/services" className="footer-h3">Services</Link>
                         </li>
                         <li>
-                            <Link to="/aboutus" className="footer-h3">About Us</Link>
+                            <Link to="/about-us" className="footer-h3">About Us</Link>
                         </li>
                         <li>
-                            <Link to="/beanassist" className="footer-h3">Be an Assist</Link>
+                            <Link to="/be-an-assist" className="footer-h3">Be an Assist</Link>
                         </li>
                         <li>
-                            <Link to="/contactus" className="footer-h3">Contact Us</Link>
+                            <Link to="/contact-us" className="footer-h3">Contact Us</Link>
                         </li>
                         </ul>
                     </div>

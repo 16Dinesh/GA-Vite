@@ -5,7 +5,7 @@ import Aboutus from "./pages/default-pages/Aboutus";
 import Beanassist from "./pages/default-pages/Beanassist";
 import Privacypolicy from "./pages/default-pages/Privacypolicy";
 import Termsandconditions from "./pages/default-pages/Termsandconditions";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import ContactUs from "./pages/default-pages/Contactus";
 import DefaultLayout from "./components/layouts/DefaultLayout";
 import Plumbing from "./pages/listing-pages/Plumbing";
@@ -29,11 +29,12 @@ import { checkAuth } from "./store/auth-slice";
 import AdminPageServices from "./pages/admin-view/Services";
 import AdminPageTeam from "./pages/admin-view/Team";
 import AdminPageRequest from "./pages/admin-view/requests";
+import UserLoginLayout from "./components/userLogins/userLayout";
+import UserLoginPage from "./pages/userLogins/login";
+import UserRegisterPage from "./pages/userLogins/Register";
+import UserResetPagePage from "./pages/userLogins/ResetIDS";
 
-//dummy Routes
-// import MUINavBar from "./components/Test/MuiNavBar";
-// import NavBarCSS from "./components/Test/NavBarCSS/NavBasscss";
-
+   
 export default function GreenAssistRoutes() {
   const { user, isAuthenticated, isLoading } = useSelector(
     (state) => state.auth
@@ -59,27 +60,29 @@ export default function GreenAssistRoutes() {
           <Route index element={<Navigate to="/home" />} />
           <Route path="home" element={<Home />} />
           <Route path="services" element={<Services />} />
-          <Route path="Aboutus" element={<Aboutus />} />
-          <Route path="ContactUs" element={<ContactUs />} />
-          <Route path="Beanassist" element={<Beanassist />} />
-          <Route path="Privacypolicy" element={<Privacypolicy />} />
-          <Route path="Termsandconditions" element={<Termsandconditions />} />
+          <Route path="about-us" element={<Aboutus />} />
+          <Route path="contact-us" element={<ContactUs />} />
+          <Route path="be-an-assist" element={<Beanassist />} />
+          <Route path="privacy-policy" element={<Privacypolicy />} />
+          <Route path="terms-and-conditions" element={<Termsandconditions />} />
         </Route>
 
-        {/* DummyRoutes */}
-        {/* <Route path="/navBarmui" element={< MUINavBar />}/>
-        <Route path="/navbarcss" element={<NavBarCSS/>}/>  */}
-
-        {/* Services Routes */}
-        <Route path="/services" element={<ServiceLayout />}>
-          <Route path="waterPurifier" element={<WaterPurifier />} />
-          <Route path="electrician" element={<Electrician />} />
-          <Route path="plumbing" element={<Plumbing />} />
+        {/* Services Routes */}  
+        <Route path="/services" element={<ServiceLayout />}>             {/* what to create path dynamically that can come form Redux Store API ENDPOINT*/}
+          <Route path="water-purifier-assist" element={<WaterPurifier />} />
+          <Route path="electrician-assist" element={<Electrician />} />
+          <Route path="plumbing-assist" element={<Plumbing />} />
           <Route
-            path="singleDriverAssistance"
+            path="single-Driver-assist"
             element={<SingleDriverAssistance />}
           />
           {/* account, Checkout, payment-mode, payment-success, and more Features to add */}
+        </Route>
+
+        <Route path="/login" element={<UserLoginLayout />}>
+          <Route path="user" element={<UserLoginPage />} />
+          <Route path="register" element={<UserRegisterPage />} />
+          <Route path="forgot-user" element={<UserResetPagePage />} />
         </Route>
 
         {/* admin Routes */}
@@ -112,9 +115,10 @@ export default function GreenAssistRoutes() {
           <Route path="register" element={<AuthRegister />} />
         </Route>
 
-        <Route path="/Unauthorized-page" element={<UnauthPage />} />
+        <Route path="/unauthorized-page" element={<UnauthPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
 }
+
