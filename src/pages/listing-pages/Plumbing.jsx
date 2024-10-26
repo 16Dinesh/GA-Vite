@@ -1,3 +1,12 @@
+import UnderConstruction from "../../UnderWorking/UnderConstruction";
+
 export default function Plumbing() {
-    return <div>plumbing</div>
+  return (
+    <div>
+      <div>plumbing</div>
+      <div>
+        <UnderConstruction />
+      </div>
+    </div>
+  );
 }

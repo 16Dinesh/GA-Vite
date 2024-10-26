@@ -1,3 +1,10 @@
+import UnderConstruction from "../../UnderWorking/UnderConstruction";
+
 export default function Electrician() {
-    return <div>Electrician</div>
+    return <div>
+        <div>
+        Electrician
+        </div>
+        <div><UnderConstruction/></div>
+    </div>
 }
