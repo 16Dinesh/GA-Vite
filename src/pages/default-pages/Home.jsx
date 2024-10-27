@@ -11,7 +11,7 @@ function Home() {
         <section className="Home-dp-hero-section">
           <img
             className="main-img"
-            src="./home/Green Assist xml.svg"
+            src="/home/Green Assist xml.svg"
             alt="Green Assist Logo"
           />
           <h1 className="Hometitle-1">Book Trusted Help For</h1>
