@@ -1,4 +1,4 @@
-.search-section, .Home-dp-hero-section {
+.Home-dp-search-section, .Home-dp-hero-section {
   background-color: white;
 }
 
@@ -6,7 +6,7 @@
   padding: 5rem 0 3rem;
 }
 
-.main-img {
+.Home-dp-main-img {
   width: 100%;
   max-width: 550px;
   height: auto;
@@ -15,22 +15,22 @@
   margin: 0 auto;
 }
 
-.Hometitle-1, .Hometitle-2 {
+.Home-dp-Hometitle-1, .Home-dp-Hometitle-2 {
   font-family: 'Nunito Sans', sans-serif;
   text-align: center;
   color: black !important;
 }
 
-.Hometitle-1 {
+.Home-dp-Hometitle-1 {
   font-weight: 700;
 }
 
-.Hometitle-2 {
+.Home-dp-Hometitle-2 {
   font-weight: 550;
   margin-top: 1rem;
 }
 
-.content-section {
+.Home-dp-content-section {
   background-color: #F6F6F6;
   padding: 20px;
   width: 100vw;
@@ -38,22 +38,22 @@
   box-sizing: border-box;
 }
 
-.h3-middle {
+.Home-dp-h3-middle {
   text-align: center;
   padding: 20px;
 }
 
-.green-h3, .black-h3 {
+.Home-dp-green-h3, .Home-dp-black-h3 {
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 550 !important;
   margin: 10px 0;
 }
 
-.green-h3 {
+.Home-dp-green-h3 {
   color: #5B864D;
 }
 
-.box-container {
+.Home-dp-box-container {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
@@ -61,7 +61,7 @@
   justify-content: center;
 }
 
-.box {
+.Home-dp-box {
   background-color: white;
   padding: 20px;
   height: 13rem;
@@ -71,13 +71,13 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.box h5 {
+.Home-dp-box h5 {
   margin-bottom: 10px;
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 550 !important;
 }
 
-.line {
+.Home-dp-line {
   width: 10rem;
   height: 6px;
   background-color: #5B864D;
@@ -85,13 +85,22 @@
   margin: 0 auto 20px;
 }
 
-.box p {
+.Home-dp-title {
+  font-family: 'Nunito Sans', sans-serif;
+  text-align: center;
+  font-weight: 600; 
+  font-size: 32px;
+  margin: 2rem 0; /* Combined margin */
+  color: #333;
+}
+
+.Home-dp-box p {
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 400 !important;
 }
 
 /* How it works section */
-.con-tai {
+.Home-dp-con-tai {
   position: relative;
   width: 100%;
   max-width: 1200px;
@@ -100,7 +109,7 @@
   margin: 0 auto;
 }
 
-.how-it-works-box {
+.Home-dp-how-it-works-box {
   width: 100%;
   max-width: 600px;
   height: 23rem;
@@ -113,7 +122,7 @@
   z-index: 10;
 }
 
-.how-it-works-box h1 {
+.Home-dp-how-it-works-box h1 {
   text-align: center;
   margin-bottom: 30px;
   font-family: 'Nunito Sans', sans-serif;
@@ -121,12 +130,12 @@
   font-size: 2rem;
 }
 
-.how-it-works-box ul {
+.Home-dp-how-it-works-box ul {
   list-style: none;
   padding: 0;
 }
 
-.how-it-works-box li {
+.Home-dp-how-it-works-box li {
   margin-bottom: 30px;
   display: flex;
   align-items: center;
@@ -135,7 +144,7 @@
   color: #333;
 }
 
-.how-it-works-box li span {
+.Home-dp-how-it-works-box li span {
   display: inline-block;
   width: 50px;
   height: 50px;
@@ -152,7 +161,7 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3 );
 }
 
-.under-image {
+.Home-dp-under-image {
   position: absolute;
   left: 25rem;
   bottom: 7.2rem;
@@ -168,65 +177,65 @@
 
 /* For screens up to 1024px */
 @media screen and (max-width: 1024px) {
-  .con-tai {
+  .Home-dp-con-tai {
       padding: 10px;
   }
 
-  .how-it-works-box {
+  .Home-dp-how-it-works-box {
       margin: 8rem auto;
       text-align: center;
   }
 
-  .under-image {
+  .Home-dp-under-image   {
       display: none;
   }
 
-  .box {
+  .Home-dp-box {
       width: calc(50% - 20px);
   }
 }
 
 /* For screens up to 780px */
 @media screen and (max-width: 780px) {
-  .box {
+  .Home-dp-box {
       width: calc(100% - 20px);
   }
 
-  .how-it-works-box {
+  .Home-dp-how-it-works-box {
       padding: 20px;
   }
 
-  .under-image {
+  .Home-dp-under-image {
       display: none;
   }
 }
 
 /* For screens up to 480px */
 @media screen and (max-width: 480px) {
-  .box {
+  .Home-dp-box {
       width: 100%;
   }
 
-  .how-it-works-box {
+  .Home-dp-how-it-works-box {
       padding: 20px;
   }
 
-  .under-image {
+  .Home-dp-under-image {
       display: none;
   }
 }
 
 /* For screens up to 380px */
 @media screen and (max-width: 380px) {
-  .box {
+  .Home-dp-box {
       padding: 10px;
   }
 
-  .how-it-works-box h1 {
+  .Home-dp-how-it-works-box h1 {
       font-size: 1.5rem;
   }
 
-  .how-it-works-box li {
+  .Home-dp-how-it-works-box li {
       font-size: 1.2rem;
   }
 }

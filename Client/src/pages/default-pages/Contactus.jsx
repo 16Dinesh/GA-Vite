@@ -12,8 +12,8 @@ function ContactUs() {
     <>
       <main>
         <div className="content-section">
-          <div className="first-contactus">
-            <div className="text-content">
+          <div className="contactus-dp-first-contactus">
+            <div className="contactus-dp-text-content">
               <h6>Get in Touch</h6>
               <p>
                 Connect with <br /> Green Assist Today
@@ -21,7 +21,7 @@ function ContactUs() {
             </div>
             <img
               src="/common/contact-us.png"
-              className="image-right"
+              className="contactus-dp-image-right"
               alt="contact-us-logo"
             />
           </div>
@@ -29,13 +29,13 @@ function ContactUs() {
 
         <ContactUsForm />
 
-        <div className="middle-page">
-          <p className="green-p">Swift household solutions at your service</p>
+        <div className="contactus-dp-middle-page">
+          <p className="contactus-dp-green-p">Swift household solutions at your service</p>
           <h1>Quick and Convenient Services</h1>
-          <p className="midd-p">
+          <p className="contactus-dp-midd-p">
             Improvement solutions for your everyday requirements
           </p>
-          <p className="midd-number">
+          <p className="contactus-dp-midd-number">
           <PhoneCall style={{color: "#5b864d"}}/> {' '} 
             XXXX-XXX-XXX
           </p>
@@ -43,16 +43,16 @@ function ContactUs() {
 
         <div className="space-needed"></div>
 
-        <div className="Details-GA">
-          <div className="maps">
+        <div className="contactus-dp-Details-GA">
+          <div className="contactus-dp-maps">
           <Suspense fallback={<div>Loading map...</div>}>
               <SomeComponent />
             </Suspense>
           </div>
-          <div className="details">
-            <p className="green-p">My office :</p>
+          <div className="contactus-dp-details">
+            <p className="contactus-dp-green-p">My office :</p>
             <p>Kurnool, Andhra Pradesh</p>
-            <p className="green-p">Contact us at</p>
+            <p className="contactus-dp-green-p">Contact us at</p>
             <p>Services@greenassist</p>
             <p>+91 XXXX-XXX-XXX</p>
           </div>

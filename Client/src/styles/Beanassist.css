@@ -1,5 +1,5 @@
 /* Base styles */
-.first-beanassit {
+.BeanAssist-dp-first-beanassit {
     display: flex;
     justify-content: space-between;
     gap: 5px;
@@ -7,45 +7,45 @@
     margin-bottom: 20px;
 }
 
-.first-beanassit p {
+.BeanAssist-dp-first-beanassit p {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 550;
     margin: 5px 0;
 }
 
-.first-beanassit img.image-right {
+.BeanAssist-dp-first-beanassit img.BeanAssist-dp-image-right {
     max-width: 550px;
     height: auto;
     flex: 1;
     margin: 0 5rem 8rem 10rem;
 }
 
-.text-content {
+.BeanAssist-dp-text-content {
     margin-left: 5rem;
     margin-top: 8rem;
     font-size: 2rem;
     text-align: left;
 }
 
-.text-content h6 {
+.BeanAssist-dp-text-content h6 {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 550;
     color: #5B864D;
     margin-bottom: 2rem;
 }
 
-.requirements {
+.BeanAssist-dp-requirements {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 550;
     font-size: 1.2rem;
 }
 
-.req-title {
+.BeanAssist-dp-req-title {
     padding-top: 2rem;
     margin-left: 10rem;
 }
 
-.req-list {
+.BeanAssist-dp-req-list {
     margin-left: 15rem;
     padding-bottom: 5rem;
 }
@@ -54,66 +54,66 @@
 
 /* For screens up to 1024px */
 @media (max-width: 1024px) {
-    .text-content {
+    .BeanAssist-dp-text-content {
         margin-left: 3rem;
         margin-top: 5rem;
         font-size: 1.8rem;
     }
 
-    .first-beanassit img.image-right {
+    .BeanAssist-dp-first-beanassit img.BeanAssist-dp-image-right {
         margin-left: 5rem;
         margin-bottom: 4rem;
         margin-right: 3rem;
     }
 
-    .req-title {
+    .BeanAssist-dp-req-title {
         margin-left: 7rem;
     }
 
-    .req-list {
+    .BeanAssist-dp-req-list {
         margin-left: 10rem;
     }
 }
 
 /* For screens up to 780px */
 @media (max-width: 780px) {
-    .first-beanassit img.image-right {
+    .BeanAssist-dp-first-beanassit img.BeanAssist-dp-image-right {
         display: none; /* Hide the image at 780px and below */
     }
 }
 
 /* For screens up to 480px */
 @media (max-width: 480px) {
-    .first-beanassit {
+    .BeanAssist-dp-first-beanassit {
         flex-direction: column;
         align-items: center;
     }
 
-    .text-content {
+    .BeanAssist-dp-text-content {
         margin-right: 5rem;
         margin-top: 2rem;
         font-size: 1.4rem;
     }
 
-    .req-title {
+    .BeanAssist-dp-req-title {
         margin-left: 2rem;
     }
 
-    .req-list {
+    .BeanAssist-dp-req-list {
         margin-left: 1rem;
     }
 }
 
 /* For screens up to 380px */
 @media (max-width: 380px) {
-    .text-content {
+    .BeanAssist-dp-text-content {
         margin-right: 5rem;
         margin-top: 1rem;
         font-size: 1.2rem;
         text-align: center;
     }
 
-    .req-title, .req-list {
+    .BeanAssist-dp-req-title, .BeanAssist-dp-req-list {
         margin-left: 0;
     }
 }

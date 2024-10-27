@@ -11,7 +11,7 @@ export default function Footer() {
 
     return (
         <>
-            <footer className="footer bg-light pt-4">
+            <footer className="footer pt-4">
                 <div className="container">
                     <div className="row">
                     <div className="col-md-4">

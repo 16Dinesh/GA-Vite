@@ -1,12 +1,5 @@
 /* Title styling */
-.title {
-    font-family: 'Nunito Sans', sans-serif;
-    text-align: center;
-    font-weight: 600; 
-    font-size: 32px;
-    margin: 2rem 0; /* Combined margin */
-    color: #333;
-}
+
 
 /* Services container */
 .services-container {

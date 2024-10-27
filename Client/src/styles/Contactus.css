@@ -1,5 +1,5 @@
 /* Base Styles */
-.first-contactus {
+.contactus-dp-first-contactus {
     display: flex;
     justify-content: space-between;
     gap: 5px;
@@ -7,63 +7,63 @@
     margin-bottom: 20px;
 }
 
-.first-contactus p {
+.contactus-dp-first-contactus p {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 550;
     margin: 5px 0;
 }
 
-.first-contactus img.image-right {
+.contactus-dp-first-contactus img.contactus-dp-image-right {
     max-width: 550px;
     height: auto;
     flex: 1;
     margin: 0 5rem 8rem 10rem;
 }
 
-.text-content {
+.contactus-dp-text-content {
     margin-left: 5rem;
     margin-top: 8rem;
     font-size: 2rem;
     text-align: left;
 }
 
-.text-content h6 {
+.contactus-dp-text-content h6 {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 550;
     color: #5B864D;
     margin-bottom: 2rem;
 }
 
-.middle-page {
+.contactus-dp-middle-page {
     text-align: center;
     margin: 20px 0;
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 550;
 }
 
-.green-p {
+.contactus-dp-green-p {
     color: #5B864D;
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 550;
     font-size: 1rem;
 }
 
-.middle-page h1 {
+.contactus-dp-middle-page h1 {
     margin: 10px 0;
     font-family: 'Nunito Sans', sans-serif !important;
     font-size: 64px;
     font-weight: bold;
 }
 
-.midd-number {
+.contactus-dp-midd-number {
     font-size: 1.5rem;
 }
 
-.midd-p {
+.contactus-dp-midd-p {
     font-size: 1rem;
 }
 
-.Details-GA {
+.contactus-dp-Details-GA {
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -72,25 +72,25 @@
     box-sizing: border-box;
 }
 
-.maps {
+.contactus-dp-maps {
     width: 50%;
 }
 
-.details {
+.contactus-dp-details {
     width: 50%;
     padding-left: 5rem;
     font-family: 'Nunito Sans', sans-serif;
     font-weight: bold;
 }
 
-.details p {
+.contactus-dp-details p {
     margin: 2rem 0;
     display: flex;
     justify-content: center;
     font-size: 1.5rem;
 }
 
-.green-p {
+.contactus-dp-green-p {
     color: #5B864D;
     margin: 4rem 0;
 }
@@ -99,74 +99,74 @@
 
 /* For screens up to 1024px */
 @media (max-width: 1024px) {
-    .first-contactus img.image-right {
+    .contactus-dp-first-contactus img.contactus-dp-image-right {
         margin-left: 6rem;
         margin-right: 3rem;
     }
 
-    .text-content {
+    .contactus-dp-text-content {
         margin-left: 3rem;
         margin-top: 5rem;
         font-size: 1.8rem;
     }
 
-    .middle-page h1 {
+    .contactus-dp-middle-page h1 {
         font-size: 3.5rem;
     }
 }
 
 /* For screens up to 780px */
 @media (max-width: 780px) {
-    .first-contactus {
+    .contactus-dp-first-contactus {
         flex-direction: column;
     }
 
-    .first-contactus img.image-right {
+    .contactus-dp-first-contactus img.contactus-dp-image-right {
         display: none;
     }
 
-    .text-content {
+    .contactus-dp-text-content {
         margin-left: 2rem;
         margin-top: 4rem;
         font-size: 1.5rem;
     }
 
-    .middle-page h1 {
+    .contactus-dp-middle-page h1 {
         font-size: 3rem;
     }
 }
 
 /* For screens up to 480px */
 @media (max-width: 480px) {
-    .first-contactus {
+    .contactus-dp-first-contactus {
         flex-direction: column;
     }
 
-    .text-content {
+    .contactus-dp-text-content {
         margin-left: 1rem;
         margin-top: 2rem;
         font-size: 1.2rem;
         text-align: center;
     }
 
-    .middle-page h1 {
+    .contactus-dp-middle-page h1 {
         font-size: 2.5rem;
     }
 
-    .midd-number {
+    .contactus-dp-midd-number {
         font-size: 1.1rem;
     }
 
-    .midd-p {
+    .contactus-dp-midd-p {
         font-size: 0.9rem;
     }
 
-    .Details-GA {
+    .contactus-dp-Details-GA {
         flex-direction: column;
         align-items: center;
     }
 
-    .maps, .details {
+    .contactus-dp-maps, .contactus-dp-details {
         width: 100%;
         padding-left: 0;
     }
@@ -174,26 +174,26 @@
 
 /* For screens up to 380px */
 @media (max-width: 380px) {
-    .text-content {
+    .contactus-dp-text-content {
         margin-left: 1rem;
         margin-top: 1rem;
         font-size: 1rem;
         text-align: center;
     }
 
-    .middle-page h1 {
+    .contactus-dp-middle-page h1 {
         font-size: 2rem;
     }
 
-    .midd-number {
+    .contactus-dp-midd-number {
         font-size: 1rem;
     }
 
-    .midd-p {
+    .contactus-dp-midd-p {
         font-size: 0.8rem;
     }
 
-    .Details-GA {
+    .contactus-dp-Details-GA {
         padding: 10px;
     }
 }

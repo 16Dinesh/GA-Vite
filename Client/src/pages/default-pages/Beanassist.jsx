@@ -6,8 +6,8 @@ function Beanassist() {
     <>
       <main>
         <div className="content-section">
-          <div className="first-beanassit">
-            <div className="text-content">
+          <div className="BeanAssist-dp-first-beanassit">
+            <div className="BeanAssist-dp-text-content">
               <h6>Get Connected With Us</h6>
               <p>
                 Connect with <br /> Green Assist Today
@@ -15,15 +15,15 @@ function Beanassist() {
             </div>
             <img
               src="/common/Be-an-Assist.png"
-              className="image-right"
+              className="BeanAssist-dp-image-right"
               alt="contact-us-logo"
             />
           </div>
         </div>
         <BeanAssistForm />
-        <div className="requirements">
-          <p className="req-title">Basic Requirements to hire an Assist </p>
-          <div className="req-list">
+        <div className="BeanAssist-dp-requirements">
+          <p className="BeanAssist-dp-req-title">Basic Requirements to hire an Assist </p>
+          <div className="BeanAssist-dp-req-list">
             <ul>
               <li>Applicants must be 21 years and above.</li>
               <li>Experienced individuals are welcome.</li>

@@ -1,4 +1,4 @@
-.h1-middle, .h1-left {
+.Aboutus-dp-h1-middle, .Aboutus-dp-h1-left {
     display: flex;
     justify-content: center;
     color: #5B864D !important;
@@ -9,24 +9,24 @@
     text-align: center;
 }
 
-.h1-left {
+.Aboutus-dp-h1-left {
     margin-right: 20rem;
     margin-top: 5rem !important;
 }
 
-.company-description {
+.Aboutus-dp-company-description {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 550;
     display: flex;
     justify-content: center;
 }
 
-.company-info {
+.Aboutus-dp-company-info {
     display: flex;
     gap: 5px;
 }
 
-.company-info img.image-right {
+.Aboutus-dp-company-info img.Aboutus-dp-image-right {
     max-width: 550px;
     height: auto;
     flex: 1;
@@ -37,41 +37,41 @@
 
 /* For screens up to 1024px */
 @media (max-width: 1024px) {
-    .h1-left, .h1-middle {
+    .Aboutus-dp-h1-left, .Aboutus-dp-h1-middle {
         margin-right: 0;
         margin-top: 3rem !important;
         font-size: 1.8rem;
     }
 
-    .company-info img.image-right {
+    .Aboutus-dp-company-info img.Aboutus-dp-image-right {
         margin-left: 3rem;
     }
 }
 
 /* For screens up to 780px */
 @media (max-width: 780px) {
-    .h1-left, .h1-middle {
+    .Aboutus-dp-h1-left, .Aboutus-dp-h1-middle {
         margin-top: 2rem !important;
     }
 
-    .image-right {
+    .Aboutus-dp-image-right {
         display: none; /* Hide the image at 780px and below */
     }
 }
 
 /* For screens up to 480px */
 @media (max-width: 480px) {
-    .h1-left, .h1-middle {
+    .Aboutus-dp-h1-left, .Aboutus-dp-h1-middle {
         font-size: 1.4rem;
         margin-top: 1.5rem !important;
     }
 
-    .company-info {
+    .Aboutus-dp-company-info {
         flex-direction: column;
         align-items: center;
     }
 
-    .company-info img.image-right {
+    .Aboutus-dp-company-info img.Aboutus-dp-image-right {
         max-width: 100%;
         margin-left: 0;
     }
@@ -79,7 +79,7 @@
 
 /* For screens up to 380px */
 @media (max-width: 380px) {
-    .h1-left, .h1-middle {
+    .Aboutus-dp-h1-left, .Aboutus-dp-h1-middle {
         font-size: 1.2rem;
         margin-top: 1rem !important;
     }

@@ -9,10 +9,10 @@ function Aboutus() {
         <div className="content-section">
           <div className="space-on-side">
             {/* Company Info Section */}
-            <section className="company-info">
+            <section className="Aboutus-dp-company-info">
               <div className="text-section">
-                <h1 className="h1-left">Our Company</h1>
-                <p className="company-description">
+                <h1 className="Aboutus-dp-h1-left">Our Company</h1>
+                <p className="Aboutus-dp-company-description">
                   Green Assist, a startup based in Kurnool, Andhra Pradesh,
                   India, was born from a vision to deliver outstanding home and
                   property services to our valued customers. As your go-to
@@ -24,14 +24,14 @@ function Aboutus() {
               <img
                 src="/common/about-us.svg"
                 alt="About Us"
-                className="image-right"
+                className="Aboutus-dp-image-right"
               />
             </section>
 
             {/* Purpose and Goals Section */}
             <section className="purpose-goals">
-              <h1 className="h1-middle">Purpose and Goals</h1>
-              <p className="company-description">
+              <h1 className="Aboutus-dp-h1-middle">Purpose and Goals</h1>
+              <p className="Aboutus-dp-company-description">
                 At Green Assist, our purpose is to provide exceptional services
                 that enhance the quality of life for our valued customers. We
                 are dedicated to creating comfortable living environments where
@@ -45,8 +45,8 @@ function Aboutus() {
 
             {/* How We Do It Section */}
             <section className="how-we-do-it">
-              <h1 className="h1-middle">How we do it?</h1>
-              <p className="company-description">
+              <h1 className="Aboutus-dp-h1-middle">How we do it?</h1>
+              <p className="Aboutus-dp-company-description">
                 Green Assist offers a wide range of services including plumbing,
                 electrical services, water purifier services, and any other home
                 upgradation needs. Furthermore, we offer driver assistance to
@@ -58,8 +58,8 @@ function Aboutus() {
 
             {/* What We Do Section */}
             <section className="what-we-do">
-              <h1 className="h1-middle">What we do?</h1>
-              <p className="company-description">
+              <h1 className="Aboutus-dp-h1-middle">What we do?</h1>
+              <p className="Aboutus-dp-company-description">
                 Green Assist offers a wide range of services including plumbing,
                 electrical services, water purifier services, and any other home
                 upgradation needs. Furthermore, we offer driver assistance to
@@ -73,8 +73,8 @@ function Aboutus() {
 
             {/* Trusted Assist Section */}
             <section className="trusted-assist">
-              <h1 className="h1-middle">Trusted Assist</h1>
-              <p className="company-description">
+              <h1 className="Aboutus-dp-h1-middle">Trusted Assist</h1>
+              <p className="Aboutus-dp-company-description">
                 Welcome to our team of Trusted Assists! Our technicians are not
                 just skilled, but also well-behaved professionals dedicated to
                 delivering top-notch service. With years of experience under
@@ -88,8 +88,8 @@ function Aboutus() {
 
             {/* Customer Feedback Section */}
             <section className="customer-feedback">
-              <h1 className="h1-middle">Customer Feedback</h1>
-              <p className="company-description">
+              <h1 className="Aboutus-dp-h1-middle">Customer Feedback</h1>
+              <p className="Aboutus-dp-company-description">
                 Customer feedback is incredibly important to us at Green Assist.
                 We strive to continuously improve our services, and your
                 feedback plays a vital role in helping us achieve that goal.
@@ -103,8 +103,8 @@ function Aboutus() {
 
             {/* Future Plans Section */}
             <section className="future-plans">
-              <h1 className="h1-middle">Future Plans and Vision</h1>
-              <p className="company-description">
+              <h1 className="Aboutus-dp-h1-middle">Future Plans and Vision</h1>
+              <p className="Aboutus-dp-company-description">
                 In line with our current home service offerings, our future
                 vision at Green Assist extends towards establishing a more
                 organized working environment, leveraging advanced improvement
@@ -118,10 +118,10 @@ function Aboutus() {
 
             {/* Queries Section */}
             <section className="queries-support">
-              <h1 className="h1-middle">
+              <h1 className="Aboutus-dp-h1-middle">
                 Queries and Support From Green Assist
               </h1>
-              <p className="company-description">
+              <p className="Aboutus-dp-company-description">
                 If you encounter any problems, have any issues, or are
                 interested in collaboration opportunities, feel free to reach
                 out to us. We're dedicated to providing you with the support you
