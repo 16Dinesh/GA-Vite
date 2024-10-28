@@ -1,6 +1,6 @@
 import Teams from "../../components/About-us/Team";
 import ReachUsC from "../../components/FooterBox/default-pages/Reach_Us_Common";
-import "../../styles/Aboutus.css";
+import "../../styles/default-pages/Aboutus.css";
 
 function Aboutus() {
   return (

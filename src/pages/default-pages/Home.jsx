@@ -1,4 +1,4 @@
-import "../../styles/Home.css";
+import "../../styles/default-pages//Home.css";
 import SearchBar from "../../components/Home/Search";
 import ServersHome from "../../components/Services/ServicesHome";
 import Testimonials from "../../components/Home/Testimonials";

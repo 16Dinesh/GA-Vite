@@ -4,7 +4,7 @@ import { Fragment, useState } from "react";
 import { addTeamSearchFormElements } from "../../config";
 import CommonForms from "../../components/common/CommonForms";
 import { ShoppingCart } from "lucide-react";
-import "../../styles/AdminPageCommon.css";
+import "../../styles/default-pages/AdminPageCommon.css";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 
 const initialFormData = {

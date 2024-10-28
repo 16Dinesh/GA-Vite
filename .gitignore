@@ -14,6 +14,7 @@ dist-ssr
 *.local
 GreenAssist copy.jsx
 test
+login copy
 
 # Editor directories and files
 

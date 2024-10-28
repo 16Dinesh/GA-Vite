@@ -1,6 +1,6 @@
 import JoinUs_fotter from "../../components/FooterBox/default-pages/Join_Us_C";
 import BeanAssistForm from "../../components/Forms/BeanAssistForm";
-import "../../styles/Beanassist.css";
+import "../../styles/default-pages//Beanassist.css";
 function Beanassist() {
   return (
     <>

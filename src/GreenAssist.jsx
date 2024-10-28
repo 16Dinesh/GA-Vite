@@ -33,6 +33,8 @@ import UserLoginLayout from "./components/userLogins/userLayout";
 import UserLoginPage from "./pages/userLogins/login";
 import UserRegisterPage from "./pages/userLogins/Register";
 import UserResetPagePage from "./pages/userLogins/ResetIDS";
+import UserPhoneOTP from "./pages/userLogins/PhoneOTP";
+import CheckLogin from "./components/common/check-login";
 
    
 export default function GreenAssistRoutes() {
@@ -46,11 +48,13 @@ export default function GreenAssistRoutes() {
     dispatch(checkAuth());
   }, [dispatch]);
 
-  // const isAuthenticated = true
-  // const user = {
-  //   role: "user"
-  // }
-  // const isLoading = false
+
+
+  const isVerified = false
+    const role = {
+    role: null
+  }
+  const Loading = false
 
   return (
     <div>
@@ -79,9 +83,14 @@ export default function GreenAssistRoutes() {
           {/* account, Checkout, payment-mode, payment-success, and more Features to add */}
         </Route>
 
-        <Route path="/login" element={<UserLoginLayout />}>
+        <Route path="/login" element={
+          // <CheckLogin isVerified={isVerified} role={role}>
+            <UserLoginLayout />
+          // </CheckLogin>
+        }>
           <Route path="user" element={<UserLoginPage />} />
           <Route path="register" element={<UserRegisterPage />} />
+          <Route path="phone-otp" element={<UserPhoneOTP/>} />
           <Route path="forgot-user" element={<UserResetPagePage />} />
         </Route>
 
@@ -121,4 +130,3 @@ export default function GreenAssistRoutes() {
     </div>
   );
 }
-
