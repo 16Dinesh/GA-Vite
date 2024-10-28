@@ -1,17 +1,20 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import "../../styles/userLogins/Login.css";
-import {
-  Box,
-  Button,
-  Checkbox,
-  FormControlLabel,
-  TextField,
-} from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google";
 import PhoneIcon from "@mui/icons-material/Phone";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { TextField, IconButton, InputAdornment } from "@mui/material";
+
+const initialState = {
+  email: "",
+  password: "",
+};
 
 export default function UserLoginPage() {
+  const [data, setData] = useState(initialState);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   function handleIMGHome() {
@@ -20,15 +23,27 @@ export default function UserLoginPage() {
 
   function handleClick(e) {
     e.preventDefault();
-    console.log("clicked");
     navigate("/login/forgot-user");
   }
 
   function handleFormOTP(e) {
     e.preventDefault();
-    console.log("clicked")
     navigate("/login/phone-otp");
   }
+
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    console.log("Login data:", data);
+    // Add authentication logic here, e.g., API call to log in
+  };
 
   return (
     <>
@@ -51,6 +66,9 @@ export default function UserLoginPage() {
             variant="outlined"
             placeholder="Enter your Email"
             size="small"
+            name="email"
+            value={data.email}
+            onChange={handleChange}
             sx={{ my: 2, width: 370, mx: 5 }}
           />
           <TextField
@@ -58,8 +76,22 @@ export default function UserLoginPage() {
             variant="outlined"
             placeholder="Enter your Password"
             size="small"
-            type="password"
+            type={showPassword ? "text" : "password"}
+            name="password"
+            value={data.password}
+            onChange={handleChange}
             sx={{ mb: 2, width: 370, mx: 5 }}
+            slotProps={{
+              input: {
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton onClick={handleClickShowPassword} edge="end">
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              },
+            }}
           />
           <div
             style={{
@@ -101,35 +133,30 @@ export default function UserLoginPage() {
                 justifyContent: "center",
                 width: "250px",
               }}
+              onClick={handleLogin}
             >
               Login
             </button>
           </div>
           <div className="user-login-separator">---- or ----</div>
           <div className="user-login-controllers">
-            <div className="user-login-boxes">
-              <form className="user-Login-form-controllers" onClick={handleFormOTP}>
-                <PhoneIcon
-                  sx={{ fontSize: "2rem", margin: "5px", marginLeft: "70px" }}
-                />
-                <span className="user-login-form-text">Login With OTP</span>
-              </form>
+            <div className="user-login-boxes" onClick={handleFormOTP}>
+              <PhoneIcon
+                sx={{ fontSize: "2rem", margin: "5px", marginLeft: "70px" }}
+              />
+              <span className="user-login-form-text">Login With OTP</span>
             </div>
             <div className="user-login-boxes">
-              <form className="user-Login-form-controllers" >
-                <GoogleIcon
-                  sx={{ fontSize: "2rem", margin: "5px", marginLeft: "70px" }}
-                />
-                <span className="user-login-form-text">Login With Google</span>
-              </form>
+              <GoogleIcon
+                sx={{ fontSize: "2rem", margin: "5px", marginLeft: "70px" }}
+              />
+              <span className="user-login-form-text">Login With Google</span>
             </div>
             <div className="user-login-boxes">
-              <form className="user-Login-form-controllers">
-                <FacebookIcon
-                  sx={{ fontSize: "2rem", margin: "5px", marginLeft: "70px" }}
-                />
-                <span className="user-login-form-text">Login With FaceBook</span>
-              </form>
+              <FacebookIcon
+                sx={{ fontSize: "2rem", margin: "5px", marginLeft: "70px" }}
+              />
+              <span className="user-login-form-text">Login With Facebook</span>
             </div>
           </div>
         </div>

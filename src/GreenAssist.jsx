@@ -52,7 +52,7 @@ export default function GreenAssistRoutes() {
 
   const isVerified = false
     const role = {
-    role: "user"
+    role: null
   }
   const Loading = false
 
