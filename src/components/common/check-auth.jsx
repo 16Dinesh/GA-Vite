@@ -1,7 +1,6 @@
 import { Navigate, useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js"; 
-import { ReceiptIndianRupee } from "lucide-react";
 
 export default function CheckAuth({
   isAuthenticated,
@@ -39,20 +38,6 @@ export default function CheckAuth({
   if (!isAuthenticated && !isLoginOrRegister) {
     return <Navigate to="/auth/login" />;
   }
-
-  // if (isAuthenticated && isUser === "user" && isAdminPage) {
-  //   console.log("Redirecting to unauthorized page");
-  //   return <Navigate to="/unauth-page" />;
-  // }
-
-
-  // if (isAuthenticated && isLoginOrRegister) {
-  //   if (isUser === "admin") {
-  //     return <Navigate to="/admin/dashboard" />;
-  //   } else {
-  //     return <Navigate to="/services" />;
-  //   }
-  // }
 
   if(isAuthenticated && isLoginOrRegister) {
     if(isUser === "admin") {

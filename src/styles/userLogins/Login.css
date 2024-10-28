@@ -1,0 +1,49 @@
+.user-login-main-img {
+  margin: 1rem 0rem 0rem 3rem;
+  width: 450px;
+  cursor: pointer;
+}
+
+.user-login-separator {
+  display: flex;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin: 20px 0;
+  color: #00000091;
+}
+
+.user-login-controllers {
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  
+  
+}
+
+.user-login-boxes {
+  width: 370px;
+  height: 40px;
+  /* padding: 10px; */
+  margin: 10px ;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.user-Login-form-controllers {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 !important;
+  padding: 0 !important;
+
+}
+
+.user-login-form-text {
+  margin-left: 2rem; 
+  font-family: "Nunito Sans", sans-serif !important;
+  font-weight: 550 !important;
+}

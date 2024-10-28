@@ -2,7 +2,7 @@ import { PhoneCall } from "lucide-react";
 import JoinUs_fotter from "../../components/FooterBox/default-pages/Join_Us_C";
 import ContactUsForm from "../../components/Forms/ContactUsForm";
 // import MapBoxMap from "../../components/Maps/Maps";
-import "../../styles/Contactus.css";
+import "../../styles/default-pages//Contactus.css";
 import React, { Suspense } from "react";
 
 const SomeComponent = React.lazy(() =>import ('../../components/Maps/Maps'));

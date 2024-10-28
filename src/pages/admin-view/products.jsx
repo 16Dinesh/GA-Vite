@@ -4,7 +4,7 @@ import { Fragment, useState } from "react";
 import { addProductFormElements } from "../../config";
 import CommonForms from "../../components/common/CommonForms";
 import { ShoppingCart } from "lucide-react";
-import "../../styles/AdminPageCommon.css";
+import "../../styles/default-pages/AdminPageCommon.css";
 import AdminImageUpload from "../../components/admin-view/image-upload";
 
 const initialFormData = {
