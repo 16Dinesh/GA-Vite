@@ -62,9 +62,9 @@ body {
   .black-box {
     width: 50rem; /* Adjust for medium screens */
   }
-  #tsparticles {
+  /* #tsparticles {
     display: none;
-  }
+  } */
 
 }
 
