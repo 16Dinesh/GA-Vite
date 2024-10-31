@@ -8,7 +8,7 @@ import { loginUser } from "../../store/auth-slice";
 import toast from "react-hot-toast";
 
 const initialState = {
-  email: "",
+  email: "",  
   password: "",
 };
 

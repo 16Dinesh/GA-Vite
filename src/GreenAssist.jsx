@@ -35,10 +35,10 @@ import UserRegisterPage from "./pages/userLogins/Register";
 import UserResetPagePage from "./pages/userLogins/ResetIDS";
 import UserPhoneOTP from "./pages/userLogins/PhoneOTP";
 import CheckLogin from "./components/common/check-login";
+import UserLoginParticles from "./components/userLogins/Particles";
 
-   
 export default function GreenAssistRoutes() {
-  const { user, isAuthenticated, isLoading } = useSelector(
+  const { user, role, isAuthenticated, isLoading } = useSelector(
     (state) => state.auth
   );
 
@@ -48,20 +48,12 @@ export default function GreenAssistRoutes() {
     dispatch(checkAuth());
   }, [dispatch]);
 
-
-
-  const isVerified = false
-    const role = {
-    role: null
-  }
-  const Loading = false
-
   return (
     <div>
       <Routes>
         {/* Default Routes */}
         <Route path="/" element={<DefaultLayout />}>
-          <Route index element={<Navigate to="/home" />} />
+          {/* <Route index element={<Navigate to="/home" />} /> */}
           <Route path="home" element={<Home />} />
           <Route path="services" element={<Services />} />
           <Route path="about-us" element={<Aboutus />} />
@@ -71,8 +63,16 @@ export default function GreenAssistRoutes() {
           <Route path="terms-and-conditions" element={<Termsandconditions />} />
         </Route>
 
-        {/* Services Routes */}  
-        <Route path="/services" element={<ServiceLayout />}>             {/* what to create path dynamically that can come form Redux Store API ENDPOINT*/}
+        {/* Services Routes */}
+        <Route
+          path="/services"
+          element={
+            <CheckAuth isAuthenticated={isAuthenticated} role={role}>
+              <ServiceLayout />
+            </CheckAuth>
+          }
+        >
+          {/* what to create path dynamically that can come form Redux Store API ENDPOINT*/}
           <Route path="water-purifier-assist" element={<WaterPurifier />} />
           <Route path="electrician-assist" element={<Electrician />} />
           <Route path="plumbing-assist" element={<Plumbing />} />
@@ -83,14 +83,17 @@ export default function GreenAssistRoutes() {
           {/* account, Checkout, payment-mode, payment-success, and more Features to add */}
         </Route>
 
-        <Route path="/login" element={
-          // <CheckLogin isVerified={isVerified} role={role}>
-            <UserLoginLayout />
-          // </CheckLogin>
-        }>
+        <Route
+          path="/login"
+          element={
+            <CheckAuth isAuthenticated={isAuthenticated} user={user} role={role}>
+              <UserLoginLayout />
+            </CheckAuth>
+          }
+        >
           <Route path="user" element={<UserLoginPage />} />
           <Route path="register" element={<UserRegisterPage />} />
-          <Route path="phone-otp" element={<UserPhoneOTP/>} />
+          <Route path="phone-otp" element={<UserPhoneOTP />} />
           <Route path="forgot-user" element={<UserResetPagePage />} />
         </Route>
 
@@ -113,7 +116,7 @@ export default function GreenAssistRoutes() {
 
         {/* Authorization Routes*/}
         <Route
-          path="/auth"
+          path="/admin"
           element={
             <CheckAuth isAuthenticated={isAuthenticated} user={user}>
               <AuthLayout />
@@ -123,9 +126,13 @@ export default function GreenAssistRoutes() {
           <Route path="login" element={<AuthLogin />} />
           <Route path="register" element={<AuthRegister />} />
         </Route>
-
+        <Route path="/particles-game" index element={<UserLoginParticles />} />
         <Route path="/unauthorized-page" element={<UnauthPage />} />
         <Route path="*" element={<NotFound />} />
+
+       {/* //    */}
+        <Route index element={<Navigate to="/particles-game" />} /> 
+      
       </Routes>
     </div>
   );

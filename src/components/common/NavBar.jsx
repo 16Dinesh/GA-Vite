@@ -1,12 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import { NavLink, useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import './NavBar.css';
+import { NavLink, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';    
+
 
 export default function NavBar() {
     const [loading, setLoading] = useState(false);
-    const location = useLocation();
 
     // Handle loading state when the route changes
     useEffect(() => {

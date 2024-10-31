@@ -1,9 +1,13 @@
 import "../../styles/userLogins/register.css";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import GoogleIcon from "@mui/icons-material/Google";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import { TextField, IconButton, InputAdornment } from "@mui/material";
 import { useState } from "react";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { User2 } from "lucide-react";
+import { auth } from "../../components/userLogins/fireBaseConfig";
+import { useNavigate } from "react-router-dom";
 
 const initialState = {
   userName: "",
@@ -15,6 +19,7 @@ const initialState = {
 export default function UserRegisterPage() {
   const [data, setData] = useState(initialState);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -24,6 +29,14 @@ export default function UserRegisterPage() {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
+  const handleFireBaseGoogleLogin = async (e) => {
+    const provider = await new GoogleAuthProvider();
+    return signInWithPopup(auth, provider);
+  };
+
+  const handleAnonymousLogin = (e) => {
+    // console.log('clicked')
+  };
   return (
     <div className="user-register-container">
       <h4 className="user-register-Heading">
@@ -37,7 +50,10 @@ export default function UserRegisterPage() {
       <div>
         <p className="user-register-sign-up-text">Quick Sign Up with:</p>
         <div className="user-register-login-icons-boxes-layout">
-          <div className="user-register-login-icons-boxes">
+          <div
+            className="user-register-login-icons-boxes"
+            onClick={handleFireBaseGoogleLogin}
+          >
             <GoogleIcon
               style={{
                 fontSize: "2.8rem",
@@ -132,6 +148,21 @@ export default function UserRegisterPage() {
         >
           Register
         </button>
+      </div>
+      <div className="user-login-separator">---- or ----</div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <div className="user-login-boxes" onClick={handleAnonymousLogin}>
+          <User2
+            style={{ fontSize: "2rem", margin: "5px", marginLeft: "70px" }}
+          />
+          <span className="user-login-form-text">Register Anonymously </span>
+        </div>
       </div>
     </div>
   );

@@ -1,10 +1,51 @@
-import "../../styles/default-pages//Home.css";
+import "../../styles/default-pages/Home.css";
 import SearchBar from "../../components/Home/Search";
 import ServersHome from "../../components/Services/ServicesHome";
 import Testimonials from "../../components/Home/Testimonials";
 import ReachUsH from "../../components/FooterBox/default-pages/Reach_Us_Home";
+import { useGoogleOneTapLogin } from "@react-oauth/google";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import toast from "react-hot-toast";
+import { useEffect } from "react";
+import { checkAuth, googleUser } from "../../store/auth-slice";
 
 function Home() {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const isLoading = useSelector((state) => state.auth.isLoading);
+  const location = useLocation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  // Check authentication on component mount
+  useEffect(() => {
+    dispatch(checkAuth());
+  }, [dispatch]);
+
+  // Initialize Google One Tap Login if the user is not authenticated
+  useGoogleOneTapLogin({
+    onSuccess: async (credentialResponse) => {
+      const { credential } = credentialResponse;
+
+      const response = await dispatch(googleUser({ token: credential }));
+      if (response?.payload?.success) {
+        toast.success("Successfully Google Login", {
+          duration: 2000,
+        });
+        const redirectPath = location.state?.from || "/";
+        navigate(redirectPath);
+      } else {
+        toast.error("Error Occurred. Please Try Again", {
+          duration: 2000,
+        });
+      }
+    },
+    onError: () => {
+      console.log("Google One Tap Login Failed");
+    },
+    // Only trigger if the user is not authenticated
+    enabled: !isAuthenticated && !isLoading,
+  });
   return (
     <>
       <main>

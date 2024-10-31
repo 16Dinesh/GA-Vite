@@ -29,6 +29,7 @@ export default function UserLoginPage() {
   function handleFormOTP(e) {
     e.preventDefault();
     navigate("/login/phone-otp");
+
   }
 
   const handleClickShowPassword = () => {
@@ -43,6 +44,10 @@ export default function UserLoginPage() {
     e.preventDefault();
     console.log("Login data:", data);
     // Add authentication logic here, e.g., API call to log in
+  };
+
+  const handleGoogle = async (e) => {
+    console.log("clicked")
   };
 
   return (
@@ -146,7 +151,7 @@ export default function UserLoginPage() {
               />
               <span className="user-login-form-text">Login With OTP</span>
             </div>
-            <div className="user-login-boxes">
+            <div className="user-login-boxes" onClick={handleGoogle}>
               <GoogleIcon
                 sx={{ fontSize: "2rem", margin: "5px", marginLeft: "70px" }}
               />
