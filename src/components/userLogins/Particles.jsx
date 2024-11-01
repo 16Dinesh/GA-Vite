@@ -1,6 +1,8 @@
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom"; // Import Link for navigation
+import './UserLoginParticles.css'; // Custom styles
 
 export default function UserLoginParticles() {
   const [init, setInit] = useState(false);
@@ -77,6 +79,14 @@ export default function UserLoginParticles() {
   );
 
   return (
-    <Particles id="tsparticles" loaded={particlesLoaded} options={options} />
+    <div className="particles-container">
+      <Particles id="tsparticles" loaded={particlesLoaded} options={options} />
+      <div className="centered-text">
+        <span className="green-text">Green</span> <span className="white-text">Assist</span>
+      </div>
+      <Link to="/home" className="bottom-link">
+        if you see the progress click here
+      </Link>
+    </div>
   );
 }
