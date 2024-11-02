@@ -4,7 +4,7 @@ import CommonForms from "../../components/common/CommonForms";
 import { loginFormControls } from "../../config";
 import "./AuthRegister.css";
 import { useDispatch } from "react-redux";
-import { loginUser } from "../../store/auth-slice";
+import { adminLoginUser } from "../../store/auth-slice";
 import toast from "react-hot-toast";
 
 const initialState = {
@@ -21,7 +21,7 @@ export default function AuthLogin() {
 
   function onSubmit(event) {
     event.preventDefault();
-    dispatch(loginUser(formData)).then((data) => {
+    dispatch(adminLoginUser(formData)).then((data) => {
       if (data?.payload?.success) {
         toast.success(data?.payload?.message || "Successfully Logged In", {
           duration: 2000,

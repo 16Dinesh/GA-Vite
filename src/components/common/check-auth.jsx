@@ -5,7 +5,6 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 export default function CheckAuth({
   isAuthenticated,
   user,
-  role,
   isLoading,
   children,
 }) {
@@ -23,6 +22,19 @@ export default function CheckAuth({
     );
   }
 
+  const redirectPath = location.state?.from || "/services"
+
+  const isAdminLoginOrRegister =
+    location.pathname.includes("/admin/login") ||
+    location.pathname.includes("/admin/register");
+  const isAdminPage = location.pathname.includes("/admin");
+  const isServicesPage = location.pathname.includes("/services");
+  const isServicePage = location.pathname.includes("/service");
+
+  const isUserLoginOrRegister =
+    location.pathname.includes("/login/user") ||
+    location.pathname.includes("/login/register");
+
   // Check specific paths and redirect accordingly
   if (location.pathname === "/login") {
     return <Navigate to="/login/user" />;
@@ -32,26 +44,23 @@ export default function CheckAuth({
     return <Navigate to="/admin/login" />;
   }
 
-  const isAdminLoginOrRegister =
-    location.pathname.includes("/admin/login") ||
-    location.pathname.includes("/admin/register");
-  const isAdminPage = location.pathname.includes("/admin");
-  const isServicePage = location.pathname.includes("/services");
+  if (location.pathname === "/service") {
+    return <Navigate to="/services" />;
+  }
 
-  const isUserLoginOrRegister =
-    location.pathname.includes("/login/user") ||
-    location.pathname.includes("/login/register");
+  if (!isAuthenticated && isServicePage ) {
+    return <Navigate to={"/login/user"} />;
+  }
 
-  // // Redirect to appropriate login page if not authenticated
-  // if (!isAuthenticated) {
-  //   if (!isUserLoginOrRegister && location.pathname.includes("/login")) {
-  //     return <Navigate to="/login/user" />;
-  //   }
-  //   if (!isAdminLoginOrRegister && location.pathname.includes("/admin")) {
-  //     return <Navigate to="/admin/login" />;
-  //   }
-  // }
 
+  if (isAuthenticated && isUser === "admin" && isAdminLoginOrRegister) {
+    return <Navigate to="/admin/dashboard" />;
+  }
+
+  if(isAuthenticated && isUser === "user" && isUserLoginOrRegister) {
+    return <Navigate to={redirectPath} />
+  }
+  
   // Prevent user access to admin pages if authenticated as "user"
   if (isAuthenticated && isUser === "user" && isAdminPage) {
     return <Navigate to="/unauthorized-page" />;

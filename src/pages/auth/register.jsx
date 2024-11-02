@@ -4,7 +4,7 @@ import CommonForms from "../../components/common/CommonForms";
 import { AdminregisterFormControls } from "../../config";
 import "./AuthRegister.css";
 import { useDispatch } from "react-redux";
-import { registerUser } from "../../store/auth-slice";
+import { adminRegisterUser } from "../../store/auth-slice";
 import toast from 'react-hot-toast';
 
 const initialState = {
@@ -20,7 +20,7 @@ export default function AuthRegister() {
 
   function onSubmit(event) {
     event.preventDefault();
-    dispatch(registerUser(formData)).then((data) => {
+    dispatch(adminRegisterUser(formData)).then((data) => {
       if (data?.payload?.success) {
         toast.success(data?.payload?.message || "Successfully Done", {
           duration: 2000,

@@ -8,12 +8,12 @@ const initialState = {
   user: null,
 };
 
-export const registerUser = createAsyncThunk(
-  "/auth/register",
+export const adminRegisterUser = createAsyncThunk(
+  "/admin/register",
 
   async (formData) => {
     const response = await axios.post(
-      "http://localhost:5000/api/auth/register",
+      "http://localhost:5000/api/admin/register",
       formData,
       {
         withCredentials: true,
@@ -24,12 +24,12 @@ export const registerUser = createAsyncThunk(
   }
 );
 
-export const loginUser = createAsyncThunk(
-  "/auth/login",
+export const adminLoginUser = createAsyncThunk(
+  "/admin/login",
 
   async (formData) => {
     const response = await axios.post(
-      "http://localhost:5000/api/auth/login",
+      "http://localhost:5000/api/admin/login",
       formData,
       {
         withCredentials: true,
@@ -40,12 +40,12 @@ export const loginUser = createAsyncThunk(
   }
 );
 
-export const logoutUser = createAsyncThunk(
-  "/auth/logout",
+export const adminLogoutUser = createAsyncThunk(
+  "/admin/logout",
 
   async () => {
     const response = await axios.post(
-      "http://localhost:5000/api/auth/logout",
+      "http://localhost:5000/api/admin/logout",
       {},
       {
         withCredentials: true,
@@ -57,11 +57,11 @@ export const logoutUser = createAsyncThunk(
 );
 
 export const checkAuth = createAsyncThunk(
-  "/auth/check-auth",
+  "/admin/check-auth",
 
   async () => {
     const response = await axios.get(
-      "http://localhost:5000/api/auth/check-auth",
+      "http://localhost:5000/api/admin/check-auth",
       {
         withCredentials: true,
         headers: {
@@ -79,7 +79,7 @@ export const googleUser = createAsyncThunk(
   "user/googleLogin",
   async (userCredential) => {
     const response = await axios.post(
-      "http://localhost:5000/api/auth/google",
+      "http://localhost:5000/api/user/google",
       userCredential,
       {
         withCredentials: true,
@@ -97,31 +97,31 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(registerUser.pending, (state) => {
+      .addCase(adminRegisterUser.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(registerUser.fulfilled, (state, action) => {
+      .addCase(adminRegisterUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = null;
         state.isAuthenticated = false;
       })
-      .addCase(registerUser.rejected, (state, action) => {
+      .addCase(adminRegisterUser.rejected, (state, action) => {
         state.isLoading = false;
         state.user = null;
         state.isAuthenticated = false;
       })
-      .addCase(loginUser.pending, (state) => {
+      .addCase(adminLoginUser.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(loginUser.fulfilled, (state, action) => {
+      .addCase(adminLoginUser.fulfilled, (state, action) => {
         console.log(`This is the LoginUser State ${action}`)
         console.log(action);
 
         state.isLoading = false;
-        state.user = action.payload.success ? action.payload.user : null;
+        state.user = action.payload.success ? action.payload.role : null;
         state.isAuthenticated = action.payload.success;
       })
-      .addCase(loginUser.rejected, (state, action) => {
+      .addCase(adminLoginUser.rejected, (state, action) => {
         state.isLoading = false;
         state.user = null;
         state.isAuthenticated = false;
@@ -130,8 +130,11 @@ const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(checkAuth.fulfilled, (state, action) => {
+        console.log(`This is the checkAuth State ${action}`)
+        console.log(action);
+
         state.isLoading = false;
-        state.user = action.payload.success ? action.payload.user : null;
+        state.user = action.payload.success ? action.payload.role : null;
         state.isAuthenticated = action.payload.success;
       })
       .addCase(checkAuth.rejected, (state, action) => {
@@ -143,16 +146,20 @@ const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(googleUser.fulfilled, (state, action) => {
+        console.log(`This is the googleUser State ${action}`)
+        console.log(action);
+
         state.isLoading = false;
+        console.log(action.payload)
         state.user = action.payload.success ? action.payload.role : null;
         state.isAuthenticated = action.payload.success;
       })
       .addCase(googleUser.rejected, (state, action) => {
         state.isLoading = false;
-        state.role = null;
+        state.user = null;
         state.isAuthenticated = false;
       })
-      .addCase(logoutUser.fulfilled, (state, action) => {
+      .addCase(adminLogoutUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = null;
         state.isAuthenticated = false;

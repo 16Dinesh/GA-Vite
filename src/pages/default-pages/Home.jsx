@@ -11,16 +11,17 @@ import { useEffect } from "react";
 import { checkAuth, googleUser } from "../../store/auth-slice";
 
 function Home() {
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const isLoading = useSelector((state) => state.auth.isLoading);
+  // const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  // const isLoading = useSelector((state) => state.auth.isLoading);
   const location = useLocation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  
 
   // Check authentication on component mount
-  useEffect(() => {
-    dispatch(checkAuth());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(checkAuth());
+  // }, [dispatch]);
 
   // Initialize Google One Tap Login if the user is not authenticated
   useGoogleOneTapLogin({
@@ -38,13 +39,13 @@ function Home() {
         toast.error("Error Occurred. Please Try Again", {
           duration: 2000,
         });
+        navigate("/login/user");
       }
     },
     onError: () => {
       console.log("Google One Tap Login Failed");
     },
     // Only trigger if the user is not authenticated
-    enabled: !isAuthenticated && !isLoading,
   });
   return (
     <>
