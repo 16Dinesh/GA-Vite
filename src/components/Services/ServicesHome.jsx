@@ -31,13 +31,6 @@ const servicesData = [
     available: true,
     path: "/service/single-Driver-assist",
   },
-  // {
-  //   title: "Coming Soon",
-  //   image: "/common/Question Mark.png",
-  //   alt: "Coming Soon",
-  //   available: false,
-  //   path: "",
-  // },
 ];
 
 export default function ServicesHome() {

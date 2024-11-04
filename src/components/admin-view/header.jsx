@@ -2,13 +2,19 @@ import { AlignJustify, LogOut } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { adminLogoutUser } from "../../store/auth-slice";
 import Button from "@mui/joy/Button";
+import { useNavigate } from "react-router-dom";
 
 export default function AdminHeader({ setOpen }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   function handleLogout() {
-    dispatch(adminLogoutUser());
-  }
+    // Dispatch the logout action
+    dispatch(adminLogoutUser()).then(() => {
+        // After the logout action completes, navigate to the login page
+        navigate("/admin/login");
+    });
+}
 
   return (
     <header className="admin-header-c">

@@ -42,7 +42,7 @@ export default function AuthLogin() {
         <h1>Admin Dashboard Login</h1>
         <p>
           Don't have an account?
-          <Link className="auth-register-link" to="/auth/register">
+          <Link className="auth-register-link" to="/admin/register">
             Register
           </Link>
         </p>

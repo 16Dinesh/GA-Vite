@@ -25,7 +25,7 @@ export default function AuthRegister() {
         toast.success(data?.payload?.message || "Successfully Done", {
           duration: 2000,
         });
-        // navigate("/admin/dashboard");
+        navigate("/admin/login");
       } else {
         toast.error(data?.payload?.message || "Error Occurred Please Try Again", {
           duration: 2000,
@@ -42,7 +42,7 @@ export default function AuthRegister() {
         <h1>Create new Admin account</h1>
         <p>
           Already have an account?
-          <Link className="auth-register-link" to="/auth/login">
+          <Link className="auth-register-link" to="/admin/login">
             Login
           </Link>
         </p>

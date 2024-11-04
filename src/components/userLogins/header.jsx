@@ -5,7 +5,7 @@ export default function UserLoginHeader() {
   const isUserPage = location.pathname.includes("user");
   const isRegisterPage = location.pathname.includes("register");
 
-  console.log(location.pathname);
+  // console.log(location.pathname);
 
   return (
     <nav className="navbar navbar-expand-md bg-body-light border-bottom sticky-top">

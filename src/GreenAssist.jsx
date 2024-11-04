@@ -38,21 +38,27 @@ import { checkAuth } from "./store/auth-slice";
 import { Tune } from "@mui/icons-material";
 
 export default function GreenAssistRoutes() {
-  // const { user, isAuthenticated, isLoading } = useSelector(
-  //   (state) => state.auth
-  // );
+  const { user, isAuthenticated, isLoading } = useSelector(
+    (state) => state.auth
+  );
 
-  // const dispatch = useDispatch();
+  const location = useLocation()
+  console.log(location.pathname);
 
-  // useEffect(() => {
-  //   dispatch(checkAuth());
-  // }, [dispatch]);  
+  console.log("isAuthenticated:", isAuthenticated);
+  console.log("isUser:", user);
 
-  const isAuthenticated = true;
-  const user = {
-    name: "dinesh",
-    role: "user",
-  };
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(checkAuth());
+  }, [dispatch]);  
+
+  // const isAuthenticated = false;
+  // const user = {
+  //   name: "dinesh",
+  //   role: "user",
+  // };
 
   return (
     <div>
@@ -73,7 +79,7 @@ export default function GreenAssistRoutes() {
         <Route
           path="/service"
           element={
-            <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+            <CheckAuth isAuthenticated={isAuthenticated} user={user} isLoading={isLoading}>
               <ServiceLayout />
             </CheckAuth>
           }
@@ -92,7 +98,7 @@ export default function GreenAssistRoutes() {
         <Route
           path="/login"
           element={
-            <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+            <CheckAuth isAuthenticated={isAuthenticated} user={user} isLoading={isLoading}>
               <UserLoginLayout />
             </CheckAuth>
           }
@@ -107,7 +113,7 @@ export default function GreenAssistRoutes() {
         <Route
           path="/admin"
           element={
-            <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+            <CheckAuth isAuthenticated={isAuthenticated} user={user} isLoading={isLoading}>
               <AdminLayout />
             </CheckAuth>
           }
@@ -124,7 +130,7 @@ export default function GreenAssistRoutes() {
         <Route
           path="/admin"
           element={
-            <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+            <CheckAuth isAuthenticated={isAuthenticated} user={user} isLoading={isLoading}>
               <AuthLayout />
             </CheckAuth>
           }

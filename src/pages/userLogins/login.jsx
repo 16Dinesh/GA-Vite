@@ -6,6 +6,10 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { TextField, IconButton, InputAdornment } from "@mui/material";
+import { GoogleLogin } from "@react-oauth/google";
+import { useDispatch, useSelector } from "react-redux";
+import { adminLoginUser, googleUser } from "../../store/auth-slice";
+import toast from "react-hot-toast";
 
 const initialState = {
   email: "",
@@ -13,9 +17,14 @@ const initialState = {
 };
 
 export default function UserLoginPage() {
-  const [data, setData] = useState(initialState);
+  const [formData, setFormData] = useState(initialState);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { googleAuth } = useSelector((state) => state.auth);
+  const [oneTapEnabled, setOneTapEnabled] = useState(!googleAuth);
+
+  console.log(googleAuth)
 
   function handleIMGHome() {
     navigate("/home");
@@ -29,7 +38,6 @@ export default function UserLoginPage() {
   function handleFormOTP(e) {
     e.preventDefault();
     navigate("/login/phone-otp");
-
   }
 
   const handleClickShowPassword = () => {
@@ -37,18 +45,14 @@ export default function UserLoginPage() {
   };
 
   const handleChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log("Login data:", data);
-    // Add authentication logic here, e.g., API call to log in
   };
+  console.log("Login data:", formData);
 
-  const handleGoogle = async (e) => {
-    console.log("clicked")
-  };
 
   return (
     <>
@@ -72,7 +76,7 @@ export default function UserLoginPage() {
             placeholder="Enter your Email"
             size="small"
             name="email"
-            value={data.email}
+            value={formData.email}
             onChange={handleChange}
             sx={{ my: 2, width: 370, mx: 5 }}
           />
@@ -83,7 +87,7 @@ export default function UserLoginPage() {
             size="small"
             type={showPassword ? "text" : "password"}
             name="password"
-            value={data.password}
+            value={formData.password}
             onChange={handleChange}
             sx={{ mb: 2, width: 370, mx: 5 }}
             slotProps={{
@@ -151,11 +155,39 @@ export default function UserLoginPage() {
               />
               <span className="user-login-form-text">Login With OTP</span>
             </div>
-            <div className="user-login-boxes" onClick={handleGoogle}>
-              <GoogleIcon
-                sx={{ fontSize: "2rem", margin: "5px", marginLeft: "70px" }}
+            <div>
+              <GoogleLogin
+                onSuccess={(credentialResponse) => {
+                  if (!oneTapEnabled || googleAuth) return;
+
+                  const { credential } = credentialResponse;
+                  console.log("Google Token:", credential);
+
+                  dispatch(googleUser({ token: credential })).then((data) => {
+                    if (data?.payload?.success) {
+                      toast.success(
+                        data?.payload?.message ||
+                          "Successfully logged in with Google",
+                        { duration: 2000 }
+                      );
+                      const redirectPath = location.state?.from || "/";
+                      navigate(redirectPath);
+
+                      // Disable Google One Tap after successful login
+                      setOneTapEnabled(false);
+                    }
+                  });
+                }}
+                onError={() => {
+                  console.log("Login Failed");
+                }}
+                type="standard"
+                size="large"
+                shape="rectangular"
+                width="300px"
+                useOneTap={!googleAuth} // Enables One Tap only if googleAuth is false
+                disabled={googleAuth} // Disables button if googleAuth is true
               />
-              <span className="user-login-form-text">Login With Google</span>
             </div>
             <div className="user-login-boxes">
               <FacebookIcon

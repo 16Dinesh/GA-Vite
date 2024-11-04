@@ -9,9 +9,8 @@ export default function CheckAuth({
   children,
 }) {
   const location = useLocation();
-  const isUser = user?.role;
+  const isUser = user;
 
-  // Show loading spinner if the app is still loading authentication state
   if (isLoading) {
     return (
       <div className="Nav-loader">
@@ -22,60 +21,62 @@ export default function CheckAuth({
     );
   }
 
-  const redirectPath = location.state?.from || "/services"
+  const redirectPath = location.state?.from || "/services";
 
   const isAdminLoginOrRegister =
     location.pathname.includes("/admin/login") ||
     location.pathname.includes("/admin/register");
+
   const isAdminPage = location.pathname.includes("/admin");
   const isServicesPage = location.pathname.includes("/services");
   const isServicePage = location.pathname.includes("/service");
+
+  // const 
 
   const isUserLoginOrRegister =
     location.pathname.includes("/login/user") ||
     location.pathname.includes("/login/register");
 
-  // Check specific paths and redirect accordingly
-  if (location.pathname === "/login") {
-    return <Navigate to="/login/user" />;
-  }
+  if (location.pathname === "/login") return <Navigate to="/login/user" />;
+  if (location.pathname === "/admin") return <Navigate to="/admin/login" />;
+  if (location.pathname === "/service") return <Navigate to="/services" />;
 
-  if (location.pathname === "/admin") {
-    return <Navigate to="/admin/login" />;
-  }
-
-  if (location.pathname === "/service") {
-    return <Navigate to="/services" />;
-  }
-
-  if (!isAuthenticated && isServicePage ) {
+  if (!isAuthenticated && isServicePage) {
     return <Navigate to={"/login/user"} />;
   }
-
 
   if (isAuthenticated && isUser === "admin" && isAdminLoginOrRegister) {
     return <Navigate to="/admin/dashboard" />;
   }
 
-  if(isAuthenticated && isUser === "user" && isUserLoginOrRegister) {
-    return <Navigate to={redirectPath} />
+
+  if (isAuthenticated && isUser === "user" && isUserLoginOrRegister) {
+    return <Navigate to="/"/>;
   }
-  
-  // Prevent user access to admin pages if authenticated as "user"
-  if (isAuthenticated && isUser === "user" && isAdminPage) {
+
+  if (!isAuthenticated && isAdminPage && isUser === "") {
+    return <Navigate to="/admin/login" />; // this is working but shows only white page
+  }
+
+  if (!isAuthenticated && isUser === "user" && isAdminPage) {
     return <Navigate to="/unauthorized-page" />;
   }
 
   // Redirect admin from service page to dashboard
-  if (isAuthenticated && isUser === "admin" && isServicePage) {
+  if (
+    isAuthenticated &&
+    isUser === "admin" &&
+    isServicePage &&
+    isServicesPage
+  ) {
     console.log("Redirecting admin to dashboard from service page");
     return <Navigate to="/admin/dashboard" />;
   }
 
-  console.log("isAuthenticated:", isAuthenticated);
-  console.log("isUser:", isUser);
-  console.log("isAdminPage:", isAdminPage);
-  console.log("isServicePage:", isServicePage);
+  // console.log("isAuthenticated:", isAuthenticated);
+  // console.log("isUser:", isUser);
+  // console.log("isAdminPage:", isAdminPage);
+  // console.log("isServicePage:", isServicePage);
 
   return <>{children}</>;
 }
