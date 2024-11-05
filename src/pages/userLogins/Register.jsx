@@ -1,5 +1,5 @@
 import "../../styles/userLogins/register.css";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
 import GoogleIcon from "@mui/icons-material/Google";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import { TextField, IconButton, InputAdornment } from "@mui/material";
@@ -17,7 +17,7 @@ const initialState = {
 };
 
 export default function UserRegisterPage() {
-  const [data, setData] = useState(initialState);
+  const [formData, setFormData] = useState(initialState);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
@@ -26,7 +26,7 @@ export default function UserRegisterPage() {
   };
 
   const handleChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleFireBaseGoogleLogin = async (e) => {
@@ -34,9 +34,15 @@ export default function UserRegisterPage() {
     return signInWithPopup(auth, provider);
   };
 
-  const handleAnonymousLogin = (e) => {
-    // console.log('clicked')
+  const handleRegisterFirebase = (e) => {
+    e.preventDefault();
+
+  }
+
+  const handleFireBaseAnonymousLogin = (e) => {
+    console.log('clicked')
   };
+
   return (
     <div className="user-register-container">
       <h4 className="user-register-Heading">
@@ -77,7 +83,7 @@ export default function UserRegisterPage() {
               margin="normal"
               sx={{ mb: 2, width: 370, mx: 5 }}
               name="userName"
-              value={data.userName}
+              value={formData.userName}
               onChange={handleChange}
             />
             <TextField
@@ -88,7 +94,7 @@ export default function UserRegisterPage() {
               margin="normal"
               sx={{ mb: 2, width: 370, mx: 5 }}
               name="email"
-              value={data.email}
+              value={formData.email}
               onChange={handleChange}
             />
             <TextField
@@ -99,7 +105,7 @@ export default function UserRegisterPage() {
               margin="normal"
               sx={{ mb: 2, width: 370, mx: 5 }}
               name="number"
-              value={data.number}
+              value={formData.number}
               onChange={handleChange}
             />
             <TextField
@@ -111,7 +117,7 @@ export default function UserRegisterPage() {
               sx={{ mb: 2, width: 370, mx: 5 }}
               margin="normal"
               name="password"
-              value={data.password}
+              value={formData.password}
               onChange={handleChange}
               slotProps={{
                 input: {
@@ -139,11 +145,13 @@ export default function UserRegisterPage() {
       >
         <button
           className="btn nav-btn mx-2"
+          onClick={handleRegisterFirebase}
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             width: "250px",
+            
           }}
         >
           Register
@@ -157,7 +165,7 @@ export default function UserRegisterPage() {
           justifyContent: "center",
         }}
       >
-        <div className="user-login-boxes" onClick={handleAnonymousLogin}>
+        <div className="user-login-boxes" onClick={handleFireBaseAnonymousLogin}>
           <User2
             style={{ fontSize: "2rem", margin: "5px", marginLeft: "70px" }}
           />

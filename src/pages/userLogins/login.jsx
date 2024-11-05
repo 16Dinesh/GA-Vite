@@ -16,15 +16,13 @@ const initialState = {
   password: "",
 };
 
-export default function UserLoginPage() {
+export default function UserLoginPage({ isAuthenticated }) {
   const [formData, setFormData] = useState(initialState);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { googleAuth } = useSelector((state) => state.auth);
-  const [oneTapEnabled, setOneTapEnabled] = useState(!googleAuth);
 
-  console.log(googleAuth)
+  console.log("in the Login Page isAuthenticated:", isAuthenticated);
 
   function handleIMGHome() {
     navigate("/home");
@@ -51,8 +49,8 @@ export default function UserLoginPage() {
   const handleLogin = (e) => {
     e.preventDefault();
   };
-  console.log("Login data:", formData);
 
+  console.log("Login data:", formData);
 
   return (
     <>
@@ -151,19 +149,20 @@ export default function UserLoginPage() {
           <div className="user-login-controllers">
             <div className="user-login-boxes" onClick={handleFormOTP}>
               <PhoneIcon
-                sx={{ fontSize: "2rem", margin: "5px", marginLeft: "70px" }}
+                sx={{ fontSize: "2rem", margin: "5px", marginLeft: "50px" }}
               />
-              <span className="user-login-form-text">Login With OTP</span>
+              <span className="user-login-form-text" style={{  marginLeft:"0.5rem"}}>Sign In With OTP</span>
             </div>
-            <div>
+            <div className="user-login-boxes">
               <GoogleLogin
-                onSuccess={(credentialResponse) => {
-                  if (!oneTapEnabled || googleAuth) return;
-
+                onSuccess={async (credentialResponse) => {
                   const { credential } = credentialResponse;
                   console.log("Google Token:", credential);
 
-                  dispatch(googleUser({ token: credential })).then((data) => {
+                  try {
+                    const data = await dispatch(
+                      googleUser({ token: credential })
+                    );
                     if (data?.payload?.success) {
                       toast.success(
                         data?.payload?.message ||
@@ -172,26 +171,39 @@ export default function UserLoginPage() {
                       );
                       const redirectPath = location.state?.from || "/";
                       navigate(redirectPath);
-
-                      // Disable Google One Tap after successful login
-                      setOneTapEnabled(false);
+                    } else {
+                      toast.error(
+                        data?.payload?.message ||
+                          "Login failed. Please try again.",
+                        { duration: 2000 }
+                      );
+                      navigate("/login/user");
                     }
-                  });
+                  } catch (error) {
+                    console.error("Dispatch error:", error);
+                    toast.error(
+                      "An error occurred while processing your request."
+                    );
+                  }
                 }}
-                onError={() => {
-                  console.log("Login Failed");
+                onError={(errorResponse) => {
+                  console.error("Login Error:", errorResponse);
+                  toast.error(
+                    errorResponse.error_description ||
+                      "An error occurred during login."
+                  );
                 }}
                 type="standard"
                 size="large"
                 shape="rectangular"
                 width="300px"
-                useOneTap={!googleAuth} // Enables One Tap only if googleAuth is false
-                disabled={googleAuth} // Disables button if googleAuth is true
+                useOneTap={!isAuthenticated}
+                disabled={isAuthenticated}
               />
             </div>
             <div className="user-login-boxes">
               <FacebookIcon
-                sx={{ fontSize: "2rem", margin: "5px", marginLeft: "70px" }}
+                sx={{ fontSize: "2rem", margin: "5px", marginLeft: "50px" }}
               />
               <span className="user-login-form-text">Login With Facebook</span>
             </div>
@@ -199,5 +211,5 @@ export default function UserLoginPage() {
         </div>
       </div>
     </>
-  );
+  );  
 }

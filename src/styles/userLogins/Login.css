@@ -13,20 +13,16 @@
 }
 
 .user-login-controllers {
-  
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  
-  
 }
 
 .user-login-boxes {
-  width: 370px;
-  height: 40px;
-  /* padding: 10px; */
-  margin: 10px ;
+  width: 304px;
+  height: 43.5px;
+  margin: 15px ;
   border: 2px solid rgba(0, 0, 0, 0.454);
   border-radius: 5px;
   font-size: 1em;
@@ -43,7 +39,7 @@
 }
 
 .user-login-form-text {
-  margin-left: 2rem; 
+  margin-left: 0rem; 
   font-family: "Nunito Sans", sans-serif !important;
   font-weight: 550 !important;
 }

@@ -9,65 +9,20 @@ import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { checkAuth, googleUser } from "../../store/auth-slice";
-import { renderToPipeableStream } from "react-dom/server";
+import { TurnedIn } from "@mui/icons-material";
 
-function Home() {
+function Home({ isAuthenticated }) {
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { googleAuth } = useSelector((state) => state.auth);
-  console.log(googleAuth);
 
+  console.log("Home Page :", isAuthenticated);
 
-  // useGoogleOneTapLogin({
-  //   onSuccess: (credentialResponse) => {
-  //     const { credential } = credentialResponse;
-  //     console.log("Google Token:", credential);
-
-  //     dispatch(googleUser({ token: credential })).then((data) => {
-  //       if (data?.payload?.success) {
-  //         toast.success(
-  //           data?.payload?.message || "Successfully logged in with Google",
-  //           { duration: 2000 }
-  //         );
-  //         const redirectPath = location.state?.from || "/";
-  //         navigate(redirectPath);
-  //       } else {
-  //         toast.error(
-  //           data?.payload?.message || "Login failed. Please try again.",
-  //           { duration: 2000 }
-  //         );
-  //         navigate("/login/user");
-  //       }
-  //     });
-  //   },
-  //   onError: (errorResponse) => {
-  //     console.error("Login Error:", errorResponse);
-  //     toast.error(errorResponse.error_description || "An error occurred during login.");
-  //   },
-  //   onNonOAuthError: (nonOAuthError) => {
-  //     console.error("Non-OAuth Error:", nonOAuthError);
-  //     let message = "An unexpected error occurred.";
-  //     if (nonOAuthError === "popup_failed_to_open") {
-  //       message = "The login popup could not be opened. Please check your browser settings.";
-  //     } else if (nonOAuthError === "popup_closed") {
-  //       message = "The login popup was closed before completion.";
-  //     }
-  //     toast.error(message);
-  //   },
-  //   disabled: googleAuth,
-  // });
-
-
-  useEffect(() => {
-    localStorage.setItem("", JSON.stringify());
-  }, []);
-
-  
   // Google One Tap Login Hook
   useGoogleOneTapLogin({
     flow: "auth-code",
     onSuccess: async (credentialResponse) => {
+      // console.log(credentialResponse);
       const { credential } = credentialResponse;
       console.log("Google Token:", credential);
 
@@ -98,21 +53,11 @@ function Home() {
         errorResponse.error_description || "An error occurred during login."
       );
     },
-    onNonOAuthError: (nonOAuthError) => {
-      console.error("Non-OAuth Error:", nonOAuthError);
-      let message = "An unexpected error occurred.";
-      if (nonOAuthError === "popup_failed_to_open") {
-        message =
-          "The login popup could not be opened. Please check your browser settings.";
-      } else if (nonOAuthError === "popup_closed") {
-        message = "The login popup was closed before completion.";
-      }
-      toast.error(message);
-    },
-    disabled: googleAuth,
-    scope: "profile email openid",
-    prompt: "select_account",
-    select_account: true,
+    cancel_on_tap_outside: true,
+    prompt: "consent",
+    auto_select: true,
+    disabled: isAuthenticated,
+    use_fedcm_for_prompt: true,
   });
 
   return (

@@ -45,8 +45,8 @@ export default function GreenAssistRoutes() {
   const location = useLocation()
   console.log(location.pathname);
 
-  console.log("isAuthenticated:", isAuthenticated);
-  console.log("isUser:", user);
+  console.log("Main -> isAuthenticated:", isAuthenticated);
+  console.log("Main -> isUser:", user);
 
   const dispatch = useDispatch();
 
@@ -65,8 +65,8 @@ export default function GreenAssistRoutes() {
       <Routes>
         {/* Default Routes */}
         <Route path="/" element={<DefaultLayout />}>
-          <Route index element={<Navigate to="/home" />} />
-          <Route path="home" element={<Home />} />
+          <Route index element={<Navigate to="/home"  />} />
+          <Route path="home" element={<Home  isAuthenticated={isAuthenticated} />} />
           <Route path="services" element={<Services />} />
           <Route path="about-us" element={<Aboutus />} />
           <Route path="contact-us" element={<ContactUs />} />
