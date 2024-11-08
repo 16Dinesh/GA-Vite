@@ -1,19 +1,21 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "../../styles/userLogins/Login.css";
-import GoogleIcon from "@mui/icons-material/Google";
 import PhoneIcon from "@mui/icons-material/Phone";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { TextField, IconButton, InputAdornment } from "@mui/material";
 import { GoogleLogin } from "@react-oauth/google";
 import { useDispatch, useSelector } from "react-redux";
-import { adminLoginUser, googleUser } from "../../store/auth-slice";
+import { adminLoginUser, googleUser, loginUser } from "../../store/auth-slice";
 import toast from "react-hot-toast";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../components/userLogins/fireBaseConfig";
 
 const initialState = {
   email: "",
   password: "",
+  rememberMe: false,
 };
 
 export default function UserLoginPage({ isAuthenticated }) {
@@ -22,7 +24,7 @@ export default function UserLoginPage({ isAuthenticated }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  console.log("in the Login Page isAuthenticated:", isAuthenticated);
+  console.log("In the Login Page isAuthenticated:", isAuthenticated);
 
   function handleIMGHome() {
     navigate("/home");
@@ -43,11 +45,54 @@ export default function UserLoginPage({ isAuthenticated }) {
   };
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === "checkbox" ? checked : value,
+    });
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    console.log("clicked login");
+    const { email, password } = formData;
+
+    // Basic validation for email and password
+    if (!email || !password) {
+      toast.error("Email and password are required!");
+      return;
+    }
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      toast.success("Connected to Firebase");
+
+      dispatch(loginUser(formData)).then((data) => {
+        if (data?.payload?.success) {
+          toast.success(data?.payload?.message, {
+            duration: 2000,
+          });
+          setFormData(initialData);
+          const redirectPath = location.state?.from || "/services";
+          navigate(redirectPath);
+        } else {
+          toast.error(data?.payload?.message || "Login failed", {
+            duration: 2000,
+          });
+        }
+      });
+    } catch (e) {
+      if (e.code === "auth/invalid-email") {
+        toast.error("Invalid email format. Please check your email.");
+      } else if (e.code === "auth/wrong-password") {
+        toast.error("Incorrect password. Please try again.");
+      } else if (e.code === "auth/user-not-found") {
+        toast.error("No user found with this email. Please register.");
+      } else {
+        toast.error("Error in sign-in. Please try again.");
+      }
+      console.error("Error during sign-in:", e);
+    }
   };
 
   console.log("Login data:", formData);
@@ -111,7 +156,13 @@ export default function UserLoginPage({ isAuthenticated }) {
             }}
           >
             <label>
-              <input type="checkbox" /> Remember Me
+              <input
+                type="checkbox"
+                name="rememberMe"
+                checked={formData.rememberMe}
+                onChange={handleChange}
+              />{" "}
+              Remember Me
             </label>
             <Link
               to="/login/forgot-user"
@@ -151,7 +202,12 @@ export default function UserLoginPage({ isAuthenticated }) {
               <PhoneIcon
                 sx={{ fontSize: "2rem", margin: "5px", marginLeft: "50px" }}
               />
-              <span className="user-login-form-text" style={{  marginLeft:"0.5rem"}}>Sign In With OTP</span>
+              <span
+                className="user-login-form-text"
+                style={{ marginLeft: "0.5rem" }}
+              >
+                Sign In With OTP
+              </span>
             </div>
             <div className="user-login-boxes">
               <GoogleLogin
@@ -211,5 +267,5 @@ export default function UserLoginPage({ isAuthenticated }) {
         </div>
       </div>
     </>
-  );  
+  );
 }

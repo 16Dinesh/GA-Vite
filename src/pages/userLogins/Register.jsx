@@ -1,13 +1,20 @@
 import "../../styles/userLogins/register.css";
-import { GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../components/userLogins/fireBaseConfig";
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 import GoogleIcon from "@mui/icons-material/Google";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import { TextField, IconButton, InputAdornment } from "@mui/material";
 import { useState } from "react";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { User2 } from "lucide-react";
-import { auth } from "../../components/userLogins/fireBaseConfig";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { registerUser } from "../../store/auth-slice";
 
 const initialState = {
   userName: "",
@@ -20,6 +27,7 @@ export default function UserRegisterPage() {
   const [formData, setFormData] = useState(initialState);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -34,14 +42,59 @@ export default function UserRegisterPage() {
     return signInWithPopup(auth, provider);
   };
 
-  const handleRegisterFirebase = (e) => {
+  const handleRegisterFirebase = async (e) => {
+    console.log("clicked");
     e.preventDefault();
+    const { email, password } = formData;
 
-  }
+    // Basic validation check
+    if (!email || !password) {
+      toast.error("Email and password are required!");
+      return;
+    }
+
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      toast.success("Registered in Firebase");
+
+      // Dispatch the register action
+      dispatch(registerUser(formData))
+        .then((data) => {
+          if (data?.payload?.success) {
+            toast.success(data?.payload?.message, {
+              duration: 2000,
+            });
+
+            setFormData(initialData);
+
+            navigate("/login/user");
+          } else {
+            toast.error(data?.payload?.message, {
+              duration: 2000,
+            });
+          }
+        })
+        .catch((err) => {
+          console.error("Error in registerUser action:", err);
+          toast.error("An error occurred during registration.");
+        });
+    } catch (e) {
+      if (e.code === "auth/email-already-in-use") {
+        toast.error(
+          "This email is already registered. Please use a different email."
+        );
+      } else {
+        console.error("Error during sign-up:", e);
+        toast.error("Failed to register with Firebase.");
+      }
+    }
+  };
 
   const handleFireBaseAnonymousLogin = (e) => {
-    console.log('clicked')
+    console.log("clicked");
   };
+
+  // console.log(formData);
 
   return (
     <div className="user-register-container">
@@ -151,7 +204,6 @@ export default function UserRegisterPage() {
             alignItems: "center",
             justifyContent: "center",
             width: "250px",
-            
           }}
         >
           Register
@@ -165,7 +217,10 @@ export default function UserRegisterPage() {
           justifyContent: "center",
         }}
       >
-        <div className="user-login-boxes" onClick={handleFireBaseAnonymousLogin}>
+        <div
+          className="user-login-boxes"
+          onClick={handleFireBaseAnonymousLogin}
+        >
           <User2
             style={{ fontSize: "2rem", margin: "5px", marginLeft: "70px" }}
           />

@@ -6,9 +6,9 @@ const initialState = {
   isAuthenticated: false,
   isLoading: true,
   user: null,
-  googleAuth: false,
 };
 
+//admin-Register
 export const adminRegisterUser = createAsyncThunk(
   "/user/register",
 
@@ -25,6 +25,7 @@ export const adminRegisterUser = createAsyncThunk(
   }
 );
 
+//admin-login
 export const adminLoginUser = createAsyncThunk(
   "/user/login",
 
@@ -41,6 +42,7 @@ export const adminLoginUser = createAsyncThunk(
   }
 );
 
+//admin-login
 export const adminLogoutUser = createAsyncThunk(
   "/user/logout",
 
@@ -57,6 +59,7 @@ export const adminLogoutUser = createAsyncThunk(
   }
 );
 
+//to check-Auth
 export const checkAuth = createAsyncThunk(
   "/user/check-auth",
 
@@ -76,6 +79,40 @@ export const checkAuth = createAsyncThunk(
   }
 );
 
+//User-Register
+export const registerUser = createAsyncThunk(
+  "/user/register-user",
+
+  async (formData) => {
+    const response = await axios.post(
+      "http://localhost:5000/api/user/register-user",
+      formData,
+      {
+        withCredentials: true,
+      }
+    );
+    return response.data;
+  }
+);
+
+//User-Login
+export const loginUser = createAsyncThunk(
+  "/user/login-user",
+
+  async (formData) => {
+    const response = await axios.post(
+      "http://localhost:5000/api/user/login-user",
+      formData,
+      {
+        withCredentials: true,
+      }
+    );
+    return response.data;
+  }
+);
+
+
+//User-Google-Auto-login
 export const googleUser = createAsyncThunk(
   "/user/googleLogin",
 
@@ -134,7 +171,7 @@ const authSlice = createSlice({
       .addCase(checkAuth.fulfilled, (state, action) => {
         console.log(`This is the checkAuth State ${action}`);
         console.log(action);
-        
+
         state.isLoading = false;
         state.user = action.payload.success ? action.payload.user.role : "";
         state.isAuthenticated = action.payload.success;
@@ -150,8 +187,7 @@ const authSlice = createSlice({
       .addCase(googleUser.fulfilled, (state, action) => {
         console.log(`This is the googleUser State ${action}`);
         console.log(action);
-        
-        state.googleAuth = action.payload.user.googleVerified;
+
         state.isLoading = false;
         state.user = action.payload.success ? action.payload.user.role : "";
         state.isAuthenticated = action.payload.success;
@@ -160,7 +196,32 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.user = null;
         state.isAuthenticated = false;
-        state.googleAuth = false;
+      })
+      .addCase(registerUser.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(registerUser.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.user = null;
+        state.isAuthenticated = false;
+      })
+      .addCase(registerUser.rejected, (state, action) => {
+        state.isLoading = false;
+        state.user = null;
+        state.isAuthenticated = false;
+      })
+      .addCase(loginUser.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(loginUser.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.user = action.payload.success ? action.payload.user.role : "";
+        state.isAuthenticated = action.payload.success;
+      })
+      .addCase(loginUser.rejected, (state, action) => {
+        state.isLoading = false;
+        state.user = null;
+        state.isAuthenticated = false;
       })
       .addCase(adminLogoutUser.fulfilled, (state, action) => {
         state.isLoading = false;
