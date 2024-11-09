@@ -2,7 +2,7 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom"; // Import Link for navigation
-import './UserLoginParticles.css'; // Custom styles
+import "./UserLoginParticles.css"; // Custom styles
 
 export default function UserLoginParticles() {
   const [init, setInit] = useState(false);
@@ -79,14 +79,26 @@ export default function UserLoginParticles() {
   );
 
   return (
-    <div className="particles-container">
-      <Particles id="tsparticles" loaded={particlesLoaded} options={options} />
-      <div className="centered-text">
-        <span className="green-text">Green</span> <span className="white-text">Assist</span>
+    <div>
+      <div className="particles-container">
+        <Particles
+          id="tsparticles"
+          loaded={particlesLoaded}
+          options={options}
+        />
+        <div className="centered-text">
+          <span className="green-text">Green</span>{" "}
+          <span className="white-text">Assist</span>
+        </div>
       </div>
-      <Link to="/home" className="bottom-link">
-        if you see the progress click here
-      </Link>
+      <div className="bottom-links-container">
+        <Link to="/home" className="bottom-link1">
+          if you see the progress click here
+        </Link>
+        <Link to="https://github.com/16Dinesh/GA-Vite" className="bottom-link2">
+          if wish to Help Us Visit Our GitHub
+        </Link>
+      </div>
     </div>
   );
 }

@@ -26,15 +26,23 @@
   color: white;
 }
 
-.bottom-link {
+.bottom-links-container {
   position: absolute;
   bottom: 20px;
+  display: flex;
+  justify-content: center; 
+  gap: 10px; 
+  width: 100%;
   text-align: center;
+}
+
+.bottom-link1, .bottom-link2 {
   color: white;
   font-size: 1rem;
   cursor: pointer;
   text-decoration: underline;
 }
+
 
 @media screen and (max-width: 1200px) {
   .centered-text {
