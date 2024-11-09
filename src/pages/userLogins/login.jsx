@@ -225,7 +225,7 @@ export default function UserLoginPage({ isAuthenticated }) {
                           "Successfully logged in with Google",
                         { duration: 2000 }
                       );
-                      const redirectPath = location.state?.from || "/";
+                      const redirectPath = location.state?.from || "/services";
                       navigate(redirectPath);
                     } else {
                       toast.error(

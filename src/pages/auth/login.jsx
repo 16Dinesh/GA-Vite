@@ -8,7 +8,7 @@ import { adminLoginUser } from "../../store/auth-slice";
 import toast from "react-hot-toast";
 
 const initialState = {
-  email: "",  
+  email: "",
   password: "",
 };
 
@@ -16,8 +16,7 @@ export default function AuthLogin() {
   const [formData, setFormData] = useState(initialState);
 
   const dispatch = useDispatch();
-  const location = useLocation();
-  
+  const navigate = useNavigate();
 
   function onSubmit(event) {
     event.preventDefault();
@@ -26,10 +25,14 @@ export default function AuthLogin() {
         toast.success(data?.payload?.message || "Successfully Logged In", {
           duration: 2000,
         });
+        navigate("/admin/dashboard")
       } else {
-        toast.error(data?.payload?.message || "Error Occurred Please Try Again", {
-          duration: 2000,
-        });
+        toast.error(
+          data?.payload?.message || "Error Occurred Please Try Again",
+          {
+            duration: 2000,
+          }
+        );
       }
     });
   }

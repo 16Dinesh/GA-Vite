@@ -42,31 +42,34 @@ export default function GreenAssistRoutes() {
     (state) => state.auth
   );
 
-  const location = useLocation()
+  const location = useLocation();
   console.log(location.pathname);
-
-  console.log("Main -> isAuthenticated:", isAuthenticated);
-  console.log("Main -> isUser:", user);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(checkAuth());
-  }, [dispatch]);  
+      dispatch(checkAuth());
+    }, [dispatch]);
+  
+    // const isLoading = false;
+    // const isAuthenticated = true;
+    // const user = {
+    //   name: "dinesh",
+    //   role: "user",
+    // };
+  
+    console.log("Main -> isAuthenticated:", isAuthenticated);
+    console.log("Main -> isUser:", user);
 
-  // const isAuthenticated = false;
-  // const user = {
-  //   name: "dinesh",
-  //   role: "user",
-  // };
-
-  return (
-    <div>
+    return (
+      <div>
       <Routes>
         {/* Default Routes */}
         <Route path="/" element={<DefaultLayout />}>
-          <Route index element={<Navigate to="/home"  />} />
-          <Route path="home" element={<Home  isAuthenticated={isAuthenticated} />} />
+          <Route index element={<Navigate to="/home" />} />
+          <Route
+            path="home"
+            element={<Home isAuthenticated={isAuthenticated} />}
+          />
           <Route path="services" element={<Services />} />
           <Route path="about-us" element={<Aboutus />} />
           <Route path="contact-us" element={<ContactUs />} />
@@ -79,7 +82,11 @@ export default function GreenAssistRoutes() {
         <Route
           path="/service"
           element={
-            <CheckAuth isAuthenticated={isAuthenticated} user={user} isLoading={isLoading}>
+            <CheckAuth
+              isAuthenticated={isAuthenticated}
+              user={user}
+              isLoading={isLoading}
+            >
               <ServiceLayout />
             </CheckAuth>
           }
@@ -98,7 +105,11 @@ export default function GreenAssistRoutes() {
         <Route
           path="/login"
           element={
-            <CheckAuth isAuthenticated={isAuthenticated} user={user} isLoading={isLoading}>
+            <CheckAuth
+              isAuthenticated={isAuthenticated}
+              user={user}
+              isLoading={isLoading}
+            >
               <UserLoginLayout />
             </CheckAuth>
           }
@@ -113,7 +124,11 @@ export default function GreenAssistRoutes() {
         <Route
           path="/admin"
           element={
-            <CheckAuth isAuthenticated={isAuthenticated} user={user} isLoading={isLoading}>
+            <CheckAuth
+              isAuthenticated={isAuthenticated}
+              user={user}
+              isLoading={isLoading}
+            >
               <AdminLayout />
             </CheckAuth>
           }
@@ -130,7 +145,11 @@ export default function GreenAssistRoutes() {
         <Route
           path="/admin"
           element={
-            <CheckAuth isAuthenticated={isAuthenticated} user={user} isLoading={isLoading}>
+            <CheckAuth
+              isAuthenticated={isAuthenticated}
+              user={user}
+              isLoading={isLoading}
+            >
               <AuthLayout />
             </CheckAuth>
           }
@@ -138,7 +157,9 @@ export default function GreenAssistRoutes() {
           <Route path="login" element={<AuthLogin />} />
           <Route path="register" element={<AuthRegister />} />
         </Route>
-        <Route path="/particles-game" index element={<UserLoginParticles />} />
+
+
+        <Route path="/particles-game"  element={<UserLoginParticles />} />
         <Route path="/unauthorized-page" element={<UnauthPage />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/not-found" element={<NotFound />} />

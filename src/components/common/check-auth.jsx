@@ -11,6 +11,8 @@ export default function CheckAuth({
   const location = useLocation();
   const isUser = user;
 
+  console.log(isUser);
+
   if (isLoading) {
     return (
       <div className="Nav-loader">
@@ -27,11 +29,17 @@ export default function CheckAuth({
     location.pathname.includes("/admin/login") ||
     location.pathname.includes("/admin/register");
 
-  const isAdminPage = location.pathname.includes("/admin");
+  const isAdminPage =
+    location.pathname.includes("/admin/dashboard") ||
+    location.pathname.includes("/admin/addService") ||
+    location.pathname.includes("/admin/products") ||
+    location.pathname.includes("/admin/orders") ||
+    location.pathname.includes("/admin/team") ||
+    location.pathname.includes("/admin/requests");
   const isServicesPage = location.pathname.includes("/services");
   const isServicePage = location.pathname.includes("/service");
 
-  // const 
+  // const
 
   const isUserLoginOrRegister =
     location.pathname.includes("/login/user") ||
@@ -40,6 +48,9 @@ export default function CheckAuth({
   if (location.pathname === "/login") return <Navigate to="/login/user" />;
   if (location.pathname === "/admin") return <Navigate to="/admin/login" />;
   if (location.pathname === "/service") return <Navigate to="/services" />;
+  if (location.pathname === "/login/") return <Navigate to="/login/user" />;
+  if (location.pathname === "/admin/") return <Navigate to="/admin/login" />;
+  if (location.pathname === "/service/") return <Navigate to="/services" />;
 
   if (!isAuthenticated && isServicePage) {
     return <Navigate to={"/login/user"} />;
@@ -49,17 +60,20 @@ export default function CheckAuth({
     return <Navigate to="/admin/dashboard" />;
   }
 
-
   if (isAuthenticated && isUser === "user" && isUserLoginOrRegister) {
-    return <Navigate to="/"/>;
+    return <Navigate to="/" />;
   }
 
-  if (!isAuthenticated && isAdminPage && isUser === "") {
-    return <Navigate to="/admin/login" />; // this is working but shows only white page
+  // if (isAuthenticated && isAdminPage && isUser === "user") {
+  //   return <Navigate to="/admin/login" />; // this is working but shows only white page
+  // }
+
+  if (!isAuthenticated && isUser === null && isAdminPage) {
+    return <Navigate to="/unauthorized-page"/>;
   }
 
-  if (!isAuthenticated && isUser === "user" && isAdminPage) {
-    return <Navigate to="/unauthorized-page" />;
+  if (isAuthenticated && isUser === "user" && isAdminPage) {
+    return <Navigate to="/unauthorized-page"/>;
   }
 
   // Redirect admin from service page to dashboard

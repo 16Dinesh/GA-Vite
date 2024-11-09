@@ -8,6 +8,9 @@ import {
   RecaptchaVerifier,
   signInWithPhoneNumber,
 } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { phoneNumberFireBase } from "../../store/auth-slice";
 
 export default function UserPhoneOTP() {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -15,6 +18,9 @@ export default function UserPhoneOTP() {
   const [verificationCode, setVerificationCode] = useState("");
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState(null);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const auth = getAuth();
   // console.log(auth.settings);
@@ -72,12 +78,12 @@ export default function UserPhoneOTP() {
   }
 
   // Function to verify OTP
+  // Function to verify OTP
   function onOTPVerify() {
     if (!verificationCode || verificationCode.length !== 6) {
       toast.error("Please enter a 6-digit OTP.");
       return;
     }
-
     setLoading(true);
     window.confirmationResult
       .confirm(verificationCode)
@@ -85,9 +91,32 @@ export default function UserPhoneOTP() {
         setUser(res.user);
         setLoading(false);
         toast.success("OTP verified successfully!");
+
+        // Dispatch action to save the phone number to Firebase and navigate if successful
+        dispatch(phoneNumberFireBase(phoneNumber))
+          .then((data) => {
+            if (data?.payload?.success) {
+              toast.success(
+                data?.payload?.message || "Logged in Successfully",
+                {
+                  duration: 2000,
+                }
+              );
+              navigate("/services");
+            } else {
+              toast.error(
+                data?.payload?.message || "Error Occurred. Please Try Again.",
+                { duration: 2000 }
+              );
+            }
+          })
+          .catch((err) => {
+            console.error("Error dispatching phone number:", err);
+            toast.error("Failed to complete login. Please try again.");
+          });
       })
       .catch((err) => {
-        console.log(err);
+        console.error("Error confirming OTP:", err);
         setLoading(false);
         toast.error("Invalid OTP. Please try again.");
       });
@@ -138,7 +167,7 @@ export default function UserPhoneOTP() {
           onChange={handlePhoneNumberChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          disabled={otpSent}  
+          disabled={otpSent}
           sx={{ mb: 2, width: 370, mx: 5 }}
         />
         {!otpSent && (
@@ -182,7 +211,7 @@ export default function UserPhoneOTP() {
                 alignItems: "center",
                 justifyContent: "center",
                 width: "250px",
-                margin:"20px"
+                margin: "20px",
               }}
               disabled={loading}
             >

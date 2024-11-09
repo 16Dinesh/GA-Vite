@@ -157,6 +157,21 @@ export const anonymousFireBase = createAsyncThunk(
   }
 );
 
+export const phoneNumberFireBase = createAsyncThunk(
+  "/user/number-login",
+
+  async (phoneNumber) => {
+    const response = await axios.post(
+      "http://localhost:5000/api/user/number-login",
+      phoneNumber,
+      {
+        withCredentials: true,
+      }
+    );
+    return response.data;
+  }
+);
+
 const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -278,6 +293,20 @@ const authSlice = createSlice({
         state.isAuthenticated = action.payload.success;
       })
       .addCase(anonymousFireBase.rejected, (state, action) => {
+        state.isLoading = false;
+        state.user = null;
+        state.isAuthenticated = false;
+      })
+      .addCase(phoneNumberFireBase.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(phoneNumberFireBase.fulfilled, (state, action) => {
+        // console.log(action);
+        state.isLoading = false;
+        state.user = action.payload.success ? action.payload.user.role : "";
+        state.isAuthenticated = action.payload.success;
+      })
+      .addCase(phoneNumberFireBase.rejected, (state, action) => {
         state.isLoading = false;
         state.user = null;
         state.isAuthenticated = false;
