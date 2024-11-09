@@ -111,7 +111,6 @@ export const loginUser = createAsyncThunk(
   }
 );
 
-
 //User-Google-Auto-login
 export const googleUser = createAsyncThunk(
   "/user/googleLogin",
@@ -120,6 +119,36 @@ export const googleUser = createAsyncThunk(
     const response = await axios.post(
       "http://localhost:5000/api/user/google",
       userCredential,
+      {
+        withCredentials: true,
+      }
+    );
+    return response.data;
+  }
+);
+
+export const googleUserFireBase = createAsyncThunk(
+  "/user/google-firebase",
+
+  async (data) => {
+    const response = await axios.post(
+      "http://localhost:5000/api/user/google-firebase",
+      data,
+      {
+        withCredentials: true,
+      }
+    );
+    return response.data;
+  }
+);
+
+export const anonymousFireBase = createAsyncThunk(
+  "/user/anonymous",
+
+  async (resData) => {
+    const response = await axios.post(
+      "http://localhost:5000/api/user/anonymous",
+      resData,
       {
         withCredentials: true,
       }
@@ -197,6 +226,22 @@ const authSlice = createSlice({
         state.user = null;
         state.isAuthenticated = false;
       })
+      .addCase(googleUserFireBase.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(googleUserFireBase.fulfilled, (state, action) => {
+        console.log(`This is the googleUser State ${action}`);
+        console.log(action);
+
+        state.isLoading = false;
+        state.user = action.payload.success ? action.payload.user.role : "";
+        state.isAuthenticated = action.payload.success;
+      })
+      .addCase(googleUserFireBase.rejected, (state, action) => {
+        state.isLoading = false;
+        state.user = null;
+        state.isAuthenticated = false;
+      })
       .addCase(registerUser.pending, (state, action) => {
         state.isLoading = true;
       })
@@ -219,6 +264,20 @@ const authSlice = createSlice({
         state.isAuthenticated = action.payload.success;
       })
       .addCase(loginUser.rejected, (state, action) => {
+        state.isLoading = false;
+        state.user = null;
+        state.isAuthenticated = false;
+      })
+      .addCase(anonymousFireBase.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(anonymousFireBase.fulfilled, (state, action) => {
+        // console.log(action);
+        state.isLoading = false;
+        state.user = action.payload.success ? action.payload.user.role : "";
+        state.isAuthenticated = action.payload.success;
+      })
+      .addCase(anonymousFireBase.rejected, (state, action) => {
         state.isLoading = false;
         state.user = null;
         state.isAuthenticated = false;

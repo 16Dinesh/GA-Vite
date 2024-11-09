@@ -1,10 +1,9 @@
 import "../../styles/userLogins/register.css";
-import { auth } from "../../components/userLogins/fireBaseConfig";
 import {
-  GoogleAuthProvider,
-  signInWithPopup,
-  createUserWithEmailAndPassword,
-} from "firebase/auth";
+  auth,
+  googleProvider,
+} from "../../components/userLogins/fireBaseConfig";
+import { signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
 import GoogleIcon from "@mui/icons-material/Google";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import { TextField, IconButton, InputAdornment } from "@mui/material";
@@ -14,7 +13,12 @@ import { User2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
-import { registerUser } from "../../store/auth-slice";
+import {
+  anonymousFireBase,
+  googleUserFireBase,
+  registerUser,
+} from "../../store/auth-slice";
+import { signInAnonymously } from "firebase/auth";
 
 const initialState = {
   userName: "",
@@ -38,8 +42,35 @@ export default function UserRegisterPage() {
   };
 
   const handleFireBaseGoogleLogin = async (e) => {
-    const provider = await new GoogleAuthProvider();
-    return signInWithPopup(auth, provider);
+    try {
+      const res = await signInWithPopup(auth, googleProvider);
+      console.log(res);
+      const data = {
+        name: res.user.displayName,
+        email: res.user.email,
+        emailVerified: res.user.emailVerified,
+        number: res.user.phoneNumber,
+        photo: res.user.photoURL,
+      };
+      console.log(data);
+      dispatch(googleUserFireBase(data)).then((data) => {
+        if (data?.payload?.success) {
+          toast.success(data?.payload?.message || "Successfully Done", {
+            duration: 2000,
+          });
+          navigate("/services");
+        } else {
+          toast.error(
+            data?.payload?.message || "Error Occurred Please Try Again",
+            {
+              duration: 2000,
+            }
+          );
+        }
+      });
+    } catch (error) {
+      console.error("Error during Google sign-in:", error);
+    }
   };
 
   const handleRegisterFirebase = async (e) => {
@@ -90,8 +121,69 @@ export default function UserRegisterPage() {
     }
   };
 
-  const handleFireBaseAnonymousLogin = (e) => {
+  // const handleFireBaseAnonymousLogin = async (e) => {
+  //   console.log("clicked");
+  //   try {
+  //     const result = await signInAnonymously(auth);
+  //     console.log("Anonymous login successful:", result);
+
+  //     const resData = {
+  //       userName: "Anonymous",
+  //       email: "Anonymous",
+  //       isAnonymous: result.user.isAnonymous,
+  //     };
+  //       console.log(resData)
+  //     dispatch(anonymousFireBase(resData)).then((data) => {
+  //       if (data.payload?.success) {
+  //         toast.success(data.payload.message || "Successfully Done", {
+  //           duration: 2000,
+  //         });
+  //         navigate("/services");
+  //       } else {
+  //         toast.error(
+  //           data.payload?.message || "Error Occurred Please Try Again",
+  //           {
+  //             duration: 2000,
+  //           }
+  //         );
+  //       }
+  //     });
+  //   } catch (error) {
+  //     console.error("Error during anonymous login:", error);
+  //   }
+  // };
+
+  const handleFireBaseAnonymousLogin = async (e) => {
     console.log("clicked");
+    e.preventDefault();
+    try {
+      await signInAnonymously(auth);
+
+      // const result = await signInAnonymously(auth);
+      const resData = {
+        userName: "Anonymous",
+        email: "Anonymous@firebase.com",
+        isAnonymous: true,
+      };
+      console.log(resData);
+      dispatch(anonymousFireBase(resData)).then((data) => {
+        if (data.payload?.success) {
+          toast.success(data.payload.message || "Successfully Done", {
+            duration: 2000,
+          });
+          navigate("/services");
+        } else {
+          toast.error(
+            data.payload?.message || "Error Occurred Please Try Again",
+            {
+              duration: 2000,
+            }
+          );
+        }
+      });
+    } catch (error) {
+      console.error("Error during anonymous login:", error);
+    }
   };
 
   // console.log(formData);

@@ -1,41 +1,42 @@
 import { TextField } from "@mui/material";
-import { useState, useEffect } from "react";
-import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import { useState } from "react";
 import { auth } from "../../components/userLogins/fireBaseConfig";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
+import OtpInput from "react-otp-input";
+import {
+  getAuth,
+  RecaptchaVerifier,
+  signInWithPhoneNumber,
+} from "firebase/auth";
 
 export default function UserPhoneOTP() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [otpSent, setOtpSent] = useState(false);
   const [verificationCode, setVerificationCode] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    if (process.env.NODE_ENV === 'test') {
-      // Set app verification to disabled for testing only if available
-      if (auth.settings) {
-        auth.settings.appVerificationDisabledForTesting = true;
-      } else {
-        console.warn("Firebase Auth settings not available.");
-      }
+  const auth = getAuth();
+  // console.log(auth.settings);
+  auth.settings.appVerificationDisabledForTesting = true;
+
+  // Function to initialize reCAPTCHA
+  function onCaptchVerify() {
+    if (window.location.hostname === "localhost") {
+      auth.settings.appVerificationDisabledForTesting = true;
     }
 
-    // Cleanup reCAPTCHA on component unmount
-    return () => {
-      if (window.recaptchaVerifier) {
-        window.recaptchaVerifier.clear();
-        delete window.recaptchaVerifier;
-      }
-    };
-  }, []);
-
-  function setUpRecaptcha() {
     if (!window.recaptchaVerifier) {
       window.recaptchaVerifier = new RecaptchaVerifier(
+        auth,
         "recaptcha-container",
         {
           size: "invisible",
           callback: (response) => {
-            console.log("Recaptcha verified");
+            onSignup();
+          },
+          "expired-callback": () => {
+            toast.error("reCAPTCHA expired. Please try again.");
           },
         },
         auth
@@ -43,46 +44,52 @@ export default function UserPhoneOTP() {
     }
   }
 
-  function handleOTPBTN() {
+  // Function to send OTP
+  function onSignup() {
     if (!phoneNumber || !/^\+91\d{10}$/.test(phoneNumber)) {
       toast.error("Please enter a valid 10-digit phone number after +91.");
       return;
     }
 
-    setUpRecaptcha();
-    const appVerifier = window.recaptchaVerifier;
+    setLoading(true);
+    onCaptchVerify();
 
-    signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+    const appVerifier = window.recaptchaVerifier;
+    const formatPh = phoneNumber;
+
+    signInWithPhoneNumber(auth, formatPh, appVerifier)
       .then((confirmationResult) => {
         window.confirmationResult = confirmationResult;
+        setLoading(false);
         setOtpSent(true);
         toast.success("OTP sent successfully!");
       })
       .catch((error) => {
-        toast.error("Error sending OTP. Please try again.");
         console.log(error);
-        if (window.recaptchaVerifier) {
-          window.recaptchaVerifier.clear();
-          delete window.recaptchaVerifier;
-        }
+        setLoading(false);
+        toast.error("Error sending OTP. Please try again.");
       });
   }
 
-  function verifyOTP() {
-    if (!verificationCode) {
-      toast.error("Please enter the OTP sent to your phone.");
+  // Function to verify OTP
+  function onOTPVerify() {
+    if (!verificationCode || verificationCode.length !== 6) {
+      toast.error("Please enter a 6-digit OTP.");
       return;
     }
 
+    setLoading(true);
     window.confirmationResult
       .confirm(verificationCode)
-      .then((result) => {
-        toast.success("User signed in successfully!");
-        console.log("User:", result.user);
+      .then((res) => {
+        setUser(res.user);
+        setLoading(false);
+        toast.success("OTP verified successfully!");
       })
-      .catch((error) => {
-        toast.error("Error verifying OTP. Please check and try again.");
-        console.log(error);
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+        toast.error("Invalid OTP. Please try again.");
       });
   }
 
@@ -104,7 +111,6 @@ export default function UserPhoneOTP() {
       setPhoneNumber(input);
     }
   };
-
   return (
     <div>
       <h4 className="user-register-Heading">
@@ -132,44 +138,55 @@ export default function UserPhoneOTP() {
           onChange={handlePhoneNumberChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
+          disabled={otpSent}  
           sx={{ mb: 2, width: 370, mx: 5 }}
         />
-        <button
-          className="btn nav-btn mx-2"
-          onClick={handleOTPBTN}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "250px",
-          }}
-        >
-          Submit
-        </button>
+        {!otpSent && (
+          <button
+            className="btn nav-btn mx-2"
+            onClick={onSignup}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "250px",
+            }}
+            disabled={loading}
+          >
+            {loading ? "Sending OTP..." : "Submit"}
+          </button>
+        )}
         <div id="recaptcha-container"></div>
         {otpSent && (
           <>
-            <TextField
-              label="Enter OTP"
-              placeholder="Enter your OTP"
-              variant="outlined"
-              size="small"
-              margin="normal"
+            <OtpInput
               value={verificationCode}
-              onChange={(e) => setVerificationCode(e.target.value)}
-              sx={{ mb: 2, width: 370, mx: 5 }}
+              onChange={setVerificationCode}
+              numInputs={6}
+              separator={<span>-</span>}
+              inputStyle={{
+                width: "3rem",
+                height: "3rem",
+                margin: "0 0.5rem",
+                fontSize: "1rem",
+                borderRadius: 4,
+                border: "1px solid rgba(0,0,0,0.3)",
+              }}
+              renderInput={(props) => <input {...props} />}
             />
             <button
               className="btn nav-btn mx-2"
-              onClick={verifyOTP}
+              onClick={onOTPVerify}
               style={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 width: "250px",
+                margin:"20px"
               }}
+              disabled={loading}
             >
-              Verify OTP
+              {loading ? "Verifying OTP..." : "Verify OTP"}
             </button>
           </>
         )}
