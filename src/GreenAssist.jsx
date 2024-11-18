@@ -14,7 +14,7 @@ import WaterPurifier from "./pages/listing-pages/WaterPurifier";
 import SingleDriverAssistance from "./pages/listing-pages/SingleDriverAssistance";
 import AdminLayout from "./components/admin-view/layout";
 import AdminDashBoard from "./pages/admin-view/dashboard";
-import AdminProducts from "./pages/admin-view/products";
+import AdminProducts from "./pages/admin-view/payment";
 import AdminOrders from "./pages/admin-view/orders";
 import AuthLayout from "./components/auth/layout";
 import AuthRegister from "./pages/auth/register";
@@ -36,6 +36,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { checkAuth } from "./store/auth-slice";
 import { Tune } from "@mui/icons-material";
+import AdminPayment from "./pages/admin-view/payment";
 
 export default function GreenAssistRoutes() {
   const { user, isAuthenticated, isLoading } = useSelector(
@@ -50,12 +51,9 @@ export default function GreenAssistRoutes() {
       dispatch(checkAuth());
     }, [dispatch]);
   
-    // const isLoading = false;
+    // const isLoading = false;  
     // const isAuthenticated = true;
-    // const user = {
-    //   name: "dinesh",
-    //   role: "user",
-    // };
+    // const user = "admin"
   
     console.log("Main -> isAuthenticated:", isAuthenticated);
     console.log("Main -> isUser:", user);
@@ -134,7 +132,7 @@ export default function GreenAssistRoutes() {
           }
         >
           <Route path="dashboard" element={<AdminDashBoard />} />
-          <Route path="products" element={<AdminProducts />} />
+          <Route path="payment" element={<AdminPayment />} />
           <Route path="orders" element={<AdminOrders />} />
           <Route path="team" element={<AdminPageTeam />} />
           <Route path="requests" element={<AdminPageRequest />} />

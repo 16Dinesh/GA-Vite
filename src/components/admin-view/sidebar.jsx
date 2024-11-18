@@ -4,7 +4,7 @@ import BeenhereIcon from "@mui/icons-material/Beenhere";
 import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 import { Drawer, Typography, Divider } from "@mui/material";
-import { ArchiveRestore, ChartNoAxesCombined } from "lucide-react";
+import { ArchiveRestore, ChartNoAxesCombined, DollarSign } from "lucide-react";
 import WorkspacesIcon from "@mui/icons-material/Workspaces";
 import RequestPageIcon from "@mui/icons-material/RequestPage";
 
@@ -23,9 +23,9 @@ const adminSidebarMenuItems = [
   },
   {
     id: "products",
-    label: "Products",
-    path: "/admin/products",
-    icon: <ProductionQuantityLimitsIcon />,
+    label: "Payments",
+    path: "/admin/payment",
+    icon: <DollarSign />,
   },
   {
     id: "orders",

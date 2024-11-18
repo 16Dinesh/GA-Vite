@@ -48,7 +48,7 @@
   .auth-btn:hover {
     background-color: #467237 !important
   }
-  
+    
   @media (min-width: 1024px) {
     .auth-layout-sidebar {
       display: flex;

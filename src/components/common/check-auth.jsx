@@ -80,8 +80,7 @@ export default function CheckAuth({
   if (
     isAuthenticated &&
     isUser === "admin" &&
-    isServicePage &&
-    isServicesPage
+    isServicePage
   ) {
     console.log("Redirecting admin to dashboard from service page");
     return <Navigate to="/admin/dashboard" />;
